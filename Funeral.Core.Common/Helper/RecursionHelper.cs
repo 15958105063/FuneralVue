@@ -151,6 +151,10 @@ namespace Funeral.Core.Common.Helper
         /// </summary>
         public string iconCls { get; set; }
         /// <summary>
+        /// api接口地址
+        /// </summary>
+        public string ApiLink { get; set; }
+        /// <summary>
         /// 
         /// </summary>
         public NavigationBarMeta meta { get; set; }

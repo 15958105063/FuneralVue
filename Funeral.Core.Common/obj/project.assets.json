@@ -753,6 +753,26 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "NPOI/2.4.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpZipLib": "1.0.0",
+          "System.Configuration.ConfigurationManager": "4.5.0",
+          "System.Drawing.Common": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NPOI.OOXML.dll": {},
+          "lib/netstandard2.0/NPOI.OpenXml4Net.dll": {},
+          "lib/netstandard2.0/NPOI.OpenXmlFormats.dll": {},
+          "lib/netstandard2.0/NPOI.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NPOI.OOXML.dll": {},
+          "lib/netstandard2.0/NPOI.OpenXml4Net.dll": {},
+          "lib/netstandard2.0/NPOI.OpenXmlFormats.dll": {},
+          "lib/netstandard2.0/NPOI.dll": {}
+        }
+      },
       "Pipelines.Sockets.Unofficial/2.1.6": {
         "type": "package",
         "dependencies": {
@@ -961,6 +981,15 @@
           "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {}
         }
       },
+      "SharpZipLib/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll": {}
+        }
+      },
       "StackExchange.Redis/2.1.30": {
         "type": "package",
         "dependencies": {
@@ -1082,7 +1111,7 @@
           "System.Security.Permissions": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
@@ -1254,7 +1283,7 @@
           "Microsoft.Win32.SystemEvents": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/_._": {}
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Drawing.Common.dll": {}
@@ -1937,7 +1966,7 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.AccessControl.dll": {}
@@ -2169,7 +2198,7 @@
           "System.Windows.Extensions": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/_._": {}
+          "ref/netcoreapp3.0/System.Security.Permissions.dll": {}
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Security.Permissions.dll": {}
@@ -2362,7 +2391,7 @@
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/_._": {}
+          "ref/netcoreapp3.0/System.Windows.Extensions.dll": {}
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Windows.Extensions.dll": {}
@@ -3412,6 +3441,40 @@
         "newtonsoft.json.nuspec"
       ]
     },
+    "NPOI/2.4.1": {
+      "sha512": "85790/CY9z4DCU1KLpcdLSqaqaqmQOenTqXJfcsYK8LIKNAAoTgjT5LYLbORgdwAd63sbaJiCfB1SIn/dAXrJw==",
+      "type": "package",
+      "path": "npoi/2.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Read Me.txt",
+        "lib/NPOI.xml",
+        "lib/net40/NPOI.OOXML.dll",
+        "lib/net40/NPOI.OpenXml4Net.dll",
+        "lib/net40/NPOI.OpenXmlFormats.dll",
+        "lib/net40/NPOI.dll",
+        "lib/net45/NPOI.OOXML.dll",
+        "lib/net45/NPOI.OpenXml4Net.dll",
+        "lib/net45/NPOI.OpenXmlFormats.dll",
+        "lib/net45/NPOI.dll",
+        "lib/netstandard2.0/NPOI.OOXML.deps.json",
+        "lib/netstandard2.0/NPOI.OOXML.dll",
+        "lib/netstandard2.0/NPOI.OpenXml4Net.deps.json",
+        "lib/netstandard2.0/NPOI.OpenXml4Net.dll",
+        "lib/netstandard2.0/NPOI.OpenXmlFormats.deps.json",
+        "lib/netstandard2.0/NPOI.OpenXmlFormats.dll",
+        "lib/netstandard2.0/NPOI.deps.json",
+        "lib/netstandard2.0/NPOI.dll",
+        "logo/120_120.jpg",
+        "logo/240_240.png",
+        "logo/32_32.jpg",
+        "logo/60_60.jpg",
+        "npoi.2.4.1.nupkg.sha512",
+        "npoi.nuspec"
+      ]
+    },
     "Pipelines.Sockets.Unofficial/2.1.6": {
       "sha512": "Yv5qRZm2V5sgfZfpoGog0BTKroPAymIWkBfAQ0hE6xAhK/uIFLJmfSMHdV4ziJglJu9VcYpbK5ENDL2x5Q6zRQ==",
       "type": "package",
@@ -3658,6 +3721,21 @@
         "lib/netstandard1.3/Serilog.Sinks.RollingFile.xml",
         "serilog.sinks.rollingfile.3.3.1-dev-00771.nupkg.sha512",
         "serilog.sinks.rollingfile.nuspec"
+      ]
+    },
+    "SharpZipLib/1.0.0": {
+      "sha512": "YuYztmY3jEb21F6e5LIPHJjApdtzdCPQ284UzsCKNfkgW71bukFHJES6RbKi+wm053XzFg0LX5/2vj/9gl8F/g==",
+      "type": "package",
+      "path": "sharpziplib/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/ICSharpCode.SharpZipLib.dll",
+        "lib/net45/ICSharpCode.SharpZipLib.xml",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.xml",
+        "sharpziplib.1.0.0.nupkg.sha512",
+        "sharpziplib.nuspec"
       ]
     },
     "StackExchange.Redis/2.1.30": {
@@ -7800,6 +7878,7 @@
       "Microsoft.AspNetCore.SignalR >= 1.1.0",
       "Microsoft.Extensions.Caching.Memory >= 5.0.0-preview.2.20160.3",
       "Microsoft.Extensions.Configuration.Json >= 5.0.0-preview.2.20160.3",
+      "NPOI >= 2.4.1",
       "RestSharp >= 106.10.2-alpha.0.8",
       "Serilog >= 2.9.1-dev-01154",
       "Serilog.AspNetCore >= 3.3.0-dev-00152",
@@ -7817,11 +7896,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
+      "projectUniqueName": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
       "projectName": "Funeral.Core.Common",
-      "projectPath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
+      "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
       "packagesPath": "C:\\Users\\74431\\.nuget\\packages\\",
-      "outputPath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\obj\\",
+      "outputPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\74431\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7859,6 +7938,10 @@
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
             "version": "[5.0.0-preview.2.20160.3, )"
+          },
+          "NPOI": {
+            "target": "Package",
+            "version": "[2.4.1, )"
           },
           "RestSharp": {
             "target": "Package",

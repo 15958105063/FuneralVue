@@ -62,6 +62,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Funeral.Core.IRepository\Funeral.Core.IRepository.csproj" />
 		<ProjectReference Include="..\Funeral.Core.IServices\Funeral.Core.IServices.csproj" />
+		<ProjectReference Include="..\Funeral.Core.Services\Funeral.Core.Services.csproj" />
 		<ProjectReference Include="..\Funeral.Core.Tasks\Funeral.Core.Tasks.csproj" />
 	</ItemGroup>
 

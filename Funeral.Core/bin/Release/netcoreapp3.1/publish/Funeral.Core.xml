@@ -910,7 +910,7 @@
             用户角色关系
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.UserRoleController.#ctor(Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices)">
+        <member name="M:Funeral.Core.Controllers.UserRoleController.#ctor(Funeral.Core.IServices.IPermissionTenanServices,Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices)">
             <summary>
             构造函数
             </summary>
@@ -946,6 +946,14 @@
             新建角色客户关系关系
             </summary>
             <param name="rid">角色ID</param>
+            <param name="tid">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddPermissionTenan(System.Int32,System.Int32)">
+            <summary>
+            新建菜单和客户关联关系
+            </summary>
+            <param name="pid">菜单ID</param>
             <param name="tid">客户ID</param>
             <returns></returns>
         </member>

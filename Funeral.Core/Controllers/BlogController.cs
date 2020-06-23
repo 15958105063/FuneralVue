@@ -29,9 +29,6 @@ namespace Funeral.Core.Controllers
         readonly IBlogArticleServices _blogArticleServices;
         private readonly ILogger<BlogController> _logger;
 
-
-        //
-
         /// <summary>
         /// 构造函数
         /// </summary>

@@ -1378,6 +1378,37 @@
           "lib/netstandard2.0/Npgsql.dll": {}
         }
       },
+      "NPOI/2.4.1": {
+        "dependencies": {
+          "SharpZipLib": "1.0.0",
+          "System.Configuration.ConfigurationManager": "4.7.0",
+          "System.Drawing.Common": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NPOI.OOXML.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          },
+          "lib/netstandard2.0/NPOI.OpenXml4Net.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          },
+          "lib/netstandard2.0/NPOI.OpenXmlFormats.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          },
+          "lib/netstandard2.0/NPOI.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NPOI.OOXML.dll": {},
+          "lib/netstandard2.0/NPOI.OpenXml4Net.dll": {},
+          "lib/netstandard2.0/NPOI.OpenXmlFormats.dll": {},
+          "lib/netstandard2.0/NPOI.dll": {}
+        }
+      },
       "Oracle.ManagedDataAccess.Core/2.18.3": {
         "runtime": {
           "lib/netstandard2.0/Oracle.ManagedDataAccess.dll": {
@@ -1699,6 +1730,17 @@
         },
         "compile": {
           "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {}
+        }
+      },
+      "SharpZipLib/1.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll": {
+            "assemblyVersion": "1.0.0.999",
+            "fileVersion": "1.0.0.999"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll": {}
         }
       },
       "SQLitePCLRaw.bundle_green/1.1.12": {
@@ -2205,6 +2247,9 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
           "Microsoft.Win32.SystemEvents": "4.7.0"
+        },
+        "compile": {
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
         }
       },
       "System.Dynamic.Runtime/4.3.0": {
@@ -3091,6 +3136,7 @@
           "Microsoft.AspNetCore.SignalR": "1.1.0",
           "Microsoft.Extensions.Caching.Memory": "5.0.0-preview.2.20160.3",
           "Microsoft.Extensions.Configuration.Json": "5.0.0-preview.2.20160.3",
+          "NPOI": "2.4.1",
           "RestSharp": "106.10.2-alpha.0.8",
           "Serilog": "2.9.1-dev-01154",
           "Serilog.AspNetCore": "3.3.0-dev-00152",
@@ -5265,6 +5311,13 @@
       "path": "npgsql/3.2.7",
       "hashPath": "npgsql.3.2.7.nupkg.sha512"
     },
+    "NPOI/2.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-85790/CY9z4DCU1KLpcdLSqaqaqmQOenTqXJfcsYK8LIKNAAoTgjT5LYLbORgdwAd63sbaJiCfB1SIn/dAXrJw==",
+      "path": "npoi/2.4.1",
+      "hashPath": "npoi.2.4.1.nupkg.sha512"
+    },
     "Oracle.ManagedDataAccess.Core/2.18.3": {
       "type": "package",
       "serviceable": true,
@@ -5509,6 +5562,13 @@
       "sha512": "sha512-ZqT4qp+BIEOYloDodia3at6I733dONgust+zjhQWES/NBbM1Jqa/PELLiYexROt6MMquMBdwbO2k4yZl59Td7g==",
       "path": "serilog.sinks.rollingfile/3.3.1-dev-00771",
       "hashPath": "serilog.sinks.rollingfile.3.3.1-dev-00771.nupkg.sha512"
+    },
+    "SharpZipLib/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YuYztmY3jEb21F6e5LIPHJjApdtzdCPQ284UzsCKNfkgW71bukFHJES6RbKi+wm053XzFg0LX5/2vj/9gl8F/g==",
+      "path": "sharpziplib/1.0.0",
+      "hashPath": "sharpziplib.1.0.0.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_green/1.1.12": {
       "type": "package",

@@ -7,3 +7,12 @@ D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.Common\obj\Re
 D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.dll
 D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.pdb
 D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.csprojAssemblyReference.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\bin\Release\netcoreapp3.1\Funeral.Core.Common.deps.json
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\bin\Release\netcoreapp3.1\Funeral.Core.Common.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\bin\Release\netcoreapp3.1\Funeral.Core.Common.pdb
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.csprojAssemblyReference.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.AssemblyInfoInputs.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.AssemblyInfo.cs
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.csproj.CoreCompileInputs.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Release\netcoreapp3.1\Funeral.Core.Common.pdb

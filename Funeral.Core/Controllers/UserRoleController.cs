@@ -2,7 +2,6 @@
 using Funeral.Core.IServices;
 using Funeral.Core.Model;
 using Funeral.Core.Model.Models;
-using Funeral.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

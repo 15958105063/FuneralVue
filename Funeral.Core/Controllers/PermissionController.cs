@@ -574,7 +574,15 @@ namespace Funeral.Core.Controllers
                     if (pids.Any())
                     {
                         var rolePermissionMoudles = (await _permissionServices.Query(d => pids.Contains(d.Id))).OrderBy(c => c.OrderSort);
-                        var permissionTrees = (from child in rolePermissionMoudles
+
+                        foreach (var item in rolePermissionMoudles)
+                        {
+                            var modulemodel = await _moduleServices.QueryById(item.Mid);
+                            if (modulemodel!=null) {
+                                item.MName = modulemodel.LinkUrl;
+                            }
+                        }
+                            var permissionTrees = (from child in rolePermissionMoudles
                                                where child.IsDeleted == false
                                                orderby child.Id
                                                select new NavigationBar
@@ -588,6 +596,7 @@ namespace Funeral.Core.Controllers
                                                    Func = child.Func,
                                                    IsHide = child.IsHide.ObjToBool(),
                                                    IsButton = child.IsButton.ObjToBool(),
+                                                   ApiLink= child.MName
                                                    //meta = new NavigationBarMeta
                                                    //{
                                                    //    requireAuth = true,

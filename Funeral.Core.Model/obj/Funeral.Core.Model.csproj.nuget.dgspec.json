@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj": {}
+    "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj": {}
   },
   "projects": {
-    "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj": {
+    "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
+        "projectUniqueName": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
         "projectName": "Funeral.Core.Common",
-        "projectPath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
+        "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj",
         "packagesPath": "C:\\Users\\74431\\.nuget\\packages\\",
-        "outputPath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\obj\\",
+        "outputPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\74431\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -49,6 +49,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[5.0.0-preview.2.20160.3, )"
+            },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             },
             "RestSharp": {
               "target": "Package",
@@ -109,14 +113,14 @@
         }
       }
     },
-    "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj": {
+    "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj",
+        "projectUniqueName": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj",
         "projectName": "Funeral.Core.Model",
-        "projectPath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj",
+        "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Model\\Funeral.Core.Model.csproj",
         "packagesPath": "C:\\Users\\74431\\.nuget\\packages\\",
-        "outputPath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Model\\obj\\",
+        "outputPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\74431\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -132,8 +136,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj": {
-                "projectPath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj"
+              "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj": {
+                "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj"
               }
             }
           }

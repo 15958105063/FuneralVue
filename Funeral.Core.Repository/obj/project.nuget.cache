@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8mT1ovqkem0FgDTXhxSxCE4fU+m1dXzDhmYRu/cQuxf6KLzQg6imK+qwWIULF7EMyaWenKG0DdUpZnhGyNfSmA==",
+  "dgSpecHash": "BRY0ZwlGq4rv9dmJZDeNKjm4JSTltcE6V3CWmug10Mc0ItopyBOh5iPt2de4OfQa7Kc0DKLxVYVwbp5VfZOKdA==",
   "success": true,
-  "projectFilePath": "D:\\旧文件\\TestPro\\新建文件夹\\新建文件夹\\新建文件夹\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj",
+  "projectFilePath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\74431\\.nuget\\packages\\google.protobuf\\3.5.1\\google.protobuf.3.5.1.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\log4net\\2.0.8\\log4net.2.0.8.nupkg.sha512",
@@ -68,6 +68,7 @@
     "C:\\Users\\74431\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\npgsql\\3.2.7\\npgsql.3.2.7.nupkg.sha512",
+    "C:\\Users\\74431\\.nuget\\packages\\npoi\\2.4.1\\npoi.2.4.1.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\oracle.manageddataaccess.core\\2.18.3\\oracle.manageddataaccess.core.2.18.3.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\pipelines.sockets.unofficial\\2.1.6\\pipelines.sockets.unofficial.2.1.6.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\restsharp\\106.10.2-alpha.0.8\\restsharp.106.10.2-alpha.0.8.nupkg.sha512",
@@ -101,6 +102,7 @@
     "C:\\Users\\74431\\.nuget\\packages\\serilog.sinks.debug\\1.0.1\\serilog.sinks.debug.1.0.1.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\serilog.sinks.file\\4.1.0\\serilog.sinks.file.4.1.0.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\serilog.sinks.rollingfile\\3.3.1-dev-00771\\serilog.sinks.rollingfile.3.3.1-dev-00771.nupkg.sha512",
+    "C:\\Users\\74431\\.nuget\\packages\\sharpziplib\\1.0.0\\sharpziplib.1.0.0.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\sqlitepclraw.bundle_green\\1.1.12\\sqlitepclraw.bundle_green.1.1.12.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\sqlitepclraw.core\\1.1.12\\sqlitepclraw.core.1.1.12.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.linux\\1.1.12\\sqlitepclraw.lib.e_sqlite3.linux.1.1.12.nupkg.sha512",

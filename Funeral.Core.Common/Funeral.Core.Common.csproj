@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0-preview.2.20160.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-preview.2.20160.3" />
+    <PackageReference Include="NPOI" Version="2.4.1" />
     <PackageReference Include="RestSharp" Version="106.10.2-alpha.0.8" />
     <PackageReference Include="StackExchange.Redis" Version="2.1.30" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.0" />

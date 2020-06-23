@@ -514,6 +514,57 @@
             获取或设置是否禁用，逻辑上的删除，非物理删除
              </summary>
         </member>
+        <member name="T:Funeral.Core.Model.Models.PermissionTenan">
+            <summary>
+            客户菜单关联表
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.IsDeleted">
+             <summary>
+            获取或设置是否禁用，逻辑上的删除，非物理删除
+             </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.TenanId">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.PermissionId">
+            <summary>
+            菜单ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.PermissionTenan.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
         <member name="T:Funeral.Core.Model.Models.Role">
             <summary>
             角色表
@@ -643,7 +694,7 @@
         </member>
         <member name="T:Funeral.Core.Model.Models.RoleTenan">
             <summary>
-            部门角色关联表
+            客户角色关联表
             作　　者:CY
             </summary>
         </member>

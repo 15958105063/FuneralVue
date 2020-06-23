@@ -18,3 +18,13 @@ D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.Services\obj\
 D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.deps.json
 D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.dll
 D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.pdb
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.deps.json
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.pdb
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\obj\Debug\netcoreapp3.1\Funeral.Core.Services.csprojAssemblyReference.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\obj\Debug\netcoreapp3.1\Funeral.Core.Services.AssemblyInfoInputs.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\obj\Debug\netcoreapp3.1\Funeral.Core.Services.AssemblyInfo.cs
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\obj\Debug\netcoreapp3.1\Funeral.Core.Services.csproj.CoreCompileInputs.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\obj\Debug\netcoreapp3.1\Funeral.Core.Services.csproj.CopyComplete
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\obj\Debug\netcoreapp3.1\Funeral.Core.Services.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\obj\Debug\netcoreapp3.1\Funeral.Core.Services.pdb
