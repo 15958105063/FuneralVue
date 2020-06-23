@@ -1,0 +1,10 @@
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core\bin\Debug\netcoreapp3.1\Blog.Core.Repository.deps.json
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core\bin\Debug\netcoreapp3.1\Blog.Core.Repository.dll
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core\bin\Debug\netcoreapp3.1\Blog.Core.Repository.pdb
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.Repository\obj\Debug\netcoreapp3.1\Blog.Core.Repository.csprojAssemblyReference.cache
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.Repository\obj\Debug\netcoreapp3.1\Blog.Core.Repository.AssemblyInfoInputs.cache
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.Repository\obj\Debug\netcoreapp3.1\Blog.Core.Repository.AssemblyInfo.cs
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.Repository\obj\Debug\netcoreapp3.1\Blog.Core.Repository.csproj.CoreCompileInputs.cache
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.Repository\obj\Debug\netcoreapp3.1\Blog.Core.Repository.csproj.CopyComplete
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.Repository\obj\Debug\netcoreapp3.1\Blog.Core.Repository.dll
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.Repository\obj\Debug\netcoreapp3.1\Blog.Core.Repository.pdb

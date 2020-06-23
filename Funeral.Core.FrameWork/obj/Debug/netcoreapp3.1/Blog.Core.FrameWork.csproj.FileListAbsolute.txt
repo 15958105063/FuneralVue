@@ -1,0 +1,9 @@
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\bin\Debug\netcoreapp3.1\Blog.Core.FrameWork.deps.json
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\bin\Debug\netcoreapp3.1\Blog.Core.FrameWork.dll
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\bin\Debug\netcoreapp3.1\Blog.Core.FrameWork.pdb
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\obj\Debug\netcoreapp3.1\Blog.Core.FrameWork.AssemblyInfoInputs.cache
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\obj\Debug\netcoreapp3.1\Blog.Core.FrameWork.AssemblyInfo.cs
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\obj\Debug\netcoreapp3.1\Blog.Core.FrameWork.csproj.CoreCompileInputs.cache
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\obj\Debug\netcoreapp3.1\Blog.Core.FrameWork.dll
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\obj\Debug\netcoreapp3.1\Blog.Core.FrameWork.pdb
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Blog.Core.FrameWork\obj\Debug\netcoreapp3.1\Blog.Core.FrameWork.csprojAssemblyReference.cache

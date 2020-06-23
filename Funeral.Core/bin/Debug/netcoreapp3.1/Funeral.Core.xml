@@ -1,0 +1,1346 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Funeral.Core</name>
+    </assembly>
+    <members>
+        <member name="M:Funeral.Core.AOP.CacheAOPbase.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            AOP的拦截方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <member name="M:Funeral.Core.AOP.CacheAOPbase.CustomCacheKey(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            自定义缓存的key
+            </summary>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.AOP.CacheAOPbase.GetArgumentValue(System.Object)">
+            <summary>
+            object 转 string
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.AOP.FuneralCacheAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.AOP.FuneralLogAOP">
+            <summary>
+            拦截器FuneralLogAOP 继承IInterceptor接口
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AOP.FuneralLogAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法 
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="T:Funeral.Core.AOP.FuneralRedisCacheAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.AOP.FuneralTranAOP">
+            <summary>
+            事务拦截器BlogTranAOP 继承IInterceptor接口
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AOP.FuneralTranAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法 
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="T:Funeral.Core.AOP.FuneralUserAuditAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AuthHelper.OverWrite.JwtHelper.IssueJwt(Funeral.Core.AuthHelper.OverWrite.TokenModelJwt)">
+            <summary>
+            颁发JWT字符串
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.AuthHelper.OverWrite.JwtHelper.SerializeJwt(System.String)">
+            <summary>
+            解析
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.AuthHelper.OverWrite.TokenModelJwt">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.OverWrite.TokenModelJwt.Uid">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.OverWrite.TokenModelJwt.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.OverWrite.TokenModelJwt.Work">
+            <summary>
+            职能
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.AuthHelper.JwtTokenAuth">
+            <summary>
+            中间件
+            原做为自定义授权中间件
+            先做检查 header token的使用
+            </summary>
+        </member>
+        <member name="F:Funeral.Core.AuthHelper.JwtTokenAuth._next">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AuthHelper.JwtTokenAuth.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Funeral.Core.AuthHelper.JwtTokenAuth.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.AuthHelper.JwtToken">
+            <summary>
+            JWTToken生成类
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AuthHelper.JwtToken.BuildJwtToken(System.Security.Claims.Claim[],Funeral.Core.AuthHelper.PermissionRequirement)">
+            <summary>
+            获取基于JWT的Token
+            </summary>
+            <param name="claims">需要在登陆的时候配置</param>
+            <param name="permissionRequirement">在startup中定义的参数</param>
+            <param name="permissionRequirement">在startup中定义的参数</param>
+            <param name="permissionRequirement">在startup中定义的参数</param>
+            <param name="permissionRequirement">在startup中定义的参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.AuthHelper.PermissionHandler">
+            <summary>
+            权限授权处理器
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionHandler.Schemes">
+            <summary>
+            验证方案提供对象
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AuthHelper.PermissionHandler.#ctor(Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,Funeral.Core.IServices.IRoleModulePermissionServices,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="schemes"></param>
+            <param name="roleModulePermissionServices"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Funeral.Core.AuthHelper.PermissionItem">
+            <summary>
+            用户或角色或其他凭据实体,就像是订单详情一样
+            之前的名字是 Permission
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionItem.Role">
+            <summary>
+            用户或角色或其他凭据名称
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionItem.Url">
+            <summary>
+            请求Url
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.AuthHelper.PermissionRequirement">
+            <summary>
+            必要参数类，类似一个订单信息
+            继承 IAuthorizationRequirement，用于设计自定义权限处理器PermissionHandler
+            因为AuthorizationHandler 中的泛型参数 TRequirement 必须继承 IAuthorizationRequirement
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.Permissions">
+            <summary>
+            用户权限集合，一个订单包含了很多详情，
+            同理，一个网站的认证发行中，也有很多权限详情(这里是Role和URL的关系)
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.DeniedAction">
+            <summary>
+            无权限action
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.ClaimType">
+            <summary>
+            认证授权类型
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.LoginPath">
+            <summary>
+            请求路径
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.Issuer">
+            <summary>
+            发行人
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.Audience">
+            <summary>
+            订阅人
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.Expiration">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.AuthHelper.PermissionRequirement.SigningCredentials">
+            <summary>
+            签名验证
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AuthHelper.PermissionRequirement.#ctor(System.String,System.Collections.Generic.List{Funeral.Core.AuthHelper.PermissionItem},System.String,System.String,System.String,Microsoft.IdentityModel.Tokens.SigningCredentials,System.TimeSpan)">
+            <summary>
+            构造
+            </summary>
+            <param name="deniedAction">拒约请求的url</param>
+            <param name="permissions">权限集合</param>
+            <param name="claimType">声明类型</param>
+            <param name="issuer">发行人</param>
+            <param name="audience">订阅人</param>
+            <param name="signingCredentials">签名验证实体</param>
+            <param name="expiration">过期时间</param>
+        </member>
+        <member name="T:Funeral.Core.AutoMapper.AutoMapperConfig">
+            <summary>
+            静态全局 AutoMapper 配置文件
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.AutoMapper.CustomProfile.#ctor">
+            <summary>
+            配置构造函数，用来创建关系映射
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Controllers.BlogController">
+            <summary>
+            博客管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.#ctor(Funeral.Core.IServices.IBlogArticleServices,Microsoft.Extensions.Logging.ILogger{Funeral.Core.Controllers.BlogController})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="blogArticleServices"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.Get(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取博客列表【无权限】
+            </summary>
+            <param name="id"></param>
+            <param name="page"></param>
+            <param name="bcategory"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.Get(System.Int32)">
+            <summary>
+            获取博客详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.DetailNuxtNoPer(System.Int32)">
+            <summary>
+            获取详情【无权限】
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.V2_Blogtest">
+            <summary>
+            获取博客测试信息 v2版本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.Post(Funeral.Core.Model.Models.BlogArticle)">
+            <summary>
+            添加博客【无权限】
+            </summary>
+            <param name="blogArticle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.AddForMVP(Funeral.Core.Model.Models.BlogArticle)">
+            <summary>
+            
+            </summary>
+            <param name="blogArticle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.Put(Funeral.Core.Model.Models.BlogArticle)">
+            <summary>
+            更新博客信息
+            </summary>
+            <param name="BlogArticle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.Delete(System.Int32)">
+            <summary>
+            删除博客
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.BlogController.ApacheTestUpdate">
+            <summary>
+            apache jemeter 压力测试
+            更新接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.DbFirstController.#ctor(SqlSugar.ISqlSugarClient,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.DbFirstController.GetFrameFiles">
+            <summary>
+            获取 整体框架 文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.DbFirstController.GetFrameFilesByTableNames(System.String[],System.String)">
+            <summary>
+            根据数据库表名 生成整体框架
+            仅针对通过CodeFirst生成表的情况
+            </summary>
+            <param name="ConnID">数据库链接名称</param>
+            <param name="tableNames">需要生成的表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.MigrateController.GetRMPMaps">
+            <summary>
+            获取权限部分Map数据
+            生成到tsb文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.MigrateController.SaveDataToDb">
+            <summary>
+            保存数据到数据库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.HealthCheckController">
+            <summary>
+            健康检查
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.HealthCheckController.Get">
+            <summary>
+            健康检查接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.ImgController">
+            <summary>
+            图片管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ImgController.DownImg(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            下载图片（支持中文字符）
+            </summary>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ImgController.InsertPicture(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            上传图片,多文件，可以使用 postman 测试，
+            如果是单文件，可以 参数写 IFormFile file1
+            </summary>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.LoginController">
+            <summary>
+            登录管理【无权限】
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.#ctor(Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices,Funeral.Core.AuthHelper.PermissionRequirement,Funeral.Core.IServices.IRoleModulePermissionServices)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+            <param name="requirement"></param>
+            <param name="roleModulePermissionServices"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.GetJwtStr(System.String,System.String)">
+            <summary>
+            获取JWT的方法1
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.GetJwtStrForNuxt(System.String,System.String)">
+            <summary>
+            获取JWT的方法2：给Nuxt提供
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.GetJwtToken3(System.String,System.String)">
+            <summary>
+            获取JWT的方法3：整个系统主要方法
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.GetJwtToken3(System.String,System.String,System.String)">
+            <summary>
+            获取JWT的方法：整个系统主要方法（加入部门判断）
+            </summary>
+            <param name="userNameOrEmailAddress">用户名</param>
+            <param name="password">密码</param>
+            <param name="tenanId">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.RefreshToken(System.String)">
+            <summary>
+            请求刷新Token（以旧换新）
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.Getjsonp(System.String,System.Int64,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取JWT的方法4：给 JSONP 测试
+            </summary>
+            <param name="callBack"></param>
+            <param name="id"></param>
+            <param name="sub"></param>
+            <param name="expiresSliding"></param>
+            <param name="expiresAbsoulute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.LoginController.Md5Password(System.String)">
+            <summary>
+             MD5 加密字符串
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.ModuleController">
+            <summary>
+            接口管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ModuleController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部接口api（分页）
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ModuleController.GetModuleAll">
+            <summary>
+            获取全部接口api（登录用）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ModuleController.Post(Funeral.Core.Model.Models.Modules)">
+            <summary>
+            添加一条接口信息
+            </summary>
+            <param name="module"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ModuleController.Put(Funeral.Core.Model.Models.Modules)">
+            <summary>
+            更新接口信息
+            </summary>
+            <param name="module"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ModuleController.Delete(System.Int32)">
+            <summary>
+            删除一条接口
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.MonitorController.Server">
+            <summary>
+            服务器配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.MonitorController.Get">
+            <summary>
+            SignalR send data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.PermissionController">
+            <summary>
+            菜单以及API权限管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.#ctor(Funeral.Core.IServices.IPermissionServices,Funeral.Core.IServices.IModuleServices,Funeral.Core.IServices.IRoleModulePermissionServices,Funeral.Core.IServices.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,Funeral.Core.Common.HttpContextUser.IUser,Funeral.Core.AuthHelper.PermissionRequirement)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="permissionServices"></param>
+            <param name="moduleServices"></param>
+            <param name="roleModulePermissionServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="httpContext"></param>
+            <param name="user"></param>
+            <param name="requirement"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.Get(System.Int32,System.String)">
+            <summary>
+            获取菜单
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetTreeTable(System.Int32,System.String)">
+            <summary>
+            查询树形 Table
+            </summary>
+            <param name="f">父节点</param>
+            <param name="key">关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.Post(Funeral.Core.Model.Models.Permission)">
+            <summary>
+            新增一个菜单
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.Assign(Funeral.Core.Controllers.AssignPermissionView)">
+            <summary>
+            保存(菜单路由)权限--一次性保存，不是新增
+            </summary>
+            <param name="assignView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.AddPermission(Funeral.Core.Controllers.AssignPermissionView)">
+            <summary>
+            新增(菜单路由)权限
+            </summary>
+            <param name="assignView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.AssignModule(Funeral.Core.Controllers.AssignModuleView)">
+            <summary>
+            保存(API接口)权限--一次性保存，不是新增
+            </summary>
+            <param name="assignView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.AddModule(Funeral.Core.Controllers.AssignModuleView)">
+            <summary>
+            新增(API接口)权限
+            </summary>
+            <param name="assignView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetPermissionTree(System.Int32,System.Boolean)">
+            <summary>
+            获取菜单树
+            </summary>
+            <param name="pid"></param>
+            <param name="needbtn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetNavigationBar(System.Int32)">
+            <summary>
+            获取路由树（根据登录用户，获取权限下菜单路由）
+            </summary>
+            <param name="uid">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetModuleBar(System.Int32)">
+            <summary>
+            获取API树（根据登录用户，获取权限下API接口）
+            </summary>
+            <param name="uid">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetNavigationBar1(System.Int32)">
+            <summary>
+            获取路由列表（根据登录用户，获取权限下菜单路由）
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetPermissionIdByRoleId(System.Int32)">
+            <summary>
+            通过角色获取菜单【无权限】
+            </summary>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.Put(Funeral.Core.Model.Models.Permission)">
+            <summary>
+            更新菜单
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.Delete(System.Int32)">
+            <summary>
+            删除菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Funeral.Core.Controllers.AssignPermissionView.pids">
+            <summary>
+            菜单ID集合
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Controllers.AssignPermissionView.rid">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Controllers.AssignModuleView.mids">
+            <summary>
+            API接口ID集合
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Controllers.AssignModuleView.rid">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Controllers.RoleController">
+            <summary>
+            角色管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.RoleController.GetById(System.Int32)">
+            <summary>
+            根据ID获取角色信息
+            </summary>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.RoleController.Get(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取角色列表
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">角色名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.RoleController.Post(Funeral.Core.Model.Models.Role)">
+            <summary>
+            新增/更新角色
+            </summary>
+            <param name="role">角色信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.RoleController.Put(Funeral.Core.Model.Models.Role)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.RoleController.Delete(System.Int32)">
+            <summary>
+            禁用角色
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TasksQzController.Get(System.Int32,System.String)">
+            <summary>
+            分页获取
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TasksQzController.Post(Funeral.Core.Model.Models.TasksQz)">
+            <summary>
+            添加计划任务
+            </summary>
+            <param name="tasksQz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TasksQzController.Put(Funeral.Core.Model.Models.TasksQz)">
+            <summary>
+            修改计划任务
+            </summary>
+            <param name="tasksQz"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TasksQzController.StartJob(System.Int32)">
+            <summary>
+            启动计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TasksQzController.StopJob(System.Int32)">
+            <summary>
+            停止一个计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>        
+        </member>
+        <member name="M:Funeral.Core.Controllers.TasksQzController.ReCovery(System.Int32)">
+            <summary>
+            重启一个计划任务
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.TenanController">
+            <summary>
+            客户管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.#ctor(Funeral.Core.IServices.ITenanServices,Funeral.Core.Common.HttpContextUser.IUser)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="tenanServices"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.Get(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取客户列表
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">客户名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.GetAll">
+            <summary>
+            获取所有客户信息（登录用）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.Post(Funeral.Core.Model.Models.Tenan)">
+            <summary>
+            新增/更新客户
+            </summary>
+            <param name="tenan">客户信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.Delete(System.Int32)">
+            <summary>
+            禁用客户
+            </summary>
+            <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.GetById(System.Int32)">
+            <summary>
+            根据ID获取客户信息
+            </summary>
+            <param name="tid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.TopicController">
+            <summary>
+            类别管理【无权限】
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicController.#ctor(Funeral.Core.IServices.ITopicServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="topicServices"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicController.Get">
+            <summary>
+            获取Tibug所有分类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.TopicDetailController">
+            <summary>
+            Tibug 管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicDetailController.#ctor(Funeral.Core.IServices.ITopicServices,Funeral.Core.IServices.ITopicDetailServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="topicServices"></param>
+            <param name="topicDetailServices"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicDetailController.Get(System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            获取Bug数据列表（带分页）
+            【无权限】
+            </summary>
+            <param name="page">页数</param>
+            <param name="tname">专题类型</param>
+            <param name="key">关键字</param>
+            <param name="intPageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicDetailController.Get(System.Int32)">
+            <summary>
+            获取详情【无权限】
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicDetailController.Post(Funeral.Core.Model.Models.TopicDetail)">
+            <summary>
+            添加一个 BUG 【无权限】
+            </summary>
+            <param name="topicDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicDetailController.Update(Funeral.Core.Model.Models.TopicDetail)">
+            <summary>
+            更新 bug
+            </summary>
+            <param name="topicDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TopicDetailController.Delete(System.Int32)">
+            <summary>
+            删除 bug
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.UserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserController.#ctor(Funeral.Core.IRepository.UnitOfWork.IUnitOfWork,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices,Funeral.Core.Common.HttpContextUser.IUser,Microsoft.Extensions.Logging.ILogger{Funeral.Core.Controllers.UserController})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="unitOfWork"></param>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+            <param name="user"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserController.GetById(System.Int32)">
+            <summary>
+            根据ID获取角色信息
+            </summary>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserController.Get(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取用户列表
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">用户姓名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserController.GetInfoByToken(System.String)">
+            <summary>
+            获取用户详情根据token
+            【无权限】
+            </summary>
+            <param name="token">令牌</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserController.Post(Funeral.Core.Model.Models.sysUserInfo)">
+            <summary>
+            新增/更新用户
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserController.Put(Funeral.Core.Model.Models.sysUserInfo)">
+            <summary>
+            更新用户与角色
+            </summary>
+            <param name="sysUserInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.UserRoleController">
+            <summary>
+            用户角色关系
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.#ctor(Funeral.Core.IServices.IPermissionTenanServices,Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sysUserInfoServices"></param>
+            <param name="userRoleServices"></param>
+            <param name="roleServices"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddUser(System.String,System.String)">
+            <summary>
+            新建用户
+            </summary>
+            <param name="loginName"></param>
+            <param name="loginPwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddRole(System.String)">
+            <summary>
+            新建角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddUserRole(System.Int32,System.Int32)">
+            <summary>
+            新建用户角色关系
+            </summary>
+            <param name="uid">用户ID</param>
+            <param name="rid">角色ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddRoleTenan(System.Int32,System.Int32)">
+            <summary>
+            新建角色客户关系关系
+            </summary>
+            <param name="rid">角色ID</param>
+            <param name="tid">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddPermissionTenan(System.Int32,System.Int32)">
+            <summary>
+            新建菜单和客户关联关系
+            </summary>
+            <param name="pid">菜单ID</param>
+            <param name="tid">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.ValuesController">
+            <summary>
+            Values控制器
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.#ctor(Funeral.Core.IServices.IBlogArticleServices,AutoMapper.IMapper,Funeral.Core.IServices.IAdvertisementServices,Funeral.Core.Model.Love,Funeral.Core.IServices.IRoleModulePermissionServices,Funeral.Core.Common.HttpContextUser.IUser,Funeral.Core.IServices.IPasswordLibServices,Funeral.Core.Common.WebApiClients.HttpApis.IBlogApi,Funeral.Core.Common.WebApiClients.HttpApis.IDoubanApi)">
+            <summary>
+            ValuesController
+            </summary>
+            <param name="blogArticleServices"></param>
+            <param name="mapper"></param>
+            <param name="advertisementServices"></param>
+            <param name="love"></param>
+            <param name="roleModulePermissionServices"></param>
+            <param name="user"></param>
+            <param name="passwordLibServices"></param>
+            <param name="blogApi"></param>
+            <param name="doubanApi"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.Get">
+            <summary>
+            Get方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            Get(int id)方法
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.RequiredP(System.String)">
+            <summary>
+            测试参数是必填项
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.GetUserInfo(System.String)">
+            <summary>
+            通过 HttpContext 获取用户信息
+            </summary>
+            <param name="ClaimType">声明类型，默认 jti </param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.Source">
+            <summary>
+            to redirect by route template name.
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.Destination">
+            <summary>
+            route with template name.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.Post(Funeral.Core.Model.Models.BlogArticle,System.Int32)">
+            <summary>
+            测试 post 一个对象 + 独立参数
+            </summary>
+            <param name="blogArticle">model实体类参数</param>
+            <param name="id">独立参数</param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.TestPostPara(System.String)">
+            <summary>
+            测试 post 参数
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.RestsharpGet">
+            <summary>
+            测试http请求 RestSharp Get
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.RestsharpPost">
+            <summary>
+            测试http请求 RestSharp Post
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.TestMutiDBAPI">
+            <summary>
+            测试多库连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.WebApiClientGetAsync">
+            <summary>
+            测试http请求 WebApiClient Get
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.Put(System.Int32,System.String)">
+            <summary>
+            Put方法
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ValuesController.Delete(System.Int32)">
+            <summary>
+            Delete方法
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:Funeral.Core.Extensions.AppConfigSetup">
+            <summary>
+            项目 启动服务（控制台输出开启的服务）
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.AuthorizationSetup">
+            <summary>
+            JWT权限 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.Authorization_Ids4Setup">
+            <summary>
+            Ids4权限 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.AutoMapperSetup">
+            <summary>
+            Automapper 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.CorsSetup">
+            <summary>
+            Cors 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.DbSetup">
+            <summary>
+            Db 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.HttpContextSetup">
+            <summary>
+            HttpContext 相关服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.IpPolicyRateLimitSetup">
+            <summary>
+            IPLimit限流 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.JobSetup">
+            <summary>
+            任务调度 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.MemoryCacheSetup">
+            <summary>
+            Memory缓存 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.MiniProfilerSetup">
+            <summary>
+            MiniProfiler 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.SqlsugarSetup">
+            <summary>
+            SqlSugar 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.SwaggerSetup">
+            <summary>
+            Swagger 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.WebApiClientSetup">
+            <summary>
+            WebApiClientSetup 启动服务
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Extensions.WebApiClientSetup.AddHttpApi(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册WebApiClient接口
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Funeral.Core.Extensions.AllServicesMildd">
+            <summary>
+            查看所有注入的服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.ConsulMildd">
+            <summary>
+            Consul 注册服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.IpLimitMildd">
+            <summary>
+            ip 限流
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.QuartzJobMildd">
+            <summary>
+            Quartz 启动服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.SeedDataMildd">
+            <summary>
+            生成种子数据中间件服务
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Extensions.SwaggerMildd">
+            <summary>
+            Swagger中间件
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Filter.GlobalRouteAuthorizeConvention">
+            <summary>
+            Summary:全局路由权限公约
+            Remarks:目的是针对不同的路由，采用不同的授权过滤器
+            如果 controller 上不加 [Authorize] 特性，默认都是 Permission 策略
+            否则，如果想特例其他授权机制的话，需要在 controller 上带上  [Authorize]，然后再action上自定义授权即可，比如 [Authorize(Roles = "Admin")]
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Filter.GlobalAuthorizeFilter">
+            <summary>
+            全局权限过滤器【无效】
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Filter.GlobalExceptionsFilter">
+            <summary>
+            全局异常错误日志
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Filter.GlobalExceptionsFilter.WriteLog(System.String,System.Exception)">
+            <summary>
+            自定义返回格式
+            </summary>
+            <param name="throwMsg"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Funeral.Core.Filter.JsonErrorResponse.Message">
+            <summary>
+            生产环境的消息
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Filter.JsonErrorResponse.DevelopmentMessage">
+            <summary>
+            开发环境的消息
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Filter.GlobalRoutePrefixFilter">
+            <summary>
+            全局路由前缀公约
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Middlewares.IPLogMildd">
+            <summary>
+            中间件
+            记录IP请求数据
+            </summary>
+        </member>
+        <member name="F:Funeral.Core.Middlewares.IPLogMildd._next">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.IPLogMildd.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.MiddlewareHelpers.UseJwtTokenAuth(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            自定义授权中间件
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.MiddlewareHelpers.UseReuestResponseLog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            请求响应中间件
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.MiddlewareHelpers.UseSignalRSendMildd(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            SignalR中间件
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.MiddlewareHelpers.UseExceptionHandlerMidd(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            异常处理中间件
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.MiddlewareHelpers.UseIPLogMildd(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            IP请求中间件
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Middlewares.RequRespLogMildd">
+            <summary>
+            中间件
+            记录请求和响应数据
+            </summary>
+        </member>
+        <member name="F:Funeral.Core.Middlewares.RequRespLogMildd._next">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.RequRespLogMildd.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="T:Funeral.Core.Middlewares.SignalRSendMildd">
+            <summary>
+            中间件
+            SignalR发送数据
+            </summary>
+        </member>
+        <member name="F:Funeral.Core.Middlewares.SignalRSendMildd._next">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Middlewares.SignalRSendMildd.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.AspNetCore.SignalR.IHubContext{Funeral.Core.Hubs.ChatHub})">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+            <param name="hubContext"></param>
+        </member>
+        <member name="T:Funeral.Core.SwaggerHelper.CustomApiVersion">
+            <summary>
+            自定义版本
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.SwaggerHelper.CustomApiVersion.ApiVersions">
+            <summary>
+            Api接口版本 自定义
+            </summary>
+        </member>
+        <member name="F:Funeral.Core.SwaggerHelper.CustomApiVersion.ApiVersions.V1">
+            <summary>
+            V1 版本
+            </summary>
+        </member>
+        <member name="F:Funeral.Core.SwaggerHelper.CustomApiVersion.ApiVersions.V2">
+            <summary>
+            V2 版本
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.SwaggerHelper.CustomRouteAttribute">
+            <summary>
+            自定义路由 /api/{version}/[controler]/[action]
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.SwaggerHelper.CustomRouteAttribute.GroupName">
+            <summary>
+            分组名称,是来实现接口 IApiDescriptionGroupNameProvider
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.SwaggerHelper.CustomRouteAttribute.#ctor(System.String)">
+            <summary>
+            自定义路由构造函数，继承基类路由
+            </summary>
+            <param name="actionName"></param>
+        </member>
+        <member name="M:Funeral.Core.SwaggerHelper.CustomRouteAttribute.#ctor(Funeral.Core.SwaggerHelper.CustomApiVersion.ApiVersions,System.String)">
+            <summary>
+            自定义版本+路由构造函数，继承基类路由
+            </summary>
+            <param name="actionName"></param>
+            <param name="version"></param>
+        </member>
+    </members>
+</doc>

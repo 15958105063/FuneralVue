@@ -1,0 +1,9 @@
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\bin\Debug\netcoreapp3.1\Funeral.Core.FrameWork.deps.json
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\bin\Debug\netcoreapp3.1\Funeral.Core.FrameWork.dll
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\bin\Debug\netcoreapp3.1\Funeral.Core.FrameWork.pdb
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.AssemblyInfoInputs.cache
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.AssemblyInfo.cs
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.csproj.CoreCompileInputs.cache
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.dll
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.pdb
+D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.csprojAssemblyReference.cache

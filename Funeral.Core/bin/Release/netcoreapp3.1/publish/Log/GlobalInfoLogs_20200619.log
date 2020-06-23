@@ -1,0 +1,96 @@
+2020-06-19 13:15:50,040| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 13:18:06,481| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 13:26:57,043| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 13:40:43,168| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 13:53:06,333| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 13:54:04,215| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:01:00,958| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:01:23,184| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:02:14,191| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:03:24,122| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:04:09,369| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:05:47,364| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:06:53,917| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:07:25,679| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:08:33,561| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:09:34,134| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:10:40,652| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:10:44,433| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:11:33,603| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:11:39,616| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:11:41,360| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:11:43,118| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:20:55,176| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:31:16,595| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:31:18,168| INFO  
+AuthenticationScheme: ApiResponseHandler was forbidden.
+--------------------------------
+2020-06-19 14:33:53,869| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:33:55,417| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 14:50:02,344| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 15:23:40,069| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
+2020-06-19 15:31:57,306| INFO  
+Request get:/api/login/login from IP 192.168.66.114 has been blocked, quota 3/1s exceeded by 4. Blocked by rule */api/*, TraceIdentifier 0HM0K4897TTMI:00000001.
+--------------------------------
+2020-06-19 15:31:57,646| INFO  
+Request get:/api/permission/getnavigationbar from IP 192.168.66.114 has been blocked, quota 3/1s exceeded by 4. Blocked by rule */api/*, TraceIdentifier 0HM0K4897TTMH:0000000F.
+--------------------------------
+2020-06-19 17:40:27,533| INFO  
+AuthenticationScheme: ApiResponseHandler was challenged.
+--------------------------------
