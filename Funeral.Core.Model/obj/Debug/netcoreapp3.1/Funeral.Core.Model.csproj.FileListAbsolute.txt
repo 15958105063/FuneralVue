@@ -50,3 +50,16 @@ D:\旧文件\TestPro\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.M
 D:\旧文件\TestPro\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.csproj.CopyComplete
 D:\旧文件\TestPro\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.dll
 D:\旧文件\TestPro\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.pdb
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\bin\Debug\netcoreapp3.1\Funeral.Core.Model.deps.json
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\bin\Debug\netcoreapp3.1\Funeral.Core.Model.dll
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\bin\Debug\netcoreapp3.1\Funeral.Core.Model.pdb
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\bin\Debug\netcoreapp3.1\Funeral.Core.Model.xml
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\bin\Debug\netcoreapp3.1\Funeral.Core.Common.dll
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\bin\Debug\netcoreapp3.1\Funeral.Core.Common.pdb
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.csprojAssemblyReference.cache
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.AssemblyInfoInputs.cache
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.AssemblyInfo.cs
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.csproj.CoreCompileInputs.cache
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.csproj.CopyComplete
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.dll
+D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Core\Funeral.Core.Model\obj\Debug\netcoreapp3.1\Funeral.Core.Model.pdb
