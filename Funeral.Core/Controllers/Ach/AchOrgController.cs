@@ -7,6 +7,7 @@ using Funeral.Core.Model.Models;
 using Funeral.Core.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NPOI.OpenXmlFormats;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -58,7 +59,7 @@ namespace Funeral.Core.Controllers
         /// <summary>
         /// 新增/更新机构信息
         /// </summary>
-        /// <param name="models">机构信息视图模型</param>
+        /// <param name="models">机构信息实体</param>
         /// <returns></returns>
         [HttpPost]
         [Route("Post")]
@@ -95,5 +96,30 @@ namespace Funeral.Core.Controllers
             return data;
         }
 
+
+
+        /// <summary>
+        /// 删除机构信息
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("Delete")]
+        public async Task<MessageModel<string>> Delete(int id)
+        {
+            var data = new MessageModel<string>();
+            if (id > 0)
+            {
+                var userDetail = await _achOrgServices.QueryById(id);
+    
+                data.success = await _achOrgServices.DeleteById(id);
+                if (data.success)
+                {
+                    data.msg = "操作成功";
+                }
+            }
+
+            return data;
+        }
     }
 }
