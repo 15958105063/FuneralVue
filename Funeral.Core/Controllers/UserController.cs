@@ -263,7 +263,6 @@ namespace Funeral.Core.Controllers
                 _unitOfWork.RollbackTran();
                 _logger.LogError(e, e.Message);
             }
-
             return data;
         }
 
@@ -280,7 +279,7 @@ namespace Funeral.Core.Controllers
             if (id > 0)
             {
                 var userDetail = await _sysUserInfoServices.QueryById(id);
-                userDetail.tdIsDelete = true;
+                userDetail.tdIsDelete = !userDetail.tdIsDelete;
                 data.success = await _sysUserInfoServices.Update(userDetail);
                 if (data.success)
                 {

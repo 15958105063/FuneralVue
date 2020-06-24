@@ -10,6 +10,7 @@ namespace Funeral.Core.Tests
     {
         LoginController loginController;
 
+        private readonly INpoiWordExportService _npoiWordExportService;
         private readonly IRoleTenanServices _roleTenanServices;
         private readonly ISysUserInfoServices _sysUserInfoServices;
         private readonly IUserRoleServices _userRoleServices;
@@ -25,13 +26,14 @@ namespace Funeral.Core.Tests
         {
             var container = dI_Test.DICollections();
 
+            _npoiWordExportService= container.Resolve<INpoiWordExportService>();
             _roleTenanServices = container.Resolve<IRoleTenanServices>();
             _sysUserInfoServices = container.Resolve<ISysUserInfoServices>();
             _userRoleServices = container.Resolve<IUserRoleServices>();
             _roleServices = container.Resolve<IRoleServices>();
             _requirement = container.Resolve<PermissionRequirement>();
             _roleModulePermissionServices = container.Resolve<IRoleModulePermissionServices>();
-            loginController = new LoginController(_roleTenanServices,_sysUserInfoServices, _userRoleServices,_roleServices,_requirement, _roleModulePermissionServices);
+            loginController = new LoginController(_npoiWordExportService,_roleTenanServices, _sysUserInfoServices, _userRoleServices,_roleServices,_requirement, _roleModulePermissionServices);
         }
 
         [Fact]

@@ -227,7 +227,7 @@ namespace Funeral.Core.Controllers
         public async Task<MessageModel<TokenInfoViewModel>> GetJwtToken3(string userNameOrEmailAddress = "", string password = "",string tenanId = "")
         {
             string index = "";
-          await  _npoiWordExportService.SaveWordFile(index);
+          await  _npoiWordExportService.SaveWordFile(index,"ROLE");
 
 
             string jwtStr = string.Empty;

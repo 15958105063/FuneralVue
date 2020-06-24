@@ -32,6 +32,7 @@
           "Consul": "1.6.1.1",
           "Funeral.Core.IRepository": "1.0.0",
           "Funeral.Core.IServices": "1.0.0",
+          "Funeral.Core.Services": "1.0.0",
           "Funeral.Core.Tasks": "1.0.0",
           "IdentityServer4.AccessTokenValidation": "3.0.1",
           "Microsoft.AspNetCore.SignalR": "1.1.0",
@@ -3186,6 +3187,21 @@
         },
         "compile": {
           "Funeral.Core.Model.dll": {}
+        }
+      },
+      "Funeral.Core.Services/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "9.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
+          "Funeral.Core.Common": "1.0.0",
+          "Funeral.Core.IRepository": "1.0.0",
+          "Funeral.Core.IServices": "1.0.0"
+        },
+        "runtime": {
+          "Funeral.Core.Services.dll": {}
+        },
+        "compile": {
+          "Funeral.Core.Services.dll": {}
         }
       },
       "Funeral.Core.Tasks/1.0.0": {
@@ -6398,6 +6414,11 @@
       "sha512": ""
     },
     "Funeral.Core.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Funeral.Core.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

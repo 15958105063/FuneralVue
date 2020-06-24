@@ -26,6 +26,7 @@ namespace Funeral.Core.Repository.UnitOfWork
         public void BeginTran()
         {
             GetDbClient().BeginTran();
+            
         }
 
         public void CommitTran()

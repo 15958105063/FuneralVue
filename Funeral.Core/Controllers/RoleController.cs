@@ -37,19 +37,25 @@ namespace Funeral.Core.Controllers
         /// <param name="rid"></param>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public async Task<MessageModel<Role>> GetById(int rid)
         {
 
             var data = new MessageModel<Role> { response = await _roleServices.QueryById(rid) };
             if (data.response != null)
             {
+                var allRoleTenans = await _roleTenanServices.Query(d => d.IsDeleted == false);
+                var allTenans = await _tenanServices.Query(d => d.Enabled == true);
+
+                var currentUserRoles = allRoleTenans.Where(d => d.RoleId == data.response.Id).Select(d => d.TenanId).ToList();
+                data.response.TIDs = currentUserRoles;
+                data.response.TenanNames = allTenans.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.TenanName).ToList();
+
                 data.success = true;
                 data.msg = "";
             }
             return data;
         }
-
-
 
         /// <summary>
         /// 获取角色列表
@@ -76,7 +82,7 @@ namespace Funeral.Core.Controllers
             var sysUserInfos = data.data;
             foreach (var item in sysUserInfos)
             {
-                var currentUserRoles = allRoleTenans.Where(d => d.RoleId == item.Id).Select(d => d.RoleId).ToList();
+                var currentUserRoles = allRoleTenans.Where(d => d.RoleId == item.Id).Select(d => d.TenanId).ToList();
                 item.TIDs = currentUserRoles;
                 item.TenanNames = allTenans.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.TenanName).ToList();
             }
@@ -108,8 +114,22 @@ namespace Funeral.Core.Controllers
             {
                 //更新
                 data.success = await _roleServices.Update(role);
+
+                //同时更新角色客户关联信息
+                //先删除，再新增
                 if (data.success)
                 {
+                    RoleTenan model = new RoleTenan()
+                    {
+                        RoleId= role.Id
+                    };
+                    await _roleTenanServices.Delete(model);
+                    foreach (var item in role.TIDs) {
+                        model.RoleId = role.Id;
+                        model.TenanId = item;
+                        model.IsDeleted = false;
+                        await _roleTenanServices.Add(model);
+                    }
                     data.msg = "更新成功";
                     data.response = role?.Id.ObjToString();
                 }
@@ -123,6 +143,20 @@ namespace Funeral.Core.Controllers
                 data.success = id > 0;
                 if (data.success)
                 {
+
+                    RoleTenan model = new RoleTenan()
+                    {
+                        RoleId = id
+                    };
+                    //await _roleTenanServices.Delete(model);
+                    foreach (var item in role.TIDs)
+                    {
+                        model.RoleId = id;
+                        model.TenanId = item;
+                        model.IsDeleted = false;
+                        await _roleTenanServices.Add(model);
+                    }
+
                     data.response = id.ObjToString();
                     data.msg = "添加成功";
                 }
@@ -162,17 +196,18 @@ namespace Funeral.Core.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        public async Task<MessageModel<string>> Delete(int id)
+        [Route("DeleteOrActivation")]
+        public async Task<MessageModel<string>> DeleteOrActivation(int id)
         {
             var data = new MessageModel<string>();
             if (id > 0)
             {
                 var userDetail = await _roleServices.QueryById(id);
-                userDetail.Enabled = false;
+                userDetail.Enabled = !userDetail.Enabled;
                 data.success = await _roleServices.Update(userDetail);
                 if (data.success)
                 {
-                    data.msg = "禁用成功";
+                    data.msg = "操作成功";
                     data.response = userDetail?.Id.ObjToString();
                 }
             }

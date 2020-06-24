@@ -1,0 +1,462 @@
+2020-06-24 14:55:05,078| ERROR 
+An unhandled exception has occurred while executing the request.
+--------------------------------
+System.NotSupportedException: Ambiguous HTTP method for action - Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage (Funeral.Core). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-06-24 14:57:44,840| ERROR 
+An unhandled exception has occurred while executing the request.
+--------------------------------
+System.NotSupportedException: Ambiguous HTTP method for action - Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage (Funeral.Core). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwagger(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-06-24 14:59:20,702| ERROR 
+Unknown column 'CreateId' in 'field list'
+【自定义错误】：Unknown column 'CreateId' in 'field list' 
+【异常类型】：MySqlException 
+【异常信息】：Unknown column 'CreateId' in 'field list' 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReaderAsync(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetDataAsync[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToListAsync[TResult]()
+   at SqlSugar.QueryableProvider`1.ToPageListAsync(Int32 pageIndex, Int32 pageSize, RefAsync`1 totalNumber)
+   at Funeral.Core.Repository.Base.BaseRepository`1.QueryPage(Expression`1 whereExpression, Int32 intPageIndex, Int32 intPageSize, String strOrderByFileds) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Repository\BASE\BaseRepository.cs:line 423
+   at Funeral.Core.Services.BASE.BaseServices`1.QueryPage(Expression`1 whereExpression, Int32 intPageIndex, Int32 intPageSize, String strOrderByFileds) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\BASE\BaseServices.cs:line 287
+   at Funeral.Core.AOP.InternalAsyncHelper.AwaitTaskWithPostActionAndFinallyAndGetResult[T](Task`1 actualReturnValue, Func`2 postAction, Action`1 finalAction) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\AOP\FuneralLogAOP.cs:line 195
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 43
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:13:29,187| ERROR 
+Unknown column 'CreateId' in 'field list'
+【自定义错误】：Unknown column 'CreateId' in 'field list' 
+【异常类型】：MySqlException 
+【异常信息】：Unknown column 'CreateId' in 'field list' 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReaderAsync(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetDataAsync[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToListAsync[TResult]()
+   at SqlSugar.QueryableProvider`1.ToPageListAsync(Int32 pageIndex, Int32 pageSize, RefAsync`1 totalNumber)
+   at Funeral.Core.Repository.Base.BaseRepository`1.QueryPage(Expression`1 whereExpression, Int32 intPageIndex, Int32 intPageSize, String strOrderByFileds) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Repository\BASE\BaseRepository.cs:line 423
+   at Funeral.Core.Services.BASE.BaseServices`1.QueryPage(Expression`1 whereExpression, Int32 intPageIndex, Int32 intPageSize, String strOrderByFileds) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\BASE\BaseServices.cs:line 287
+   at Funeral.Core.AOP.InternalAsyncHelper.AwaitTaskWithPostActionAndFinallyAndGetResult[T](Task`1 actualReturnValue, Func`2 postAction, Action`1 finalAction) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\AOP\FuneralLogAOP.cs:line 195
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 43
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:16:03,949| ERROR 
+Unknown column 'CreateId' in 'field list'
+【自定义错误】：Unknown column 'CreateId' in 'field list' 
+【异常类型】：MySqlException 
+【异常信息】：Unknown column 'CreateId' in 'field list' 
+【堆栈调用】：   at SqlSugar.AdoProvider.GetDataReaderAsync(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetDataAsync[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1._ToListAsync[TResult]()
+   at SqlSugar.QueryableProvider`1.ToPageListAsync(Int32 pageIndex, Int32 pageSize, RefAsync`1 totalNumber)
+   at Funeral.Core.Repository.Base.BaseRepository`1.QueryPage(Expression`1 whereExpression, Int32 intPageIndex, Int32 intPageSize, String strOrderByFileds) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Repository\BASE\BaseRepository.cs:line 423
+   at Funeral.Core.Services.BASE.BaseServices`1.QueryPage(Expression`1 whereExpression, Int32 intPageIndex, Int32 intPageSize, String strOrderByFileds) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Services\BASE\BaseServices.cs:line 287
+   at Funeral.Core.AOP.InternalAsyncHelper.AwaitTaskWithPostActionAndFinallyAndGetResult[T](Task`1 actualReturnValue, Func`2 postAction, Action`1 finalAction) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\AOP\FuneralLogAOP.cs:line 195
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 43
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:17:59,094| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , MessageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 44
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:19:00,888| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , MessageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 44
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:20:08,467| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , MessageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 44
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:29:25,234| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , MessageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 44
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:43:37,112| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , PageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 44
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:50:17,351| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> AchOrgInputViewModels
+System.Collections.Generic.List`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> AchOrgInputViewModels
+System.Collections.Generic.List`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> AchOrgInputViewModels
+System.Collections.Generic.List`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels 
+【堆栈调用】：   at lambda_method(Closure , List`1 , AchOrgInputViewModels , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 45
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 15:55:37,551| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> AchOrgInputViewModels
+System.Collections.Generic.List`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> AchOrgInputViewModels
+System.Collections.Generic.List`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+List`1 -> AchOrgInputViewModels
+System.Collections.Generic.List`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels 
+【堆栈调用】：   at lambda_method(Closure , List`1 , AchOrgInputViewModels , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 45
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 16:00:04,416| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , PageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 50
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 16:01:44,954| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> PageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , PageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 50
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 16:02:47,420| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> AchOrgInputViewModels
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> AchOrgInputViewModels
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> AchOrgInputViewModels
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.ViewModels.AchOrgInputViewModels 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , AchOrgInputViewModels , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 50
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 16:09:11,300| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , MessageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 46
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------
+2020-06-24 16:10:32,412| ERROR 
+Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+【自定义错误】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【异常类型】：AutoMapperMappingException 
+【异常信息】：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PageModel`1 -> MessageModel`1
+Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.Models.AchOrg, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> Funeral.Core.Model.MessageModel`1[[Funeral.Core.Model.PageModel`1[[Funeral.Core.Model.ViewModels.AchOrgInputViewModels, Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Funeral.Core.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] 
+【堆栈调用】：   at lambda_method(Closure , PageModel`1 , MessageModel`1 , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(Int32 pageindex, Int32 pagesize, String orderby, String key) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Controllers\Ach\AchOrgController.cs:line 46
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+--------------------------------

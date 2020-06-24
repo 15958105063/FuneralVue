@@ -13,6 +13,7 @@
 <#@ import namespace="System.IO" #>
 <#@ include file="$(ProjectDir)DbHelper.ttinclude"  #>
 <#@ include file="$(ProjectDir)ModelAuto.ttinclude"	#>
+
 <# var manager = new Manager(Host, GenerationEnvironment, true); #>
 <# 
 	var OutputPath1 =Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Host.TemplateFile+"..")+"..")+"..");
@@ -20,6 +21,7 @@
 	if (!Directory.Exists(OutputPath1))
 	{
 	    Directory.CreateDirectory(OutputPath1);
+
 	}
 #>
 <# foreach (var item in DbHelper.GetDbTablesNew(config.ConnectionString, config.DbDatabase,config.TableName))
@@ -52,6 +54,7 @@ namespace Funeral.Core.Model.Models
 	 }
 	 #> 
 	 }
+
 }	 
 <#
    manager.EndBlock(); 

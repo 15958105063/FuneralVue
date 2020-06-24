@@ -240,6 +240,16 @@
             配置构造函数，用来创建关系映射
             </summary>
         </member>
+        <member name="M:Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            机构分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+            <returns></returns>
+        </member>
         <member name="T:Funeral.Core.Controllers.BlogController">
             <summary>
             博客管理
@@ -386,7 +396,7 @@
             登录管理【无权限】
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.LoginController.#ctor(Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices,Funeral.Core.AuthHelper.PermissionRequirement,Funeral.Core.IServices.IRoleModulePermissionServices)">
+        <member name="M:Funeral.Core.Controllers.LoginController.#ctor(Funeral.Core.IServices.INpoiWordExportService,Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices,Funeral.Core.AuthHelper.PermissionRequirement,Funeral.Core.IServices.IRoleModulePermissionServices)">
             <summary>
             构造函数注入
             </summary>
@@ -424,9 +434,9 @@
             <summary>
             获取JWT的方法：整个系统主要方法（加入部门判断）
             </summary>
-            <param name="userNameOrEmailAddress"></param>
-            <param name="password"></param>
-            <param name="tenanId"></param>
+            <param name="userNameOrEmailAddress">用户名</param>
+            <param name="password">密码</param>
+            <param name="tenanId">客户ID</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.LoginController.RefreshToken(System.String)">
@@ -546,7 +556,7 @@
             <param name="permission"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.PermissionController.AssignPermission(Funeral.Core.Controllers.AssignPermissionView)">
+        <member name="M:Funeral.Core.Controllers.PermissionController.Assign(Funeral.Core.Controllers.AssignPermissionView)">
             <summary>
             保存(菜单路由)权限--一次性保存，不是新增
             </summary>
@@ -586,14 +596,14 @@
             <summary>
             获取路由树（根据登录用户，获取权限下菜单路由）
             </summary>
-            <param name="uid"></param>
+            <param name="uid">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.PermissionController.GetModuleBar(System.Int32)">
             <summary>
             获取API树（根据登录用户，获取权限下API接口）
             </summary>
-            <param name="uid"></param>
+            <param name="uid">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.PermissionController.GetNavigationBar1(System.Int32)">
@@ -649,19 +659,27 @@
             角色管理
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.RoleController.Get(System.Int32,System.String)">
+        <member name="M:Funeral.Core.Controllers.RoleController.GetById(System.Int32)">
             <summary>
-            获取全部角色
+            根据ID获取角色信息
             </summary>
-            <param name="page"></param>
-            <param name="key"></param>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.RoleController.Get(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取角色列表
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">角色名称</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.RoleController.Post(Funeral.Core.Model.Models.Role)">
             <summary>
-            添加角色
+            新增/更新角色
             </summary>
-            <param name="role"></param>
+            <param name="role">角色信息实体</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.RoleController.Put(Funeral.Core.Model.Models.Role)">
@@ -673,7 +691,7 @@
         </member>
         <member name="M:Funeral.Core.Controllers.RoleController.Delete(System.Int32)">
             <summary>
-            删除角色
+            禁用角色
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -726,11 +744,11 @@
             客户管理
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.TenanController.#ctor(Funeral.Core.IServices.ITenanServices)">
+        <member name="M:Funeral.Core.Controllers.TenanController.#ctor(Funeral.Core.IServices.ITenanServices,Funeral.Core.Common.HttpContextUser.IUser)">
             <summary>
             构造函数
             </summary>
-            <param name="topicServices"></param>
+            <param name="tenanServices"></param>
         </member>
         <member name="M:Funeral.Core.Controllers.TenanController.Get(System.Int32,System.Int32,System.String)">
             <summary>
@@ -738,13 +756,34 @@
             </summary>
             <param name="pageindex"></param>
             <param name="pagesize"></param>
-            <param name="key"></param>
+            <param name="key">客户名称</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.TenanController.GetAll">
             <summary>
             获取所有客户信息（登录用）
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.Post(Funeral.Core.Model.Models.Tenan)">
+            <summary>
+            新增/更新客户
+            </summary>
+            <param name="tenan">客户信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.Delete(System.Int32)">
+            <summary>
+            禁用客户
+            </summary>
+            <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.TenanController.GetById(System.Int32)">
+            <summary>
+            根据ID获取客户信息
+            </summary>
+            <param name="tid"></param>
             <returns></returns>
         </member>
         <member name="T:Funeral.Core.Controllers.TopicController">
@@ -831,13 +870,20 @@
             <param name="user"></param>
             <param name="logger"></param>
         </member>
+        <member name="M:Funeral.Core.Controllers.UserController.GetById(System.Int32)">
+            <summary>
+            根据ID获取角色信息
+            </summary>
+            <param name="rid"></param>
+            <returns></returns>
+        </member>
         <member name="M:Funeral.Core.Controllers.UserController.Get(System.Int32,System.Int32,System.String)">
             <summary>
-            获取全部用户
+            获取用户列表
             </summary>
             <param name="pageindex"></param>
             <param name="pagesize"></param>
-            <param name="key"></param>
+            <param name="key">用户姓名</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.UserController.GetInfoByToken(System.String)">
@@ -850,7 +896,7 @@
         </member>
         <member name="M:Funeral.Core.Controllers.UserController.Post(Funeral.Core.Model.Models.sysUserInfo)">
             <summary>
-            添加一个用户
+            新增/更新用户
             </summary>
             <param name="sysUserInfo"></param>
             <returns></returns>
@@ -874,7 +920,7 @@
             用户角色关系
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.UserRoleController.#ctor(Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices)">
+        <member name="M:Funeral.Core.Controllers.UserRoleController.#ctor(Funeral.Core.IServices.IPermissionTenanServices,Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices)">
             <summary>
             构造函数
             </summary>
@@ -901,8 +947,24 @@
             <summary>
             新建用户角色关系
             </summary>
-            <param name="uid"></param>
-            <param name="rid"></param>
+            <param name="uid">用户ID</param>
+            <param name="rid">角色ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddRoleTenan(System.Int32,System.Int32)">
+            <summary>
+            新建角色客户关系关系
+            </summary>
+            <param name="rid">角色ID</param>
+            <param name="tid">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.UserRoleController.AddPermissionTenan(System.Int32,System.Int32)">
+            <summary>
+            新建菜单和客户关联关系
+            </summary>
+            <param name="pid">菜单ID</param>
+            <param name="tid">客户ID</param>
             <returns></returns>
         </member>
         <member name="T:Funeral.Core.Controllers.ValuesController">

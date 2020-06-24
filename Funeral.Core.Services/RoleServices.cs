@@ -5,6 +5,7 @@ using Funeral.Core.Model.Models;
 using System.Threading.Tasks;
 using System.Linq;
 using Funeral.Core.Common;
+using Funeral.Core.IRepository.UnitOfWork;
 
 namespace Funeral.Core.Services
 {	
@@ -13,10 +14,11 @@ namespace Funeral.Core.Services
 	/// </summary>	
 	public class RoleServices : BaseServices<Role>, IRoleServices
     {
-	
-        IRoleRepository _dal;
-        public RoleServices(IRoleRepository dal)
+        private readonly IUnitOfWork _unitOfWork;
+            IRoleRepository _dal;
+        public RoleServices(IUnitOfWork unitOfWork,IRoleRepository dal)
         {
+            this._unitOfWork = unitOfWork;
             this._dal = dal;
             base.BaseDal = dal;
         }

@@ -299,3 +299,4 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPO
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.OpenXmlFormats.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Funeral.Core.Services.pdb

@@ -240,6 +240,16 @@
             配置构造函数，用来创建关系映射
             </summary>
         </member>
+        <member name="M:Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            机构分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+            <returns></returns>
+        </member>
         <member name="T:Funeral.Core.Controllers.BlogController">
             <summary>
             博客管理

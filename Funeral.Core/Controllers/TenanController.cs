@@ -125,23 +125,23 @@ namespace Funeral.Core.Controllers
 
 
         /// <summary>
-        /// 禁用客户
+        /// 禁用/启用客户
         /// </summary>
         /// <param name="id">客户ID</param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("Delete")]
-        public async Task<MessageModel<string>> Delete(int id)
+        [Route("DeleteOrActivation")]
+        public async Task<MessageModel<string>> DeleteOrActivation(int id)
         {
             var data = new MessageModel<string>();
             if (id > 0)
             {
                 var userDetail = await _tenanServices.QueryById(id);
-                userDetail.Enabled = false;
+                userDetail.Enabled = !userDetail.Enabled;
                 data.success = await _tenanServices.Update(userDetail);
                 if (data.success)
                 {
-                    data.msg = "禁用成功";
+                    data.msg = "操作成功";
                     data.response = userDetail?.Id.ObjToString();
                 }
             }
