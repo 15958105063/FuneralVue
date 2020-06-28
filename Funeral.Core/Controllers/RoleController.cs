@@ -18,13 +18,15 @@ namespace Funeral.Core.Controllers
     [Authorize(Permissions.Name)]
     public class RoleController : ControllerBase
     {
+       // readonly INpoiWordExportServices _NpoiWordExportServices;
         readonly ITenanServices _tenanServices;
         readonly IRoleTenanServices _roleTenanServices;
         readonly IRoleServices _roleServices;
         readonly IUser _user;
      
-        public RoleController(ITenanServices tenanServices,IRoleTenanServices roleTenanServices,IRoleServices roleServices, IUser user)
+        public RoleController(/*INpoiWordExportServices NpoiWordExportServices,*/ITenanServices tenanServices,IRoleTenanServices roleTenanServices,IRoleServices roleServices, IUser user)
         {
+            //_NpoiWordExportServices = NpoiWordExportServices;
             _tenanServices = tenanServices;
             _roleTenanServices = roleTenanServices;
             _roleServices = roleServices;
@@ -196,9 +198,12 @@ namespace Funeral.Core.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("DeleteOrActivation")]
+        [AllowAnonymous]
         public async Task<MessageModel<string>> DeleteOrActivation(int id)
         {
+
+           // bool result = await _NpoiWordExportServices.SaveWordFile("", "AchOrg", 1);
+
             var data = new MessageModel<string>();
             if (id > 0)
             {

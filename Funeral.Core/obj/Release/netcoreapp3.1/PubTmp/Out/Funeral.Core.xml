@@ -240,7 +240,7 @@
             配置构造函数，用来创建关系映射
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(System.Int32,System.Int32,System.String,System.String)">
+        <member name="M:Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
             <summary>
             机构列表分页查询
             </summary>
@@ -248,13 +248,28 @@
             <param name="pagesize"></param>
             <param name="key">关键字</param>
             <param name="orderby">排序</param>
+             <param name="tid">客户ID</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.AchOrgController.Post(Funeral.Core.Model.Models.AchOrg)">
             <summary>
             新增/更新机构信息
             </summary>
-            <param name="models">机构信息视图模型</param>
+            <param name="models">机构信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchOrgController.Delete(System.Int32)">
+            <summary>
+            删除机构信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchOrgController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="tid">客户id</param>
             <returns></returns>
         </member>
         <member name="T:Funeral.Core.Controllers.BlogController">
@@ -403,7 +418,7 @@
             登录管理【无权限】
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.LoginController.#ctor(Funeral.Core.IServices.INpoiWordExportService,Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices,Funeral.Core.AuthHelper.PermissionRequirement,Funeral.Core.IServices.IRoleModulePermissionServices)">
+        <member name="M:Funeral.Core.Controllers.LoginController.#ctor(Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices,Funeral.Core.AuthHelper.PermissionRequirement,Funeral.Core.IServices.IRoleModulePermissionServices)">
             <summary>
             构造函数注入
             </summary>
@@ -696,7 +711,7 @@
             <param name="role"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.RoleController.Delete(System.Int32)">
+        <member name="M:Funeral.Core.Controllers.RoleController.DeleteOrActivation(System.Int32)">
             <summary>
             禁用角色
             </summary>

@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace Funeral.Core.IServices
 {
-   public interface INpoiWordExportService
+   public interface INpoiWordExportServices
     {
         bool SaveWordFileDefault (string savePath);
-       Task<bool> SaveWordFile(string savePath,string tablename);
+       Task<bool> SaveWordFile(string savePath,string tablename,int tid);
     }
 }

@@ -44,6 +44,7 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("Get")]
+        [AllowAnonymous]
         //[AllowAnonymous]
         [Authorize(Permissions.Name)]
         //[ApiExplorerSettings(IgnoreApi = true)]
@@ -54,7 +55,7 @@ namespace Funeral.Core.Controllers
                 key = "";
             }
 
-            var data = await _tenanServices.QueryPage(a => a.Enabled && (a.TenanName != null && a.TenanName.Contains(key)), pageindex, pagesize, " Id desc ");
+            var data = await _tenanServices.QueryPage(a => (a.TenanName != null && a.TenanName.Contains(key)), pageindex, pagesize, " Id desc ");
 
             return new MessageModel<PageModel<Tenan>>()
             {
@@ -73,6 +74,7 @@ namespace Funeral.Core.Controllers
         // GET: api/Topic
         [HttpGet]
         [Route("GetTenanAll")]
+        [AllowAnonymous]
         public async Task<MessageModel<List<Tenan>>> GetAll ()
         {
             var data = new MessageModel<List<Tenan>> { response = await _tenanServices.GetAll() };
@@ -92,6 +94,7 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("Post")]
+        [AllowAnonymous]
         public async Task<MessageModel<string>> Post([FromBody] Tenan tenan)
         {
             var data = new MessageModel<string>();
@@ -129,8 +132,9 @@ namespace Funeral.Core.Controllers
         /// </summary>
         /// <param name="id">客户ID</param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpGet]
         [Route("DeleteOrActivation")]
+        [AllowAnonymous]
         public async Task<MessageModel<string>> DeleteOrActivation(int id)
         {
             var data = new MessageModel<string>();
@@ -142,6 +146,10 @@ namespace Funeral.Core.Controllers
                 if (data.success)
                 {
                     data.msg = "操作成功";
+                    data.response = userDetail?.Id.ObjToString();
+                }
+                else {
+                    data.msg = "操作失败";
                     data.response = userDetail?.Id.ObjToString();
                 }
             }
@@ -156,6 +164,7 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetById")]
+        [AllowAnonymous]
         public async Task<MessageModel<Tenan>> GetById(int tid) {
 
             var data = new MessageModel<Tenan> { response = await _tenanServices.QueryById(tid) };

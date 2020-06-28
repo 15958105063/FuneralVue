@@ -10,7 +10,7 @@ namespace Funeral.Core.Services
     public class AchOrgServices : BaseServices<AchOrg>,IAchOrgServices
     {
 
-        IAchOrgRepository _dal;
+       private readonly IAchOrgRepository _dal;
         public AchOrgServices(IAchOrgRepository dal)
         {
             this._dal = dal;

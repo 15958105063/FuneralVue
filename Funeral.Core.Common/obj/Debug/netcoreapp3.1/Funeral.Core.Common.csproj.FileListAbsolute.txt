@@ -45,7 +45,6 @@ D:\旧文件\TestPro\新建文件夹\新建文件夹\新建文件夹\Funeral.Cor
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\bin\Debug\netcoreapp3.1\Funeral.Core.Common.deps.json
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\bin\Debug\netcoreapp3.1\Funeral.Core.Common.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\bin\Debug\netcoreapp3.1\Funeral.Core.Common.pdb
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.csprojAssemblyReference.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.AssemblyInfoInputs.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.AssemblyInfo.cs
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.csproj.CoreCompileInputs.cache

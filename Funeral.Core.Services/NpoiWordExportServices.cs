@@ -11,14 +11,16 @@ using System.Threading.Tasks;
 
 namespace Funeral.Core.Services
 {
-    public class NpoiWordExportService: INpoiWordExportService
+    public class NpoiWordExportService: INpoiWordExportServices
     {
+        //private readonly IAchOrgRepository _achOrgRepository;
         private readonly IRoleRepository _roleRepository;
         private static IHostingEnvironment _environment;
 
 
-        public NpoiWordExportService(IRoleRepository roleRepository,IHostingEnvironment iEnvironment)
+        public NpoiWordExportService(/*IAchOrgRepository achOrgRepository,*/IRoleRepository roleRepository,IHostingEnvironment iEnvironment)
         {
+            //this._achOrgRepository = achOrgRepository;
             this._roleRepository = roleRepository;
             _environment = iEnvironment;
         }
@@ -198,7 +200,7 @@ namespace Funeral.Core.Services
         ///  生成word文档,并保存静态资源文件夹（wwwroot)下的SaveWordFile文件夹中
         /// </summary>
         /// <param name="savePath">保存路径</param>
-        public async Task<bool> SaveWordFile(string savePath,string tablename)
+        public async Task<bool> SaveWordFile(string savePath,string tablename,int tid)
         {
             savePath = "";
             try
@@ -233,15 +235,13 @@ namespace Funeral.Core.Services
 
                     //TODO:这里一行需要显示两个文本
                     //循环表格，生成对应的sql脚本
-                    var list = await _roleRepository.Query();
+                    var list = await _roleRepository.Query(x=>x.Id==tid);
 
                     #region 写入文本
                     //先操作删除语句
-                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE * FROM {tablename};", false, 6, "宋体", ParagraphAlignment.LEFT), 0);
+                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE * FROM {tablename} ;", false, 6, "宋体", ParagraphAlignment.LEFT), 0);
 
                     int index = 0;
-
-           
                     foreach (var item in list)
                     {
                         string insertstring = "";
@@ -251,6 +251,9 @@ namespace Funeral.Core.Services
                         {
                             var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
                             var value = pi.GetValue(item, null);//用pi.GetValue获得值
+                            if (name=="Tid"|| name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime") {
+                                continue;
+                            }
                             insertstring += $"{name},";
                             valuesstring += $"'{value}',";
                         }

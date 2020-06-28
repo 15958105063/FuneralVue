@@ -1,7 +1,5 @@
 ﻿using SqlSugar;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Funeral.Core.Model.Models
 {
@@ -9,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// 部门/客户
     /// 作　　者:CY
     /// </summary>
-    public class Tenan
+    public class Tenan : RootEntity
     {
 
         public Tenan() { }
@@ -26,10 +24,7 @@ namespace Funeral.Core.Model.Models
         }
 
 
-        /// <summary>
-        /// 部门ID
-        /// </summary>
-        public int Id { get; set; }
+     
 
         /// <summary>
         /// 部门名称

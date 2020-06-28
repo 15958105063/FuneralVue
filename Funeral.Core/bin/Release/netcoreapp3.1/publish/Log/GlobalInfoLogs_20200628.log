@@ -1,0 +1,9 @@
+2020-06-28 13:03:05,300| INFO  
+Request get:/api/tenan/get from IP 192.168.66.127 has been blocked, quota 3/1s exceeded by 4. Blocked by rule */api/*, TraceIdentifier 0HM0R40B1CMFT:00000002.
+--------------------------------
+2020-06-28 13:03:05,515| INFO  
+Request get:/api/tenan/get from IP 192.168.66.127 has been blocked, quota 3/1s exceeded by 5. Blocked by rule */api/*, TraceIdentifier 0HM0R40B1CMFU:00000002.
+--------------------------------
+2020-06-28 13:03:05,526| INFO  
+Request get:/api/tenan/get from IP 192.168.66.127 has been blocked, quota 3/1s exceeded by 6. Blocked by rule */api/*, TraceIdentifier 0HM0R40B1CMFT:00000003.
+--------------------------------

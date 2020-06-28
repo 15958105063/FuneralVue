@@ -7,7 +7,7 @@ namespace Funeral.Core.IServices
     /// <summary>
     /// IAchOrgServices
     /// </summary>
-    public interface IAchOrgServices:IBaseServices<AchOrg>
+    public interface IAchOrgServices : IBaseServices<AchOrg>
     {
 
     }

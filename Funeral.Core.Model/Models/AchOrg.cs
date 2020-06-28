@@ -107,5 +107,10 @@ namespace Funeral.Core.Model.Models
         public DateTime? ModifyTime { get; set; } = DateTime.Now;
 
 
+        /// <summary>
+        /// 客户ID
+        /// </summary>
+        public int Tid { get; set; }
+
     }
 }

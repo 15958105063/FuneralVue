@@ -45,6 +45,7 @@ namespace Funeral.Core
 
             Permissions.IsUseIds4 = Appsettings.app(new string[] { "Startup", "IdentityServer4", "Enabled" }).ObjToBool();
 
+            services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);//JSON首字母小写解决
             services.AddMemoryCacheSetup();
             services.AddSqlsugarSetup();
             services.AddDbSetup();

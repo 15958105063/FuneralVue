@@ -10,7 +10,6 @@ D:\旧文件\TestPro\新建文件夹\Blog.Core-master\Funeral.Core.FrameWork\obj
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\bin\Debug\netcoreapp3.1\Funeral.Core.FrameWork.deps.json
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\bin\Debug\netcoreapp3.1\Funeral.Core.FrameWork.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\bin\Debug\netcoreapp3.1\Funeral.Core.FrameWork.pdb
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.csprojAssemblyReference.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.AssemblyInfoInputs.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.AssemblyInfo.cs
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Debug\netcoreapp3.1\Funeral.Core.FrameWork.csproj.CoreCompileInputs.cache

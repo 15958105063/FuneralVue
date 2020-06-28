@@ -7,9 +7,7 @@ using Funeral.Core.Model.Models;
 using Funeral.Core.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NPOI.OpenXmlFormats;
 using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -20,10 +18,12 @@ namespace Funeral.Core.Controllers
     [Authorize(Permissions.Name)]
     public class AchOrgController : ControllerBase
     {
+        private readonly INpoiWordExportServices _npoiWordExportServices;
         private readonly IAchOrgServices _achOrgServices;
         private readonly IMapper _mapper;
         readonly IUser _user;
-        public AchOrgController(IUser user, IMapper mapper,IAchOrgServices achOrgServices) {
+        public AchOrgController(INpoiWordExportServices npoiWordExportServices,IUser user, IMapper mapper,IAchOrgServices achOrgServices) {
+            this._npoiWordExportServices = npoiWordExportServices;
             this._achOrgServices = achOrgServices;
             this._mapper = mapper;
             this._user = user;
@@ -37,14 +37,14 @@ namespace Funeral.Core.Controllers
         /// <param name="pagesize"></param>
         /// <param name="key">关键字</param>
         /// <param name="orderby">排序</param>
+        ///  <param name="tid">客户ID</param>
         /// <returns></returns>
 
-        [Route("GetAchOrgListByPage")]
         [HttpGet]
         [AllowAnonymous]
-        public async Task<MessageModel<PageModel<AchOrgInputViewModels>>> GetAchOrgListByPage(int pageindex = 1, int pagesize = 50, string orderby = "OrgId desc", string key = "")
+        public async Task<MessageModel<PageModel<AchOrgInputViewModels>>> GetAchOrgListByPage(int pageindex = 1, int pagesize = 50, string orderby = "OrgId desc", string key = "",int tid=1)
         {
-            Expression<Func<AchOrg, bool>> whereExpression = a => (a.OrgId != "" && a.OrgId != null);
+            Expression<Func<AchOrg, bool>> whereExpression = a => (a.OrgId != "" && a.OrgId != null&&a.Tid==tid);
             var pageModelBlog = await _achOrgServices.QueryPage(whereExpression, pageindex, pagesize, orderby);
             PageModel<AchOrgInputViewModels> querymodel = _mapper.Map<PageModel<AchOrgInputViewModels>>(pageModelBlog);
             return new MessageModel<PageModel<AchOrgInputViewModels>>()
@@ -62,7 +62,6 @@ namespace Funeral.Core.Controllers
         /// <param name="models">机构信息实体</param>
         /// <returns></returns>
         [HttpPost]
-        [Route("Post")]
         public async Task<MessageModel<string>> Post([FromBody] AchOrg models)
         {
             var data = new MessageModel<string>();
@@ -104,7 +103,6 @@ namespace Funeral.Core.Controllers
         /// <param name="id">ID</param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("Delete")]
         public async Task<MessageModel<string>> Delete(int id)
         {
             var data = new MessageModel<string>();
@@ -120,6 +118,24 @@ namespace Funeral.Core.Controllers
             }
 
             return data;
+        }
+
+        /// <summary>
+        /// 导出
+        /// </summary>
+        /// <param name="tid">客户id</param>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<MessageModel<string>> Export(int tid=0)
+        {
+            bool result = await _npoiWordExportServices.SaveWordFile("", "AchOrg", tid);
+
+            return new MessageModel<string>()
+            {
+                msg = "导出成功",
+                success = result
+            };
         }
     }
 }

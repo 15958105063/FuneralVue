@@ -25,7 +25,6 @@ namespace Funeral.Core.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
-        readonly INpoiWordExportService _npoiWordExportService;
         readonly IRoleTenanServices _roleTenanServices;
         readonly ISysUserInfoServices _sysUserInfoServices;
         readonly IUserRoleServices _userRoleServices;
@@ -42,9 +41,8 @@ namespace Funeral.Core.Controllers
         /// <param name="roleServices"></param>
         /// <param name="requirement"></param>
         /// <param name="roleModulePermissionServices"></param>
-        public LoginController(INpoiWordExportService npoiWordExportService,IRoleTenanServices roleTenanServices ,ISysUserInfoServices sysUserInfoServices, IUserRoleServices userRoleServices, IRoleServices roleServices, PermissionRequirement requirement, IRoleModulePermissionServices roleModulePermissionServices)
+        public LoginController(IRoleTenanServices roleTenanServices ,ISysUserInfoServices sysUserInfoServices, IUserRoleServices userRoleServices, IRoleServices roleServices, PermissionRequirement requirement, IRoleModulePermissionServices roleModulePermissionServices)
         {
-            this._npoiWordExportService = npoiWordExportService;
             this._roleTenanServices = roleTenanServices;
             this._sysUserInfoServices = sysUserInfoServices;
             this._userRoleServices = userRoleServices;
@@ -227,7 +225,7 @@ namespace Funeral.Core.Controllers
         public async Task<MessageModel<TokenInfoViewModel>> GetJwtToken3(string userNameOrEmailAddress = "", string password = "",string tenanId = "")
         {
             string index = "";
-          await  _npoiWordExportService.SaveWordFile(index,"ROLE");
+          //await  _NpoiWordExportServices.SaveWordFile(index,"ROLE",1);
 
 
             string jwtStr = string.Empty;
