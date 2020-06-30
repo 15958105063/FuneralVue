@@ -25,6 +25,8 @@ namespace Funeral.Core.IRepository.Base
 
         Task<bool> DeleteByIds(object[] ids);
 
+        Task<int> Delete(Expression<Func<TEntity, bool>> whereExpression);
+
         Task<bool> Update(TEntity model);
         Task<bool> Update(TEntity entity, string strWhere);
         Task<bool> Update(object operateAnonymousObjects);

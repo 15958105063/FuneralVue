@@ -213,6 +213,10 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\MyS
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Npgsql.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.OOXML.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.OpenXml4Net.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.OpenXmlFormats.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Oracle.ManagedDataAccess.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Quartz.dll
@@ -228,6 +232,7 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Ser
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Serilog.Sinks.Debug.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Serilog.Sinks.File.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Serilog.Sinks.RollingFile.dll
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\SQLitePCLRaw.batteries_green.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\SQLitePCLRaw.core.dll
@@ -294,9 +299,4 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Release\netcoreapp3.1\sta
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Release\netcoreapp3.1\Funeral.Core.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Release\netcoreapp3.1\Funeral.Core.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Release\netcoreapp3.1\Funeral.Core.genruntimeconfig.cache
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.OOXML.dll
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.OpenXml4Net.dll
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.OpenXmlFormats.dll
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\NPOI.dll
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Funeral.Core.Services.pdb

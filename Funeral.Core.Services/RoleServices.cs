@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Funeral.Core.Common;
 using Funeral.Core.IRepository.UnitOfWork;
+using System.Collections.Generic;
 
 namespace Funeral.Core.Services
 {	
@@ -46,10 +47,17 @@ namespace Funeral.Core.Services
 
         }
 
-        [Caching(AbsoluteExpiration = 30)]
+        //[Caching(AbsoluteExpiration = 30)]
         public async Task<string> GetRoleNameByRid(int rid)
         {
             return ((await base.QueryById(rid))?.Name);
         }
+
+        public async Task<List<Role>> QueryMuchTable(int tid)
+        {
+            return ((await _dal.QueryMuchTable(tid)));
+        }
+
+        
     }
 }

@@ -13,14 +13,14 @@ namespace Funeral.Core.Services
 {
     public class NpoiWordExportService: INpoiWordExportServices
     {
-        //private readonly IAchOrgRepository _achOrgRepository;
+        private readonly IAchOrgRepository _achOrgRepository;
         private readonly IRoleRepository _roleRepository;
         private static IHostingEnvironment _environment;
 
 
-        public NpoiWordExportService(/*IAchOrgRepository achOrgRepository,*/IRoleRepository roleRepository,IHostingEnvironment iEnvironment)
+        public NpoiWordExportService(IAchOrgRepository achOrgRepository,IRoleRepository roleRepository,IHostingEnvironment iEnvironment)
         {
-            //this._achOrgRepository = achOrgRepository;
+            this._achOrgRepository = achOrgRepository;
             this._roleRepository = roleRepository;
             _environment = iEnvironment;
         }
@@ -235,7 +235,7 @@ namespace Funeral.Core.Services
 
                     //TODO:这里一行需要显示两个文本
                     //循环表格，生成对应的sql脚本
-                    var list = await _roleRepository.Query(x=>x.Id==tid);
+                    var list = await _achOrgRepository.Query(x=>x.Tid==tid);
 
                     #region 写入文本
                     //先操作删除语句

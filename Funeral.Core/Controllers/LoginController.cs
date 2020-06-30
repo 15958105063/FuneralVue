@@ -252,6 +252,7 @@ namespace Funeral.Core.Controllers
             var roleid = 0;
             var tenanid = 0;
             var user = await _sysUserInfoServices.Query(d => d.uLoginName == userNameOrEmailAddress && d.uLoginPWD == password && d.tdIsDelete == false);
+            int ifresult = 0;
             if (user.Count > 0)
             {
                 //判断所选部门是否为空并且判断部门和用户是否匹配
@@ -263,12 +264,21 @@ namespace Funeral.Core.Controllers
 
                     if (tenanid != tenanId.ObjToInt())
                     {
-                        return new MessageModel<TokenInfoViewModel>()
-                        {
-                            success = false,
-                            msg = "该平台客户下无此用户信息",
-                        };
+                      
+                        continue;
                     }
+                    else {
+                        ifresult = 1;
+                        break;
+                    }
+                }
+
+                if (ifresult<=0) {
+                    return new MessageModel<TokenInfoViewModel>()
+                    {
+                        success = false,
+                        msg = "该平台客户下无此用户信息",
+                    };
                 }
             
 

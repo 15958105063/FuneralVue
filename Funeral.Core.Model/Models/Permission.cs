@@ -129,7 +129,7 @@ namespace Funeral.Core.Model.Models
         public string MName { get; set; }
 
         [SugarColumn(IsIgnore = true)]
-        public bool hasChildren { get; set; } = true;
+        public bool HasChildren { get; set; } = true;
 
         //public virtual ICollection<ModulePermission> ModulePermission { get; set; }
         //public virtual ICollection<RoleModulePermission> RoleModulePermission { get; set; }

@@ -114,3 +114,23 @@ Duplicate entry '0' for key 'tenan.PRIMARY'
 --- End of stack trace from previous location where exception was thrown ---
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
 --------------------------------
+2020-06-28 17:34:41,188| FATAL 
+Application startup exception
+Method 'QueryMuchTable' in type 'Funeral.Core.Repository.RoleRepository' from assembly 'Funeral.Core.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+--------------------------------
+System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
+Method 'QueryMuchTable' in type 'Funeral.Core.Repository.RoleRepository' from assembly 'Funeral.Core.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   at System.Reflection.RuntimeModule.GetTypes()
+   at System.Reflection.Assembly.GetTypes()
+   at Funeral.Core.Extensions.AllServicesMildd.UseAllServicesMildd(IApplicationBuilder app, IServiceCollection _services) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Middlewares\AllServicesMildd.cs:line 23
+   at Funeral.Core.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env, MyContext myContext, ITasksQzServices tasksQzServices, ISchedulerCenter schedulerCenter, IHostApplicationLifetime lifetime) in D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\Startup.cs:line 118
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass13_0.<UseStartup>b__2(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+System.TypeLoadException: Method 'QueryMuchTable' in type 'Funeral.Core.Repository.RoleRepository' from assembly 'Funeral.Core.Repository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' does not have an implementation.

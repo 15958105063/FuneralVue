@@ -240,7 +240,7 @@
             配置构造函数，用来创建关系映射
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+        <member name="M:Funeral.Core.Controllers.AchAcsController.GetAchOrgListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
             <summary>
             机构列表分页查询
             </summary>
@@ -249,6 +249,98 @@
             <param name="key">关键字</param>
             <param name="orderby">排序</param>
              <param name="tid">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchAcsController.Post(Funeral.Core.Model.Models.AchOrg)">
+            <summary>
+            新增/更新机构信息
+            </summary>
+            <param name="models">机构信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchAcsController.Delete(System.Int32)">
+            <summary>
+            删除机构信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchAcsController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="tid">客户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchDptController.Get(System.Int32)">
+            <summary>
+            根据客户ID获取部门信息列表
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchDptController.GetById(System.String)">
+            <summary>
+            根据id获取部门信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchDptController.Post(Funeral.Core.Model.Models.AchDpt)">
+            <summary>
+            新增/更新部门信息
+            </summary>
+            <param name="models">部门信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchDptController.GetAchDptListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            分页查询部门信息
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="orderby"></param>
+            <param name="key"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchDptController.Delete(System.Int32)">
+            <summary>
+            删除部门信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchDptController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">客户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchOrgController.GetAchOrgListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            机构列表分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+             <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchOrgController.Get(System.Int32)">
+            <summary>
+            根据客户id，查询机构信息列表
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchOrgController.GetById(System.String)">
+            <summary>
+            根据id获取机构信息
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.AchOrgController.Post(Funeral.Core.Model.Models.AchOrg)">
@@ -269,7 +361,223 @@
             <summary>
             导出
             </summary>
-            <param name="tid">客户id</param>
+            <param name="id">客户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchRolController.Get(System.Int32)">
+            <summary>
+            根据客户ID获取角色信息列表
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchRolController.GetAchRolListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            配置角色列表分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+             <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchRolController.GetById(System.String)">
+            <summary>
+            根据id获取配置角色信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchRolController.Post(Funeral.Core.Model.Models.AchRol)">
+            <summary>
+            新增/更新配置角色信息
+            </summary>
+            <param name="models">机构信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchRolController.Delete(System.Int32)">
+            <summary>
+            删除配置角色信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchRolController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">角色id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSicController.GetAchSicListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            服务种类列表分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+             <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSicController.Get(System.Int32)">
+            <summary>
+            根据客户id，查询服务种类信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSicController.GetById(System.String)">
+            <summary>
+            根据id获取服务种类信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSicController.Post(Funeral.Core.Model.Models.AchSic)">
+            <summary>
+            新增/更新服务种类信息
+            </summary>
+            <param name="models">机构信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSicController.Delete(System.Int32)">
+            <summary>
+            删除服务种类信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSicController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">客户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSitController.GetAchSitListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            服务项目列表分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+             <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSitController.Get(System.Int32)">
+            <summary>
+            根据客户id，查询服务项目信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSitController.GetById(System.String)">
+            <summary>
+            根据id获取服务项目信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSitController.Post(Funeral.Core.Model.Models.AchSit)">
+            <summary>
+            新增/更新服务项目信息
+            </summary>
+            <param name="models">机构信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSitController.Delete(System.Int32)">
+            <summary>
+            删除服务项目信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchSitController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">客户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchUsrController.GetAchUsrListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            配置用户列表分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+             <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchUsrController.GetById(System.String)">
+            <summary>
+            根据id获取配置用户信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchUsrController.Post(Funeral.Core.Model.Models.AchUsr)">
+            <summary>
+            新增/更新配置用户信息
+            </summary>
+            <param name="models">机构信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchUsrController.Delete(System.Int32)">
+            <summary>
+            删除配置用户信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchUsrController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">用户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchVdrController.GetAchVdrListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            配置厂家列表分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="key">关键字</param>
+            <param name="orderby">排序</param>
+             <param name="id">客户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchVdrController.GetById(System.String)">
+            <summary>
+            根据id获取配置厂家信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchVdrController.Post(Funeral.Core.Model.Models.AchVdr)">
+            <summary>
+            新增/更新配置厂家信息
+            </summary>
+            <param name="models">厂家信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchVdrController.Delete(System.Int32)">
+            <summary>
+            删除配置厂家信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchVdrController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">厂家id</param>
             <returns></returns>
         </member>
         <member name="T:Funeral.Core.Controllers.BlogController">
@@ -491,12 +799,20 @@
             接口管理
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.ModuleController.Get(System.Int32,System.String)">
+        <member name="M:Funeral.Core.Controllers.ModuleController.Get(System.Int32,System.Int32,System.String)">
             <summary>
             获取全部接口api（分页）
             </summary>
-            <param name="page"></param>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
             <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.ModuleController.GetById(System.Int32)">
+            <summary>
+            根据ID获取接口信息
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.ModuleController.GetModuleAll">
@@ -507,7 +823,7 @@
         </member>
         <member name="M:Funeral.Core.Controllers.ModuleController.Post(Funeral.Core.Model.Models.Modules)">
             <summary>
-            添加一条接口信息
+            新增/更新接口信息
             </summary>
             <param name="module"></param>
             <returns></returns>
@@ -519,9 +835,9 @@
             <param name="module"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.ModuleController.Delete(System.Int32)">
+        <member name="M:Funeral.Core.Controllers.ModuleController.DeleteOrActivation(System.Int32)">
             <summary>
-            删除一条接口
+            禁用/启用一条接口
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -543,7 +859,7 @@
             菜单以及API权限管理
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.PermissionController.#ctor(Funeral.Core.IServices.IPermissionServices,Funeral.Core.IServices.IModuleServices,Funeral.Core.IServices.IRoleModulePermissionServices,Funeral.Core.IServices.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,Funeral.Core.Common.HttpContextUser.IUser,Funeral.Core.AuthHelper.PermissionRequirement)">
+        <member name="M:Funeral.Core.Controllers.PermissionController.#ctor(Funeral.Core.IServices.IPermissionTenanServices,Funeral.Core.IServices.ITenanServices,Funeral.Core.IServices.IPermissionServices,Funeral.Core.IServices.IModuleServices,Funeral.Core.IServices.IRoleModulePermissionServices,Funeral.Core.IServices.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,Funeral.Core.Common.HttpContextUser.IUser,Funeral.Core.AuthHelper.PermissionRequirement)">
             <summary>
             构造函数
             </summary>
@@ -573,7 +889,7 @@
         </member>
         <member name="M:Funeral.Core.Controllers.PermissionController.Post(Funeral.Core.Model.Models.Permission)">
             <summary>
-            新增一个菜单
+            新增/更新菜单
             </summary>
             <param name="permission"></param>
             <returns></returns>
@@ -581,6 +897,13 @@
         <member name="M:Funeral.Core.Controllers.PermissionController.Assign(Funeral.Core.Controllers.AssignPermissionView)">
             <summary>
             保存(菜单路由)权限--一次性保存，不是新增
+            </summary>
+            <param name="assignView"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.AssignTenan(Funeral.Core.Controllers.AssignTenanView)">
+            <summary>
+            菜单分配保存
             </summary>
             <param name="assignView"></param>
             <returns></returns>
@@ -606,19 +929,32 @@
             <param name="assignView"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.PermissionController.GetPermissionTree(System.Int32,System.Boolean)">
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetPermissionTree(System.Int32)">
             <summary>
-            获取菜单树
+            获取菜单树列表（根据当前客户）
             </summary>
-            <param name="pid"></param>
-            <param name="needbtn"></param>
+            <param name="id">客户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetPermissionTreeAll">
+            <summary>
+            菜单分配，菜单树列表
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.PermissionController.GetNavigationBar(System.Int32)">
             <summary>
-            获取路由树（根据登录用户，获取权限下菜单路由）
+            获取路由树（根据登录用户，获取权限下菜单列表）
             </summary>
             <param name="uid">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetNavigationBarByTid(System.Int32)">
+            <summary>
+            根据客户id，查询客户能分配的菜单
+            </summary>
+            <param name="tid"></param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.PermissionController.GetModuleBar(System.Int32)">
@@ -637,9 +973,16 @@
         </member>
         <member name="M:Funeral.Core.Controllers.PermissionController.GetPermissionIdByRoleId(System.Int32)">
             <summary>
-            通过角色获取菜单【无权限】
+            通过角色获取菜单
             </summary>
-            <param name="rid"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.GetPermissionIdByTenanId(System.Int32)">
+            <summary>
+            通过客户id获取已分配的菜单
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.PermissionController.Put(Funeral.Core.Model.Models.Permission)">
@@ -649,9 +992,9 @@
             <param name="permission"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.PermissionController.Delete(System.Int32)">
+        <member name="M:Funeral.Core.Controllers.PermissionController.DeleteOrActivation(System.Int32)">
             <summary>
-            删除菜单
+            禁用/启用菜单
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -664,6 +1007,16 @@
         <member name="P:Funeral.Core.Controllers.AssignPermissionView.rid">
             <summary>
             角色ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Controllers.AssignTenanView.pids">
+            <summary>
+            菜单ID集合
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Controllers.AssignTenanView.tid">
+            <summary>
+            客户ID
             </summary>
         </member>
         <member name="P:Funeral.Core.Controllers.AssignModuleView.mids">
@@ -688,13 +1041,21 @@
             <param name="rid"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.RoleController.Get(System.Int32,System.Int32,System.String)">
+        <member name="M:Funeral.Core.Controllers.RoleController.GetByTid(System.Int32)">
+            <summary>
+            根据客户Id获取客户下所有角色
+            </summary>
+            <param name="tid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.RoleController.Get(System.Int32,System.Int32,System.String,System.Int32)">
             <summary>
             获取角色列表
             </summary>
             <param name="pageindex"></param>
             <param name="pagesize"></param>
             <param name="key">角色名称</param>
+            <param name="id">客户ID</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.RoleController.Post(Funeral.Core.Model.Models.Role)">
@@ -713,7 +1074,7 @@
         </member>
         <member name="M:Funeral.Core.Controllers.RoleController.DeleteOrActivation(System.Int32)">
             <summary>
-            禁用角色
+            禁用/启用角色
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -899,13 +1260,14 @@
             <param name="rid"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.UserController.Get(System.Int32,System.Int32,System.String)">
+        <member name="M:Funeral.Core.Controllers.UserController.Get(System.Int32,System.Int32,System.String,System.Int32)">
             <summary>
             获取用户列表
             </summary>
             <param name="pageindex"></param>
             <param name="pagesize"></param>
             <param name="key">用户姓名</param>
+            <param name="id">角色ID</param>
             <returns></returns>
         </member>
         <member name="M:Funeral.Core.Controllers.UserController.GetInfoByToken(System.String)">
@@ -930,9 +1292,9 @@
             <param name="sysUserInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.UserController.Delete(System.Int32)">
+        <member name="M:Funeral.Core.Controllers.UserController.DeleteOrActivation(System.Int32)">
             <summary>
-            删除用户
+            禁用/启用用户
             </summary>
             <param name="id"></param>
             <returns></returns>

@@ -52,7 +52,7 @@ namespace Funeral.Core.Services
         [Caching(AbsoluteExpiration = 30)]
         public async Task<int> GetTenanIdByRid(int rid)
         {
-            return ((await base.Query(d => d.RoleId == rid)).OrderByDescending(d => d.TenanId).LastOrDefault()?.RoleId).ObjToInt();
+            return ((await base.Query(d => d.RoleId == rid)).OrderByDescending(d => d.TenanId).LastOrDefault()?.TenanId).ObjToInt();
         }
     }
 }

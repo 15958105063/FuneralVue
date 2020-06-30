@@ -97,6 +97,10 @@ namespace Funeral.Core.Model.Models
         [SugarColumn(IsNullable = true)]
         public bool tdIsDelete { get; set; }
 
+        /// <summary>
+        /// 是否激活
+        /// </summary>
+        public bool Enabled { get; set; }
 
         [SugarColumn(IsIgnore = true)]
         public List<int> RIDs { get; set; }

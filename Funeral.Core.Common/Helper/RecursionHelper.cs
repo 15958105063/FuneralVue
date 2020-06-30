@@ -8,48 +8,48 @@ namespace Funeral.Core.Common.Helper
     /// </summary>
     public static class RecursionHelper
     {
-        public static void LoopToAppendChildren(List<PermissionTree> all, PermissionTree curItem, int pid, bool needbtn)
+        public static void LoopToAppendChildren(List<PermissionTree> all, PermissionTree curItem, int pid)
         {
 
-            var subItems = all.Where(ee => ee.Pid == curItem.value).ToList();
+            var subItems = all.Where(ee => ee.Pid == curItem.Value).ToList();
 
-            var btnItems = subItems.Where(ss => ss.isbtn == true).ToList();
+           // var btnItems = subItems.Where(ss => ss.Isbtn == true).ToList();
+            //if (subItems.Count > 0)
+            //{
+            //    curItem.Btns = new List<PermissionTree>();
+            //    curItem.Btns.AddRange(btnItems);
+            //}
+            //else
+            //{
+            //    curItem.Btns = null;
+            //}
+
+            //if (!needbtn)
+            //{
+            //    subItems = subItems.Where(ss => ss.Isbtn == false).ToList();
+            //}
             if (subItems.Count > 0)
             {
-                curItem.btns = new List<PermissionTree>();
-                curItem.btns.AddRange(btnItems);
+                curItem.Children = new List<PermissionTree>();
+                curItem.Children.AddRange(subItems);
             }
             else
             {
-                curItem.btns = null;
+                curItem.Children = null;
             }
 
-            if (!needbtn)
-            {
-                subItems = subItems.Where(ss => ss.isbtn == false).ToList();
-            }
-            if (subItems.Count > 0)
-            {
-                curItem.children = new List<PermissionTree>();
-                curItem.children.AddRange(subItems);
-            }
-            else
-            {
-                curItem.children = null;
-            }
-
-            if (curItem.isbtn)
+            if (curItem.Isbtn)
             {
                 //curItem.label += "按钮";
             }
 
             foreach (var subItem in subItems)
             {
-                if (subItem.value == pid && pid > 0)
+                if (subItem.Value == pid && pid > 0)
                 {
                     //subItem.disabled = true;//禁用当前节点
                 }
-                LoopToAppendChildren(all, subItem, pid, needbtn);
+                LoopToAppendChildren(all, subItem, pid);
             }
         }
 
@@ -64,16 +64,16 @@ namespace Funeral.Core.Common.Helper
         {
 
             //获取菜单第一级（pid=0）
-            var subItems = all.Where(ee => ee.pid == curItem.id).ToList();
+            var subItems = all.Where(ee => ee.Pid == curItem.Id).ToList();
 
             if (subItems.Count > 0)
             {
-                curItem.children = new List<NavigationBar>();
-                curItem.children.AddRange(subItems);
+                curItem.Children = new List<NavigationBar>();
+                curItem.Children.AddRange(subItems);
             }
             else
             {
-                curItem.children = null;
+                curItem.Children = null;
             }
 
             foreach (var subItem in subItems)
@@ -101,14 +101,14 @@ namespace Funeral.Core.Common.Helper
     /// </summary>
     public class PermissionTree
     {
-        public int value { get; set; }
+        public int Value { get; set; }
         public int Pid { get; set; }
-        public string label { get; set; }
-        public int order { get; set; }
-        public bool isbtn { get; set; }
-        public bool disabled { get; set; }
-        public List<PermissionTree> children { get; set; }
-        public List<PermissionTree> btns { get; set; }
+        public string Label { get; set; }
+        public int Order { get; set; }
+        public bool Isbtn { get; set; }
+        public bool Disabled { get; set; }
+        public List<PermissionTree> Children { get; set; }
+        public List<PermissionTree> Btns { get; set; }
     }
 
     //菜单路由树
@@ -117,19 +117,19 @@ namespace Funeral.Core.Common.Helper
         /// <summary>
         /// 菜单ID
         /// </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 父级菜单ID
         /// </summary>
-        public int pid { get; set; }
+        public int Pid { get; set; }
         /// <summary>
         /// 排序
         /// </summary>
-        public int order { get; set; }
+        public int Order { get; set; }
         /// <summary>
         /// 菜单名称
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// 是否隐藏菜单
         /// </summary>
@@ -141,7 +141,7 @@ namespace Funeral.Core.Common.Helper
         /// <summary>
         /// 路由地址
         /// </summary>
-        public string path { get; set; }
+        public string Path { get; set; }
         /// <summary>
         /// 按钮事件
         /// </summary>
@@ -149,7 +149,7 @@ namespace Funeral.Core.Common.Helper
         /// <summary>
         /// 图标
         /// </summary>
-        public string iconCls { get; set; }
+        public string IconCls { get; set; }
         /// <summary>
         /// api接口地址
         /// </summary>
@@ -157,19 +157,37 @@ namespace Funeral.Core.Common.Helper
         /// <summary>
         /// 
         /// </summary>
-        public NavigationBarMeta meta { get; set; }
+        public NavigationBarMeta Meta { get; set; }
+
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public bool Enabled { get; set; }
+
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string Description { get; set; }
+
+
+        /// <summary>
+        /// api接口id
+        /// </summary>
+        public int Mid { get; set; }
+
         /// <summary>
         /// 子级菜单
         /// </summary>
-        public List<NavigationBar> children { get; set; }
+        public List<NavigationBar> Children { get; set; }
     }
 
     public class NavigationBarMeta
     {
-        public string title { get; set; }
-        public bool requireAuth { get; set; } = true;
+        public string Title { get; set; }
+        public bool RequireAuth { get; set; } = true;
         public bool NoTabPage { get; set; } = false;
-        public bool keepAlive { get; set; } = false;
+        public bool KeepAlive { get; set; } = false;
 
 
     }

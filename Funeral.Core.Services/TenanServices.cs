@@ -56,7 +56,7 @@ namespace Funeral.Core.Services
         /// 获取所有部门信息（缓存）
         /// </summary>
         /// <returns></returns>
-        [Caching(AbsoluteExpiration = 60)]
+        //[Caching(AbsoluteExpiration = 60)]
         public async Task<List<Tenan>> GetAll()
         {
             return await base.Query(a => a.Enabled);

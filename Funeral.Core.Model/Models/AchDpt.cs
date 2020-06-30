@@ -26,7 +26,7 @@ namespace Funeral.Core.Model.Models
         /// DptNAame
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string DptNAame { get; set; }
+        public string DptName { get; set; }
 
 
         /// <summary> 

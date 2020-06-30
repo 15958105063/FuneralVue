@@ -1,3 +1,0 @@
-2020-06-24 15:14:03,345| INFO  
-Request get:/api/tenan/gettenanall from IP 192.168.66.158 has been blocked, quota 3/1s exceeded by 4. Blocked by rule */api/*, TraceIdentifier 0HM0O0N4KVDCG:00000005.
---------------------------------

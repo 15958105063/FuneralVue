@@ -27,7 +27,7 @@ namespace Funeral.Core.Model.Models
         /// RolLorgid
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string RolLorgid { get; set; }
+        public string RolOrgid { get; set; }
 
 
         /// <summary> 

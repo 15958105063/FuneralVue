@@ -10,11 +10,9 @@ namespace Funeral.Core.Controllers.Ach
 
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(Permissions.Name)]
     
     public class AchCommonController : ControllerBase
     {
-
         private readonly INpoiWordExportServices  _NpoiWordExportServices;
 
         public AchCommonController(INpoiWordExportServices NpoiWordExportServices) {
@@ -33,7 +31,5 @@ namespace Funeral.Core.Controllers.Ach
                 success = result
             };
         }
-
-
     }
 }

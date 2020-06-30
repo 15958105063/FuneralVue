@@ -1,4 +1,5 @@
-﻿using Funeral.Core.IRepository.Base;
+﻿using Funeral.Core.Common;
+using Funeral.Core.IRepository.Base;
 using Funeral.Core.IServices.BASE;
 using Funeral.Core.Model;
 using SqlSugar;
@@ -15,6 +16,8 @@ namespace Funeral.Core.Services.BASE
         //public IBaseRepository<TEntity> baseDal = new BaseRepository<TEntity>();
         public IBaseRepository<TEntity> BaseDal;//通过在子类的构造函数中注入，这里是基类，不用构造函数
 
+
+        [Caching(AbsoluteExpiration = 10)]
         public async Task<TEntity> QueryById(object objId)
         {
             return await BaseDal.QueryById(objId);
@@ -121,7 +124,10 @@ namespace Funeral.Core.Services.BASE
             return await BaseDal.DeleteByIds(ids);
         }
 
+        public async Task<int> Delete(Expression<Func<TEntity, bool>> whereExpression) {
 
+            return await BaseDal.Delete(whereExpression);
+        }
 
         /// <summary>
         /// 功能描述:查询所有数据

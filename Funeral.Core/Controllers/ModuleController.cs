@@ -7,6 +7,7 @@ using Funeral.Core.IServices;
 using Funeral.Core.Model;
 using Funeral.Core.Model.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Funeral.Core.Controllers
@@ -34,22 +35,21 @@ namespace Funeral.Core.Controllers
         /// <summary>
         /// 获取全部接口api（分页）
         /// </summary>
-        /// <param name="page"></param>
+        /// <param name="pageindex"></param>
+        /// <param name="pagesize"></param>
         /// <param name="key"></param>
         /// <returns></returns>
         // GET: api/User
         [HttpGet]
-        public async Task<MessageModel<PageModel<Modules>>> Get(int page = 1, string key = "")
+        public async Task<MessageModel<PageModel<Modules>>> Get(int pageindex = 1,int pagesize=50, string key = "")
         {
             if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))
             {
                 key = "";
             }
-            int intPageSize = 50;
-
             Expression<Func<Modules, bool>> whereExpression = a => a.IsDeleted != true && (a.Name != null && a.Name.Contains(key));
 
-            var data = await _moduleServices.QueryPage(whereExpression, page, intPageSize, " Id desc ");
+            var data = await _moduleServices.QueryPage(whereExpression, pageindex, pagesize, " Id desc ");
 
             return new MessageModel<PageModel<Modules>>()
             {
@@ -58,6 +58,28 @@ namespace Funeral.Core.Controllers
                 response = data
             };
         }
+
+
+        /// <summary>
+        /// 根据ID获取接口信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<MessageModel<Modules>> GetById(int id)
+        {
+
+            var data = await _moduleServices.QueryById(id);
+
+            return new MessageModel<Modules>()
+            {
+                msg = "获取成功",
+                success = true,
+                response = data
+            };
+        }
+
+
 
 
 
@@ -80,7 +102,7 @@ namespace Funeral.Core.Controllers
 
 
         /// <summary>
-        /// 添加一条接口信息
+        /// 新增/更新接口信息
         /// </summary>
         /// <param name="module"></param>
         /// <returns></returns>
@@ -90,16 +112,33 @@ namespace Funeral.Core.Controllers
         {
             var data = new MessageModel<string>();
 
-            module.CreateId = _user.ID;
-            module.CreateBy = _user.Name;
-
-            var id = (await _moduleServices.Add(module));
-            data.success = id > 0;
-            if (data.success)
-            {
-                data.response = id.ObjToString();
-                data.msg = "添加成功";
+            module.Enabled = true;
+            module.IsDeleted = false;
+            if (module != null && module.Id > 0) {
+                //更新
+                data.success = await _moduleServices.Update(module);
+                if (data.success)
+                {
+                    data.msg = "更新成功";
+                    data.response = module?.Id.ObjToString();
+                }
             }
+            else {
+
+                //新增
+                module.CreateId = _user.ID;
+                module.CreateBy = _user.Name;
+
+                var id = (await _moduleServices.Add(module));
+                data.success = id > 0;
+                if (data.success)
+                {
+                    data.response = id.ObjToString();
+                    data.msg = "添加成功";
+                }
+            }
+
+          
 
             return data;
         }
@@ -129,20 +168,19 @@ namespace Funeral.Core.Controllers
         }
 
         /// <summary>
-        /// 删除一条接口
+        /// 禁用/启用一条接口
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/ApiWithActions/5
-        [HttpDelete]
-        [ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<MessageModel<string>> Delete(int id)
+        [HttpGet]
+        public async Task<MessageModel<string>> DeleteOrActivation(int id)
         {
             var data = new MessageModel<string>();
             if (id > 0)
             {
                 var userDetail = await _moduleServices.QueryById(id);
-                userDetail.IsDeleted = true;
+                userDetail.Enabled = !userDetail.Enabled;
                 data.success = await _moduleServices.Update(userDetail);
                 if (data.success)
                 {
@@ -150,7 +188,6 @@ namespace Funeral.Core.Controllers
                     data.response = userDetail?.Id.ObjToString();
                 }
             }
-
             return data;
         }
     }

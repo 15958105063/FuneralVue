@@ -56,16 +56,37 @@ namespace Funeral.Core.Controllers
         /// <param name="rid"></param>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public async Task<MessageModel<sysUserInfo>> GetById(int uid)
         {
 
-            var data = new MessageModel<sysUserInfo> { response = await _sysUserInfoServices.QueryById(uid) };
-            if (data.response != null)
+
+            var data = await _sysUserInfoServices.QueryById(uid);
+
+
+            #region MyRegion
+
+            // 这里可以封装到多表查询，此处简单处理
+            var allUserRoles = await _userRoleServices.Query(d => d.IsDeleted == false);
+            var allRoles = await _roleServices.Query(d => d.IsDeleted == false);
+
+
+                var currentUserRoles = allUserRoles.Where(d => d.UserId == data.uID).Select(d => d.RoleId).ToList();
+            data.RIDs = currentUserRoles;
+            data.RoleNames = allRoles.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.Name).ToList();
+
+           // data.uLoginPWD= MD5Helper.Md5Decrypt(data.uLoginPWD);
+
+            #endregion
+
+            return new MessageModel<sysUserInfo>()
             {
-                data.success = true;
-                data.msg = "";
-            }
-            return data;
+                msg = "获取成功",
+                success = true,
+                response = data
+            };
+
+
         }
 
 
@@ -77,42 +98,81 @@ namespace Funeral.Core.Controllers
         /// <param name="pageindex"></param>
         /// <param name="pagesize"></param>
         /// <param name="key">用户姓名</param>
+        /// <param name="id">角色ID</param>
         /// <returns></returns>
         // GET: api/User
         [HttpGet]
-        public async Task<MessageModel<PageModel<sysUserInfo>>> Get(int pageindex = 1,int pagesize=50, string key = "")
+        public async Task<MessageModel<PageModel<sysUserInfo>>> Get(int pageindex = 1, int pagesize = 50, string key = "", int id = 0)
         {
-            if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))
+            //这里区分总管理员
+            if (id == 1)
             {
-                key = "";
+                var data = await _sysUserInfoServices.QueryPage(a =>  a.tdIsDelete != true && a.uStatus >= 0 && ((a.uLoginName != null && a.uLoginName.Contains(key)) || (a.uRealName != null && a.uRealName.Contains(key))), pageindex, pagesize, " uID desc ");
+
+
+                #region MyRegion
+
+                // 这里可以封装到多表查询，此处简单处理
+                var allUserRoles = await _userRoleServices.Query(d => d.IsDeleted == false);
+                var allRoles = await _roleServices.Query(d => d.IsDeleted == false);
+
+                var sysUserInfos = data.data;
+                foreach (var item in sysUserInfos)
+                {
+                    var currentUserRoles = allUserRoles.Where(d => d.UserId == item.uID).Select(d => d.RoleId).ToList();
+                    item.RIDs = currentUserRoles;
+                    item.RoleNames = allRoles.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.Name).ToList();
+                }
+
+                data.data = sysUserInfos;
+                #endregion
+
+                return new MessageModel<PageModel<sysUserInfo>>()
+                {
+                    msg = "获取成功",
+                    success = data.dataCount >= 0,
+                    response = data
+                };
+            }
+            else {
+                //根据角色，获取角色下设置的用户
+                //获取用户id集合
+                var roletenan = await _userRoleServices.Query(a => a.RoleId == id);
+
+                List<int> strList = new List<int>();
+                foreach (var item in roletenan)
+                {
+                    strList.Add(item.UserId);
+                }
+                var data = await _sysUserInfoServices.QueryPage(a => strList.Contains(a.uID) && a.tdIsDelete != true && a.uStatus >= 0 && ((a.uLoginName != null && a.uLoginName.Contains(key)) || (a.uRealName != null && a.uRealName.Contains(key))), pageindex, pagesize, " uID desc ");
+
+
+                #region MyRegion
+
+                // 这里可以封装到多表查询，此处简单处理
+                var allUserRoles = await _userRoleServices.Query(d => d.IsDeleted == false);
+                var allRoles = await _roleServices.Query(d => d.IsDeleted == false);
+
+                var sysUserInfos = data.data;
+                foreach (var item in sysUserInfos)
+                {
+                    var currentUserRoles = allUserRoles.Where(d => d.UserId == item.uID).Select(d => d.RoleId).ToList();
+                    item.RIDs = currentUserRoles;
+                    item.RoleNames = allRoles.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.Name).ToList();
+                }
+
+                data.data = sysUserInfos;
+                #endregion
+
+                return new MessageModel<PageModel<sysUserInfo>>()
+                {
+                    msg = "获取成功",
+                    success = data.dataCount >= 0,
+                    response = data
+                };
             }
 
-            var data = await _sysUserInfoServices.QueryPage(a => a.tdIsDelete != true && a.uStatus >= 0 && ((a.uLoginName != null && a.uLoginName.Contains(key)) || (a.uRealName != null && a.uRealName.Contains(key))), pageindex, pagesize, " uID desc ");
-
-
-            #region MyRegion
-
-            // 这里可以封装到多表查询，此处简单处理
-            var allUserRoles = await _userRoleServices.Query(d => d.IsDeleted == false);
-            var allRoles = await _roleServices.Query(d => d.IsDeleted == false);
-
-            var sysUserInfos = data.data;
-            foreach (var item in sysUserInfos)
-            {
-                var currentUserRoles = allUserRoles.Where(d => d.UserId == item.uID).Select(d => d.RoleId).ToList();
-                item.RIDs = currentUserRoles;
-                item.RoleNames = allRoles.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.Name).ToList();
-            }
-
-            data.data = sysUserInfos;
-            #endregion
-
-            return new MessageModel<PageModel<sysUserInfo>>()
-            {
-                msg = "获取成功",
-                success = data.dataCount >= 0,
-                response = data
-            };
+      
 
         }
 
@@ -160,6 +220,8 @@ namespace Funeral.Core.Controllers
         {
             var data = new MessageModel<string>();
 
+            sysUserInfo.Enabled = true;
+            
             if (sysUserInfo != null && sysUserInfo.uID > 0) {
                 //更新
                 if (sysUserInfo.RIDs.Count > 0)
@@ -179,7 +241,6 @@ namespace Funeral.Core.Controllers
                     });
 
                     await _userRoleServices.Add(userRolsAdd);
-
                 }
 
                 data.success = await _sysUserInfoServices.Update(sysUserInfo);
@@ -193,17 +254,50 @@ namespace Funeral.Core.Controllers
 
             }
             else {
-                //新增
-                sysUserInfo.uLoginPWD = MD5Helper.MD5Encrypt32(sysUserInfo.uLoginPWD);
-                sysUserInfo.uRemark = _user.Name;
 
-                var id = await _sysUserInfoServices.Add(sysUserInfo);
-                data.success = id > 0;
-                if (data.success)
+                var userinfo = (await _sysUserInfoServices.Query(a=>a.uLoginName== sysUserInfo.uLoginName)).FirstOrDefault();
+                //先判断是否已经存在该用户
+                if (userinfo != null)
                 {
-                    data.response = id.ObjToString();
-                    data.msg = "添加成功";
+                    data.success = false;
+                    data.response = "";
+                    data.msg = "该登录名已存在，请重新填写";
                 }
+                else {
+                    //新增
+                    sysUserInfo.uLoginPWD = MD5Helper.MD5Encrypt32(sysUserInfo.uLoginPWD);
+                    sysUserInfo.uRemark = _user.Name;
+
+                    var id = await _sysUserInfoServices.Add(sysUserInfo);
+                    data.success = id > 0;
+                    if (data.success)
+                    {
+
+                        if (sysUserInfo.RIDs.Count > 0)
+                        {
+                            // 无论 Update Or Add , 先删除当前用户的全部 U_R 关系
+                            var usreroles = (await _userRoleServices.Query(d => d.UserId == id)).Select(d => d.Id.ToString()).ToArray();
+                            if (usreroles.Count() > 0)
+                            {
+                                var isAllDeleted = await _userRoleServices.DeleteByIds(usreroles);
+                            }
+
+                            // 然后再执行添加操作
+                            var userRolsAdd = new List<UserRole>();
+                            sysUserInfo.RIDs.ForEach(rid =>
+                            {
+                                userRolsAdd.Add(new UserRole(id, rid));
+                            });
+
+                            await _userRoleServices.Add(userRolsAdd);
+                        }
+
+
+                        data.response = id.ObjToString();
+                        data.msg = "添加成功";
+                    }
+                }
+              
             }
             return data;
         }
@@ -267,19 +361,20 @@ namespace Funeral.Core.Controllers
         }
 
         /// <summary>
-        /// 删除用户
+        /// 禁用/启用用户
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/ApiWithActions/5
-        [HttpDelete]
-        public async Task<MessageModel<string>> Delete(int id)
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<MessageModel<string>> DeleteOrActivation(int id)
         {
             var data = new MessageModel<string>();
             if (id > 0)
             {
                 var userDetail = await _sysUserInfoServices.QueryById(id);
-                userDetail.tdIsDelete = !userDetail.tdIsDelete;
+                userDetail.Enabled = !userDetail.Enabled;
                 data.success = await _sysUserInfoServices.Update(userDetail);
                 if (data.success)
                 {

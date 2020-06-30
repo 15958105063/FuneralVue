@@ -8,14 +8,19 @@ using Funeral.Core.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Funeral.Core.Controllers
 {
+    /// <summary>
+    /// 机构配置
+    /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(Permissions.Name)]
+
     public class AchOrgController : ControllerBase
     {
         private readonly INpoiWordExportServices _npoiWordExportServices;
@@ -37,14 +42,13 @@ namespace Funeral.Core.Controllers
         /// <param name="pagesize"></param>
         /// <param name="key">关键字</param>
         /// <param name="orderby">排序</param>
-        ///  <param name="tid">客户ID</param>
+        ///  <param name="id">客户ID</param>
         /// <returns></returns>
 
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<MessageModel<PageModel<AchOrgInputViewModels>>> GetAchOrgListByPage(int pageindex = 1, int pagesize = 50, string orderby = "OrgId desc", string key = "",int tid=1)
+        public async Task<MessageModel<PageModel<AchOrgInputViewModels>>> GetAchOrgListByPage(int pageindex = 1, int pagesize = 50, string orderby = "OrgId desc", string key = "",int id=1)
         {
-            Expression<Func<AchOrg, bool>> whereExpression = a => (a.OrgId != "" && a.OrgId != null&&a.Tid==tid);
+            Expression<Func<AchOrg, bool>> whereExpression = a => (a.OrgId != "" && a.OrgId != null&&a.Tid==id);
             var pageModelBlog = await _achOrgServices.QueryPage(whereExpression, pageindex, pagesize, orderby);
             PageModel<AchOrgInputViewModels> querymodel = _mapper.Map<PageModel<AchOrgInputViewModels>>(pageModelBlog);
             return new MessageModel<PageModel<AchOrgInputViewModels>>()
@@ -54,6 +58,51 @@ namespace Funeral.Core.Controllers
                 response = querymodel
             };
         }
+
+        /// <summary>
+        /// 根据客户id，查询机构信息列表
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<MessageModel<List<KeyValue>>> Get(int id)
+        {
+
+
+            var list = await _achOrgServices.Query(a => a.Tid == id);
+            var returnlist = (from child in list
+                              orderby child.OrgId
+                              select new KeyValue
+                              {
+                                  Key = child.OrgId,
+                                  Value = child.OrgName,
+
+                              }).ToList();
+            var data = new MessageModel<List<KeyValue>> { };
+
+            data.success = true;
+            data.msg = "";
+            data.response = returnlist;
+            return data;
+        }
+
+
+        /// <summary>
+        /// 根据id获取机构信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<MessageModel<AchOrg>> GetById(string id)
+        {
+            //先根据关联表获取角色ID，再循环获取角色name
+            var model = (await _achOrgServices.Query(x => x.OrgId == id)).FirstOrDefault();
+            var data = new MessageModel<AchOrg> { response = model, msg = "", success = true };
+            return data;
+        }
+
 
 
         /// <summary>
@@ -95,21 +144,17 @@ namespace Funeral.Core.Controllers
             return data;
         }
 
-
-
         /// <summary>
         /// 删除机构信息
         /// </summary>
         /// <param name="id">ID</param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpGet]
         public async Task<MessageModel<string>> Delete(int id)
         {
             var data = new MessageModel<string>();
             if (id > 0)
             {
-                var userDetail = await _achOrgServices.QueryById(id);
-    
                 data.success = await _achOrgServices.DeleteById(id);
                 if (data.success)
                 {
@@ -123,13 +168,13 @@ namespace Funeral.Core.Controllers
         /// <summary>
         /// 导出
         /// </summary>
-        /// <param name="tid">客户id</param>
+        /// <param name="id">客户id</param>
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<MessageModel<string>> Export(int tid=0)
+        public async Task<MessageModel<string>> Export(int id=0)
         {
-            bool result = await _npoiWordExportServices.SaveWordFile("", "AchOrg", tid);
+            bool result = await _npoiWordExportServices.SaveWordFile("", "AchOrg", id);
 
             return new MessageModel<string>()
             {
