@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// 客户菜单关联表
     /// 作　　者:CY
     /// </summary>
-    public class PermissionTenan
+    public class PermissionTenan:RootEntity
     {
 
         public PermissionTenan() { }

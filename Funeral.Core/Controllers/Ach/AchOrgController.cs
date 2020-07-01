@@ -95,10 +95,10 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<MessageModel<AchOrg>> GetById(string id)
+        public async Task<MessageModel<AchOrg>> GetById(int id)
         {
             //先根据关联表获取角色ID，再循环获取角色name
-            var model = (await _achOrgServices.Query(x => x.OrgId == id)).FirstOrDefault();
+            var model = (await _achOrgServices.Query(x => x.Id == id)).FirstOrDefault();
             var data = new MessageModel<AchOrg> { response = model, msg = "", success = true };
             return data;
         }
@@ -115,8 +115,9 @@ namespace Funeral.Core.Controllers
         {
             var data = new MessageModel<string>();
 
-            if (!string.IsNullOrEmpty(models.OrgId))
+            if (models.Id > 0)
             {
+                //更新
                 //更新
                 models.ModifyBy = _user.ID.ToString();
                 models.ModifyBy = _user.Name;
@@ -128,19 +129,17 @@ namespace Funeral.Core.Controllers
                     data.response = models?.OrgId.ObjToString();
                 }
             }
-            else
-            {
+            else {
                 //新增
                 models.CreateBy = _user.ID.ToString();
                 models.CreateBy = _user.Name;
                 var id = (await _achOrgServices.Add(models));
-                data.success = id > 0;
-                if (data.success)
-                {
-                    data.response = id.ObjToString();
-                    data.msg = "添加成功";
-                }
+                data.success = true;
+
+                data.response = id.ObjToString();
+                data.msg = "添加成功";
             }
+
             return data;
         }
 
@@ -150,10 +149,10 @@ namespace Funeral.Core.Controllers
         /// <param name="id">ID</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<MessageModel<string>> Delete(int id)
+        public async Task<MessageModel<string>> Delete(string id)
         {
             var data = new MessageModel<string>();
-            if (id > 0)
+            if (!string.IsNullOrEmpty(id))
             {
                 data.success = await _achOrgServices.DeleteById(id);
                 if (data.success)
@@ -174,12 +173,13 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            bool result = await _npoiWordExportServices.SaveWordFile("", "AchOrg", id);
+            var result = await _npoiWordExportServices.SaveWordFile("", "AchOrg", id);
 
             return new MessageModel<string>()
             {
                 msg = "导出成功",
-                success = result
+                success = true,
+                response=result,
             };
         }
     }

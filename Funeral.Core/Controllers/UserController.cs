@@ -102,6 +102,7 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         // GET: api/User
         [HttpGet]
+        [AllowAnonymous]
         public async Task<MessageModel<PageModel<sysUserInfo>>> Get(int pageindex = 1, int pagesize = 50, string key = "", int id = 0)
         {
             //这里区分总管理员
@@ -216,6 +217,7 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         // POST: api/User
         [HttpPost]
+        [AllowAnonymous]
         public async Task<MessageModel<string>> Post([FromBody] sysUserInfo sysUserInfo)
         {
             var data = new MessageModel<string>();

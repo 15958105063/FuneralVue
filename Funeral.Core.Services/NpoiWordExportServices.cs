@@ -200,15 +200,17 @@ namespace Funeral.Core.Services
         ///  生成word文档,并保存静态资源文件夹（wwwroot)下的SaveWordFile文件夹中
         /// </summary>
         /// <param name="savePath">保存路径</param>
-        public async Task<bool> SaveWordFile(string savePath,string tablename,int tid)
+        public async Task<string> SaveWordFile(string savePath,string tablename,int tid)
         {
+            tablename = tablename.Replace("Ach","Ful");
             savePath = "";
+            string currentDate = DateTime.Now.ToString("yyyyMMdd");
+            string checkTime = DateTime.Now.ToString("yyyy年MM月dd日");//检查时间
+                                                                    //保存文件到静态资源wwwroot,使用绝对路径路径
+            var uploadPath = _environment.WebRootPath + "/SaveWordFile/" + currentDate + "/";//>>>相当于HttpContext.Current.Server.MapPath("") 
             try
             {
-                string currentDate = DateTime.Now.ToString("yyyyMMdd");
-                string checkTime = DateTime.Now.ToString("yyyy年MM月dd日");//检查时间
-                //保存文件到静态资源wwwroot,使用绝对路径路径
-                var uploadPath = _environment.WebRootPath + "/SaveWordFile/" + currentDate + "/";//>>>相当于HttpContext.Current.Server.MapPath("") 
+      
 
                 string workFileName = checkTime + "SQL配置脚本";
                 string fileName = string.Format("{0}.docx", workFileName, System.Text.Encoding.UTF8);
@@ -239,7 +241,7 @@ namespace Funeral.Core.Services
 
                     #region 写入文本
                     //先操作删除语句
-                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE * FROM {tablename} ;", false, 6, "宋体", ParagraphAlignment.LEFT), 0);
+                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE FROM {tablename} ;", false, 6, "宋体", ParagraphAlignment.LEFT), 0);
 
                     int index = 0;
                     foreach (var item in list)
@@ -251,7 +253,7 @@ namespace Funeral.Core.Services
                         {
                             var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
                             var value = pi.GetValue(item, null);//用pi.GetValue获得值
-                            if (name=="Tid"|| name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime") {
+                            if (name == "Id" || name =="Tid"|| name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime") {
                                 continue;
                             }
                             insertstring += $"{name},";
@@ -273,15 +275,15 @@ namespace Funeral.Core.Services
                     document.Write(stream);
 
                     savePath = "/SaveWordFile/" + currentDate + "/" + fileName;
-
-                    return true;
+                    uploadPath += fileName;
+                    return uploadPath;
                 }
             }
             catch (Exception ex)
             {
                 //ignore
-                savePath = ex.Message;
-                return false;
+                uploadPath = ex.Message;
+                return "";
             }
         }
 

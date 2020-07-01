@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 列表管理
     /// </summary>
-   public class AchDli
+   public class AchDli: RootEntity
     {
 
         public AchDli()
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// DliId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string DliId { get; set; }
 
         /// <summary>

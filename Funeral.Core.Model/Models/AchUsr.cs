@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 用户表
     /// </summary>
-    public class AchUsr
+    public class AchUsr: RootEntity
     {
 
         public AchUsr()
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// UsrId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string UsrId { get; set; }
 
         /// <summary>

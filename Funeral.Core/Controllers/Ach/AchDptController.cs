@@ -62,10 +62,10 @@ namespace Funeral.Core.Controllers.Ach
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<MessageModel<AchDpt>> GetById(string id)
+        public async Task<MessageModel<AchDpt>> GetById(int id)
         {
             //先根据关联表获取角色ID，再循环获取角色name
-            var model = (await _achDptServices.Query(x => x.DptId == id)).FirstOrDefault();
+            var model = (await _achDptServices.Query(x => x.Id == id)).FirstOrDefault();
             var data = new MessageModel<AchDpt> { response = model, msg = "", success = true };
             return data;
         }
@@ -81,8 +81,9 @@ namespace Funeral.Core.Controllers.Ach
         {
             var data = new MessageModel<string>();
 
-            if (!string.IsNullOrEmpty(models.DptId))
+            if (models.Id > 0)
             {
+         
                 //更新
                 models.ModifyBy = _user.ID.ToString();
                 models.ModifyBy = _user.Name;
@@ -121,7 +122,7 @@ namespace Funeral.Core.Controllers.Ach
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<MessageModel<PageModel<AchDpt>>> GetAchDptListByPage(int pageindex = 1, int pagesize = 50, string orderby = "OrgId desc", string key = "", int id = 1)
+        public async Task<MessageModel<PageModel<AchDpt>>> GetAchDptListByPage(int pageindex = 1, int pagesize = 50, string orderby = "DptId desc", string key = "", int id = 1)
         {
             Expression<Func<AchDpt, bool>> whereExpression = a => (a.DptId != "" && a.DptId != null && a.Tid == id);
             var pageModelBlog = await _achDptServices.QueryPage(whereExpression, pageindex, pagesize, orderby);
@@ -166,12 +167,13 @@ namespace Funeral.Core.Controllers.Ach
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id = 0)
         {
-            bool result = await _npoiWordExportServices.SaveWordFile("", "AchDpt", id);
+            var result = await _npoiWordExportServices.SaveWordFile("", "AchDpt", id);
 
             return new MessageModel<string>()
             {
                 msg = "导出成功",
-                success = result
+                success = true,
+                response=result,
             };
         }
 

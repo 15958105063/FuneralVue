@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 机构表
     /// </summary>
-   public class AchOrg
+   public class AchOrg: RootEntity
     {
 
         public AchOrg()
@@ -20,7 +20,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// 机构编号
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string OrgId { get; set; }
 
         /// <summary>

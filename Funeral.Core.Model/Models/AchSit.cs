@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 用户表
     /// </summary>
-    public class AchSit
+    public class AchSit: RootEntity
     {
 
         public AchSit()
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// SitId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string SitId { get; set; }
 
         /// <summary>

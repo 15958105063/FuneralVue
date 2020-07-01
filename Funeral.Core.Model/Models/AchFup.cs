@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 菜单子级表--第二级菜单
     /// </summary>
-   public class AchFup
+   public class AchFup: RootEntity
     {
 
         public AchFup()
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// FupId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string FupId { get; set; }
 
         /// <summary>

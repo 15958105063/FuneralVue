@@ -374,6 +374,30 @@
             <param name="id">客户id</param>
             <returns></returns>
         </member>
+        <member name="T:Funeral.Core.Controllers.AchPermissionController">
+            <summary>
+            初始化 菜单按钮和字段管理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchPermissionController.GetPermissionIdByRoleId(System.String)">
+            <summary>
+            通过所选角色，获取所配置的按钮
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Funeral.Core.Controllers.AchRacController">
+            <summary>
+            角色按钮关联配置
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchRacController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">厂家id</param>
+            <returns></returns>
+        </member>
         <member name="T:Funeral.Core.Controllers.AchRolController">
             <summary>
             角色配置

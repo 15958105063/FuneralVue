@@ -23,12 +23,13 @@ namespace Funeral.Core.Controllers.Ach
         [Route("Export")]
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(string savePath, string tablename, int tid) {
-        bool result=  await  _NpoiWordExportServices.SaveWordFile(savePath, tablename, tid);
+        var result=  await  _NpoiWordExportServices.SaveWordFile(savePath, tablename, tid);
 
             return new MessageModel<string>()
             {
                 msg = "导出成功",
-                success = result
+                success = true,
+                response = result,
             };
         }
     }

@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 部门表
     /// </summary>
-   public class AchDpt
+   public class AchDpt: RootEntity
     {
 
         public AchDpt()
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// DptId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string DptId { get; set; }
 
         /// <summary>

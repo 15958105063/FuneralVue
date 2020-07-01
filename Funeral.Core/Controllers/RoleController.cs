@@ -107,14 +107,13 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         // GET: api/User
         [HttpGet]
+
         public async Task<MessageModel<PageModel<Role>>> Get(int pageindex = 1,int pagesize=50, string key = "",int id=0)
         {
             //这里区分总管理员
             if (id == 1)
             {
-
                 var data = await _roleServices.QueryPage(a => a.IsDeleted != true  && (a.Name != null && a.Name.Contains(key)), pageindex, pagesize, " Id desc ");
-
                 // 这里可以封装到多表查询，此处简单处理
                 var allRoleTenans = await _roleTenanServices.Query(d => d.IsDeleted == false);
                 var allTenans = await _tenanServices.Query(d => d.Enabled == true);
@@ -177,6 +176,7 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         // POST: api/User
         [HttpPost]
+        [AllowAnonymous]
         public async Task<MessageModel<string>> Post([FromBody] Role role)
         {
             var data = new MessageModel<string>();

@@ -5,11 +5,11 @@ using System;
 namespace Funeral.Core.Model.Models
 {
     /// <summary>
-    /// 按钮表
+    /// 菜单表
     /// </summary>
-   public class AchFun
+   public class AchFun: RootEntity
     {
-
+        
         public AchFun()
         {
             CreateTime = DateTime.Now;
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// FunId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string FunId { get; set; }
 
         /// <summary>

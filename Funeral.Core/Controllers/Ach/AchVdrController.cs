@@ -122,10 +122,10 @@ namespace Funeral.Core.Controllers
         /// <param name="id">ID</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<MessageModel<string>> Delete(int id)
+        public async Task<MessageModel<string>> Delete(string id)
         {
             var data = new MessageModel<string>();
-            if (id > 0)
+            if (!string.IsNullOrEmpty(id))
             {
                 data.success = await _achVdrServices.DeleteById(id);
                 if (data.success)
@@ -145,12 +145,13 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            bool result = await _npoiWordExportServices.SaveWordFile("", "AchVdr", id);
+            var result = await _npoiWordExportServices.SaveWordFile("", "AchVdr", id);
 
             return new MessageModel<string>()
             {
                 msg = "导出成功",
-                success = result
+                success = true,
+                response=result,
             };
         }
     }

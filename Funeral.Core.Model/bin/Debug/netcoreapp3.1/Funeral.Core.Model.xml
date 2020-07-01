@@ -64,6 +64,91 @@
             AcsRolid
             </summary>
         </member>
+        <member name="T:Funeral.Core.Model.Models.AchBtn">
+            <summary>
+            按钮表
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnId">
+            <summary>
+            FunId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunFupid">
+            <summary>
+            FunFupid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunValue">
+             <summary> 
+            FunValue
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunName">
+             <summary> 
+            FunName
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunShowname">
+             <summary> 
+            FgpValue
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunUrl">
+             <summary> 
+            FunUrl
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunImageurl">
+             <summary> 
+            FunImageurl
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunNum">
+             <summary> 
+            FunNum
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.FunController">
+             <summary> 
+            FunController
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchBtn.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
         <member name="T:Funeral.Core.Model.Models.AchDli">
             <summary>
             列表管理
@@ -421,7 +506,7 @@
         </member>
         <member name="T:Funeral.Core.Model.Models.AchFun">
             <summary>
-            按钮表
+            菜单表
             </summary>
         </member>
         <member name="P:Funeral.Core.Model.Models.AchFun.FunId">

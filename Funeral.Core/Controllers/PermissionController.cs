@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -59,9 +60,6 @@ namespace Funeral.Core.Controllers
         }
 
 
-
-
-
         /// <summary>
         /// 获取菜单
         /// </summary>
@@ -71,6 +69,7 @@ namespace Funeral.Core.Controllers
         // GET: api/User
         [HttpGet]
         [ApiExplorerSettings(IgnoreApi = true)]
+
         public async Task<MessageModel<PageModel<Permission>>> Get(int page = 1, string key = "")
         {
             PageModel<Permission> permissions = new PageModel<Permission>();
@@ -219,6 +218,7 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         // POST: api/User
         [HttpPost]
+
         //[ApiExplorerSettings(IgnoreApi = true)]
         public async Task<MessageModel<string>> Post([FromBody] Permission permission)
         {
@@ -226,6 +226,11 @@ namespace Funeral.Core.Controllers
 
             permission.Enabled = true;
             permission.IsDeleted = false;
+
+            //根据mid，取出mname
+            var module =await _moduleServices.QueryById(permission.Mid);
+            permission.MName = module.LinkUrl;
+
             if (permission != null && permission.Id > 0)
             {
                 data.success = await _permissionServices.Update(permission);
@@ -266,15 +271,18 @@ namespace Funeral.Core.Controllers
                 if (assignView.rid > 0)
                 {
                     data.success = true;
-
                     var roleModulePermissions = await _roleModulePermissionServices.Query(d => d.RoleId == assignView.rid);
+                    //var remove = roleModulePermissions.Select(c => (object)c.Id)ToArray();
 
+                    //删除以前勾选，但是现在未勾选的
                     var remove = roleModulePermissions.Where(d => !assignView.pids.Contains(d.PermissionId.ObjToInt())).Select(c => (object)c.Id);
                     data.success &= remove.Any() ? await _roleModulePermissionServices.DeleteByIds(remove.ToArray()) : true;
 
                     foreach (var item in assignView.pids)
                     {
-                      var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault()?.Mid;
+                        bool exists = (roleModulePermissions.Select(c => (object)c.PermissionId).ToArray()).Contains(item);
+                        if (!exists) {
+                            var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault()?.Mid;
                             RoleModulePermission roleModulePermission = new RoleModulePermission()
                             {
                                 IsDeleted = false,
@@ -282,15 +290,28 @@ namespace Funeral.Core.Controllers
                                 ModuleId = moduleid.ObjToInt(),
                                 PermissionId = item,
                             };
-
-
                             roleModulePermission.CreateId = _user.ID;
                             roleModulePermission.CreateBy = _user.Name;
-
-                            data.success &= (await _roleModulePermissionServices.Add(roleModulePermission)) > 0;
-
+                            await _roleModulePermissionServices.Add(roleModulePermission);
+                        }
+                        //判断该菜单，是否已经存在，不存在则添加
+                        //var roleModulePermissionsmodel = (await _roleModulePermissionServices.Query(d => d.RoleId == assignView.rid && d.PermissionId == item)).FirstOrDefault();
+                        //if (roleModulePermissionsmodel == null)
+                        //{
+                        //    var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault()?.Mid;
+                        //    RoleModulePermission roleModulePermission = new RoleModulePermission()
+                        //    {
+                        //        IsDeleted = false,
+                        //        RoleId = assignView.rid,
+                        //        ModuleId = moduleid.ObjToInt(),
+                        //        PermissionId = item,
+                        //    };
+                        //    roleModulePermission.CreateId = _user.ID;
+                        //    roleModulePermission.CreateBy = _user.Name;
+                        //    data.success &= (await _roleModulePermissionServices.Add(roleModulePermission)) > 0;
+                        //}
                     }
-
+                    data.success = true;
                     if (data.success)
                     {
                         _requirement.Permissions.Clear();
@@ -300,7 +321,7 @@ namespace Funeral.Core.Controllers
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 data.success = false;
             }
@@ -327,21 +348,30 @@ namespace Funeral.Core.Controllers
                     var permissionTenan = await _permissionTenanServices.Query(d => d.TenanId == assignView.tid);
 
                     //先删除角色下所有的菜单权限
-                    await _permissionTenanServices.Delete(a => a.TenanId == assignView.tid);
+                    //await _permissionTenanServices.Delete(a => a.TenanId == assignView.tid);
+
+                    //删除以前勾选，但是现在未勾选的
+                    var remove = permissionTenan.Where(d => !assignView.pids.Contains(d.PermissionId.ObjToInt())).Select(c => (object)c.Id);
+                    data.success &= remove.Any() ? await _permissionTenanServices.DeleteByIds(remove.ToArray()) : true;
 
                     foreach (var item in assignView.pids)
                     {
-                        var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault();
-                        PermissionTenan permissiontenan = new PermissionTenan()
+                        bool exists = (permissionTenan.Select(c => (object)c.PermissionId).ToArray()).Contains(item);
+                        if (!exists)
                         {
-                            TenanId = assignView.tid,
-                            PermissionId = moduleid.Id,
-                        };
-                        permissiontenan.CreateId = _user.ID;
-                        permissiontenan.CreateBy = _user.Name;
-                        permissiontenan.IsDeleted = false;
-                        await _permissionTenanServices.Add(permissiontenan);
-                        data.success = true;
+                            var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault();
+                            PermissionTenan permissiontenan = new PermissionTenan()
+                            {
+                                TenanId = assignView.tid,
+                                PermissionId = moduleid.Id,
+                            };
+                            permissiontenan.CreateId = _user.ID;
+                            permissiontenan.CreateBy = _user.Name;
+                            permissiontenan.IsDeleted = false;
+                            await _permissionTenanServices.Add(permissiontenan);
+                            data.success = true;
+                        }
+                      
                     }
 
                     if (data.success)
@@ -685,23 +715,17 @@ namespace Funeral.Core.Controllers
         /*[ApiExplorerSettings(IgnoreApi = true)]*/
         public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int uid)
         {
-
             var data = new MessageModel<List<NavigationBar>>();
             var roleIds = new List<int>();
             //获取所有角色id
             roleIds = (await _userRoleServices.Query(d => d.IsDeleted == false && d.UserId == uid)).Select(d => d.RoleId.ObjToInt()).Distinct().ToList();
-
             if (uid > 0)
             {
                 if (roleIds.Any())
                 {
-
                     var pids = (await _roleModulePermissionServices.Query(d => d.IsDeleted == false && roleIds.Contains(d.RoleId))).Select(d => d.PermissionId.ObjToInt()).Distinct();
 
                     var rolePermissionMoudles = (await _permissionServices.Query(d => pids.Contains(d.Id))).OrderBy(c => c.OrderSort);
-
-                    //var rolePermissionMoudles = await _permissionServices.QueryMuchTable();
-
                     foreach (var item in rolePermissionMoudles)
                     {
                         if (item.IsButton)
@@ -735,7 +759,6 @@ namespace Funeral.Core.Controllers
                     NavigationBar rootRoot = new NavigationBar()
                     {
                     };
-                    permissionTrees = permissionTrees.OrderBy(d => d.Order).ToList();
                     RecursionHelper.LoopNaviBarAppendChildren(permissionTrees, rootRoot);
                     ;
                     data.success = true;
@@ -749,9 +772,6 @@ namespace Funeral.Core.Controllers
             if (uid == 0)
             {
                 Expression<Func<Permission, Modules, bool>> whereExpression = (rmp, p) => rmp.IsDeleted == false && rmp.Enabled == true;
-
-                //var rolePermissionMoudles = await _permissionServices.QueryMuchTable(whereExpression);
-
                 var rolePermissionMoudles = (await _permissionServices.Query()).OrderBy(c => c.OrderSort);
                 foreach (var item in rolePermissionMoudles)
                 {
@@ -1038,15 +1058,6 @@ namespace Funeral.Core.Controllers
             var permissions = await _permissionServices.Query(d => d.IsDeleted == false);
             List<string> assignbtns = new List<string>();
 
-            //foreach (var item in permissionTrees)
-            //{
-            //    var pername = permissions.FirstOrDefault(d => d.IsButton && d.Id == item)?.Name;
-            //    if (!string.IsNullOrEmpty(pername))
-            //    {
-            //        assignbtns.Add(pername + "_" + item);
-            //    }
-            //}
-
             data.success = true;
             if (data.success)
             {
@@ -1194,5 +1205,11 @@ namespace Funeral.Core.Controllers
         public List<int> permissionids { get; set; }
         //public List<string> assignbtns { get; set; }
     }
+    public class AssignStringShow
+    {
+        public List<string> permissionids { get; set; }
+        //public List<string> assignbtns { get; set; }
+    }
+
 
 }

@@ -7,9 +7,9 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 菜单大类表--第一级
     /// </summary>
-   public class AchFgp
+   public class AchFgp: RootEntity
     {
-
+       
         public AchFgp()
         {
             CreateTime = DateTime.Now;
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// FgpId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string FgpId { get; set; }
 
         /// <summary>

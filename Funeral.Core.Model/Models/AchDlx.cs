@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 列表显示字段
     /// </summary>
-   public class AchDlx
+   public class AchDlx: RootEntity
     {
 
         public AchDlx()
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// DlxId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string DlxId { get; set; }
 
         /// <summary>

@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 部门表
     /// </summary>
-   public class AchVdr
+   public class AchVdr: RootEntity
     {
 
         public AchVdr()
@@ -19,7 +19,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// VdrId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string VdrId { get; set; }
 
         /// <summary>

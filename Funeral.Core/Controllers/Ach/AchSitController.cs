@@ -4,7 +4,6 @@ using Funeral.Core.Common.HttpContextUser;
 using Funeral.Core.IServices;
 using Funeral.Core.Model;
 using Funeral.Core.Model.Models;
-using Funeral.Core.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -68,8 +67,6 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<List<KeyValue>>> Get(int id)
         {
-
-
             var list = await _achSitServices.Query(a => a.Tid == id);
             var returnlist = (from child in list
                               orderby child.SitId
@@ -150,10 +147,10 @@ namespace Funeral.Core.Controllers
         /// <param name="id">ID</param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<MessageModel<string>> Delete(int id)
+        public async Task<MessageModel<string>> Delete(string id)
         {
             var data = new MessageModel<string>();
-            if (id > 0)
+            if (!string.IsNullOrEmpty(id))
             {
                 data.success = await _achSitServices.DeleteById(id);
                 if (data.success)
@@ -174,12 +171,13 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            bool result = await _npoiWordExportServices.SaveWordFile("", "AchSit", id);
+            var result = await _npoiWordExportServices.SaveWordFile("", "AchSit", id);
 
             return new MessageModel<string>()
             {
                 msg = "导出成功",
-                success = result
+                success = true,
+                response=result,
             };
         }
     }

@@ -7,7 +7,7 @@ namespace Funeral.Core.Model.Models
     /// <summary>
     /// 角色管理表
     /// </summary>
-    public class AchRol
+    public class AchRol:RootEntity
     {
 
         public AchRol()
@@ -20,7 +20,7 @@ namespace Funeral.Core.Model.Models
         /// <summary>
         /// RolId
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string RolId { get; set; }
 
         /// <summary>
