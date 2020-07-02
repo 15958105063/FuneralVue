@@ -67,10 +67,10 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<MessageModel<AchUsr>> GetById(string id)
+        public async Task<MessageModel<AchUsr>> GetById(int id)
         {
             //先根据关联表获取角色ID，再循环获取角色name
-            var model = (await _achUsrServices.Query(x => x.UsrId == id)).FirstOrDefault();
+            var model = (await _achUsrServices.Query(x => x.Id == id)).FirstOrDefault();
             var data = new MessageModel<AchUsr> { response = model, msg = "", success = true };
             return data;
         }
@@ -87,7 +87,7 @@ namespace Funeral.Core.Controllers
         {
             var data = new MessageModel<string>();
 
-            if (!string.IsNullOrEmpty(models.UsrId))
+            if (models.Id>0)
             {
                 //更新
                 models.ModifyBy = _user.ID.ToString();

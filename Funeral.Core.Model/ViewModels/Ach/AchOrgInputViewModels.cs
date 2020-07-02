@@ -4,10 +4,13 @@ namespace Funeral.Core.Model.ViewModels
 {
     public class AchOrgInputViewModels
     {
+        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        public string Id { get; set; }
+
         /// <summary>
         /// 机构编号
         /// </summary>
-        [SugarColumn(IsNullable = false, IsPrimaryKey = true)]
+        [SugarColumn(IsNullable = false)]
         public string OrgId { get; set; }
 
         /// <summary>

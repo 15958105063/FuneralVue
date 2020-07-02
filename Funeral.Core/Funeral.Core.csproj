@@ -20,6 +20,12 @@
 		<NoWarn>1701;1702;1591</NoWarn>
 	</PropertyGroup>
 
+  <PropertyGroup>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  
 	<ItemGroup>
 		<Compile Remove="Hubs\**" />
 		<Content Remove="Hubs\**" />

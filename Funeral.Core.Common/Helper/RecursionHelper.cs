@@ -182,6 +182,42 @@ namespace Funeral.Core.Common.Helper
         public List<NavigationBar> Children { get; set; }
     }
 
+
+    //菜单配置树
+    public class NavigationBarConfiguar
+    {
+        /// <summary>
+        /// 菜单ID
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
+        /// 父级菜单ID
+        /// </summary>
+        public int Pid { get; set; }
+        /// <summary>
+        /// 菜单名称
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
+        /// 是否按钮
+        /// </summary>
+        public bool IsButton { get; set; } = false;
+        /// <summary>
+        /// 路由地址
+        /// </summary>
+        public string Path { get; set; }
+
+        /// <summary>
+        /// 图片地址/
+        /// </summary>
+        public string ImagePath { get; set; }
+
+        /// <summary>
+        /// 子级菜单
+        /// </summary>
+        public List<NavigationBar> Children { get; set; }
+    }
+
     public class NavigationBarMeta
     {
         public string Title { get; set; }

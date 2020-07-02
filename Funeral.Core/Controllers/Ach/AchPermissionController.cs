@@ -35,85 +35,62 @@ namespace Funeral.Core.Controllers
             this._user = user;
         }
 
-
         /// <summary>
-        /// 通过所选角色，获取所配置的按钮
+        /// 根据客户id查询菜单配置信息（四级）
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<MessageModel<AssignStringShow>> GetPermissionIdByRoleId(string id = "")
-        {
-            var data = new MessageModel<AssignStringShow>();
-            //先根据角色按钮关联表 取出所有设置的按钮id
-            var ids = await _achRacServices.Query(a => a.RacRolid == id);
-            var permissionTrees = (from child in ids
-                                   select child.RacBtnid).ToList();
-            data.success = true;
-            if (data.success)
-            {
-                data.response = new AssignStringShow()
-                {
-                    permissionids = permissionTrees,
-                    //assignbtns = assignbtns,
-                };
-                data.msg = "获取成功";
-            }
-            return data;
-        }
-
-        ///// <summary>
-        ///// 根据客户id，获取菜单列表
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
         //[HttpGet]
-        //public async Task<MessageModel<List<PermissionTree>>> GetPermissionTree(int id = 0)
+        //[AllowAnonymous]
+        //public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int id)
         //{
-        //    var data = new MessageModel<List<PermissionTree>>();
+        //    //由于四级的表都不一样，所以这里需要手动添加四级
 
-        //    var list=await 
+        //    var data = new MessageModel<List<NavigationBar>>();
+        //    var roleIds = new List<int>();
 
-        //    var pidlist = await _permissionTenanServices.Query(a => a.TenanId == id);
-        //    List<PermissionTree> permissionTrees = new List<PermissionTree>() { };
-        //        foreach (var item in pidlist)
+        //        var rolePermissionMoudles = (await _permissionServices.Query()).OrderBy(c => c.OrderSort);
+        //        foreach (var item in rolePermissionMoudles)
         //        {
-
-        //            var permissions = await _permissionServices.QueryById(item.PermissionId);
-
-        //            permissionTrees.Add(new PermissionTree
+        //            if (item.IsButton)
         //            {
-        //                Value = permissions.Id,
-        //                Label = permissions.Name,
-        //                Pid = permissions.Pid,
-        //                Isbtn = permissions.IsButton,
-        //                Order = permissions.OrderSort,
-        //            });
+        //                var modulemodel = await _moduleServices.QueryById(item.Mid);
+        //                if (modulemodel != null)
+        //                {
+        //                    item.MName = modulemodel.LinkUrl;
+        //                }
+        //            }
+
         //        }
-
-        //    PermissionTree rootRoot = new PermissionTree
-        //    {
-
-        //    };
-
-        //    permissionTrees = permissionTrees.OrderBy(d => d.Order).ToList();
-
-
-        //    RecursionHelper.LoopToAppendChildren(permissionTrees, rootRoot, id);
-
-        //    data.success = true;
-        //    if (data.success)
-        //    {
-        //        data.response = rootRoot.Children;
-        //        data.msg = "获取成功";
-        //    }
-
+        //        var permissionTrees = (from child in rolePermissionMoudles
+        //                               where child.IsDeleted == false
+        //                               orderby child.Id
+        //                               select new NavigationBar
+        //                               {
+        //                                   Id = child.Id,
+        //                                   Name = child.Name,
+        //                                   Pid = child.Pid,
+        //                                   Order = child.OrderSort,
+        //                                   Path = child.Code,
+        //                                   IconCls = child.Icon,
+        //                                   Func = child.Func,
+        //                                   IsHide = child.IsHide.ObjToBool(),
+        //                                   IsButton = child.IsButton.ObjToBool(),
+        //                                   ApiLink = child.MName
+        //                               }).ToList();
+        //        NavigationBar rootRoot = new NavigationBar()
+        //        {
+        //        };
+        //        RecursionHelper.LoopNaviBarAppendChildren(permissionTrees, rootRoot);
+        //        ;
+        //        data.success = true;
+        //        if (data.success)
+        //        {
+        //            data.response = rootRoot.Children;
+        //            data.msg = "获取成功";
+        //        }
         //    return data;
         //}
-
-
 
     }
 }

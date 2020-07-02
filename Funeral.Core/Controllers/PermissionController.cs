@@ -229,7 +229,10 @@ namespace Funeral.Core.Controllers
 
             //根据mid，取出mname
             var module =await _moduleServices.QueryById(permission.Mid);
-            permission.MName = module.LinkUrl;
+            if (module!=null) {
+                permission.MName = module.LinkUrl;
+            }
+      
 
             if (permission != null && permission.Id > 0)
             {

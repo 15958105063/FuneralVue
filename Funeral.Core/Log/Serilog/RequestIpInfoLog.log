@@ -325,3 +325,5 @@
 {"Ip":"::1","Url":"/api/achorg/post","Datetime":"2020-07-01 15:45:50","Date":"2020-07-01","Week":"周三"},
 {"Ip":"::1","Url":"/api/achorg/post","Datetime":"2020-07-01 15:47:30","Date":"2020-07-01","Week":"周三"},
 {"Ip":"::1","Url":"/api/achrol/getachrollistbypage","Datetime":"2020-07-01 16:44:29","Date":"2020-07-01","Week":"周三"},
+{"Ip":"::1","Url":"/api/login/login","Datetime":"2020-07-02 09:04:16","Date":"2020-07-02","Week":"周四"},
+{"Ip":"::1","Url":"/api/permission/post","Datetime":"2020-07-02 09:05:03","Date":"2020-07-02","Week":"周四"},

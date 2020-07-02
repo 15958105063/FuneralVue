@@ -195,8 +195,97 @@ namespace Funeral.Core.Services
 
         #endregion
 
+        public async Task<string> SaveWordFile(string savePath, string tablename,string linktable1, int tid)
+        {
+            tablename = tablename.Replace("Ach", "Ful");
+            savePath = "";
+            string currentDate = DateTime.Now.ToString("yyyyMMdd");
+            string checkTime = DateTime.Now.ToString("yyyy年MM月dd日");//检查时间
+                                                                    //保存文件到静态资源wwwroot,使用绝对路径路径
+            var uploadPath = _environment.WebRootPath + "/SaveWordFile/" + currentDate + "/";//>>>相当于HttpContext.Current.Server.MapPath("") 
+            try
+            {
+
+
+                string workFileName = checkTime + "SQL配置脚本";
+                string fileName = string.Format("{0}.docx", workFileName, System.Text.Encoding.UTF8);
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+
+                //TODO:使用FileStream文件流来写入数据（传入参数为：文件所在路径，对文件的操作方式，对文件内数据的操作）
+                //通过使用文件流，创建文件流对象，向文件流中写入内容，并保存为Word文档格式
+                using (var stream = new FileStream(Path.Combine(uploadPath, fileName), FileMode.Create, FileAccess.Write))
+                {
+                    //创建document文档对象对象实例
+                    XWPFDocument document = new XWPFDocument();
+
+                    /**
+                     *这里我通过设置公共的Word文档中SetParagraph（段落）实例创建和段落样式格式设置，大大减少了代码的冗余，
+                     * 避免每使用一个段落而去创建一次段落实例和设置段落的基本样式
+                     *(如下，ParagraphInstanceSetting为段落实例创建和样式设置，后面索引表示为当前是第几行段落,索引从0开始)
+                     */
+                    //文本标题
+                    //document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, workFileName, true, 19, "宋体", ParagraphAlignment.CENTER), 0);
+
+                    //TODO:这里一行需要显示两个文本
+                    //循环表格，生成对应的sql脚本
+                    var list = await _achOrgRepository.Query(x => x.Tid == tid);
+
+                    #region 写入文本
+                    //先操作删除语句
+                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE FROM {tablename} ;", false, 6, "宋体", ParagraphAlignment.LEFT), 0);
+
+                    int index = 0;
+                    foreach (var item in list)
+                    {
+                        string insertstring = "";
+                        string valuesstring = "";
+                        Type t = item.GetType();//获得该类的Type
+                        foreach (var pi in t.GetProperties())
+                        {
+                            var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                            var value = pi.GetValue(item, null);//用pi.GetValue获得值
+                            if (name == "Id" || name == "Tid" || name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime")
+                            {
+                                continue;
+                            }
+                            insertstring += $"{name},";
+                            valuesstring += $"'{value}',";
+                        }
+                        //拼接sql语句
+                        insertstring = insertstring.Substring(0, insertstring.Length - 1);
+                        valuesstring = valuesstring.Substring(0, valuesstring.Length - 1);
+                        index++;
+                        document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"INSERT INTO {tablename} ({insertstring}) VALUES({valuesstring});", false, 6, "宋体", ParagraphAlignment.LEFT), index);
+                    }
+                    #endregion
+
+
+
+                    // document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, "登记机关：企业员工监督检查机构", false, 14, "宋体", ParagraphAlignment.LEFT), 2);
+
+                    //向文档流中写入内容，生成word
+                    document.Write(stream);
+
+                    savePath = "/SaveWordFile/" + currentDate + "/" + fileName;
+                    uploadPath += fileName;
+                    return uploadPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                //ignore
+                uploadPath = ex.Message;
+                return "";
+            }
+        }
+
 
         /// <summary>
+        /// 共公用--针对单独导出一个表的情况
         ///  生成word文档,并保存静态资源文件夹（wwwroot)下的SaveWordFile文件夹中
         /// </summary>
         /// <param name="savePath">保存路径</param>
