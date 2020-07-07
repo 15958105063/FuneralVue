@@ -189,11 +189,11 @@ namespace Funeral.Core.Common.Helper
         /// <summary>
         /// 菜单ID
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// 父级菜单ID
         /// </summary>
-        public int Pid { get; set; }
+        public string Pid { get; set; }
         /// <summary>
         /// 菜单名称
         /// </summary>
@@ -215,7 +215,7 @@ namespace Funeral.Core.Common.Helper
         /// <summary>
         /// 子级菜单
         /// </summary>
-        public List<NavigationBar> Children { get; set; }
+        public List<NavigationBarConfiguar> Children { get; set; }
     }
 
     public class NavigationBarMeta

@@ -50,4 +50,3 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.csproj.CoreCompileInputs.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.pdb
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Common\obj\Debug\netcoreapp3.1\Funeral.Core.Common.csprojAssemblyReference.cache

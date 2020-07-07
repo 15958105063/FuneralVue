@@ -746,13 +746,12 @@
             登录管理【无权限】
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.LoginController.#ctor(Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.IServices.IRoleServices,Funeral.Core.AuthHelper.PermissionRequirement,Funeral.Core.IServices.IRoleModulePermissionServices)">
+        <member name="M:Funeral.Core.Controllers.LoginController.#ctor(Funeral.Core.IServices.IRoleTenanServices,Funeral.Core.IServices.ISysUserInfoServices,Funeral.Core.IServices.IUserRoleServices,Funeral.Core.AuthHelper.PermissionRequirement,Funeral.Core.IServices.IRoleModulePermissionServices)">
             <summary>
             构造函数注入
             </summary>
             <param name="sysUserInfoServices"></param>
             <param name="userRoleServices"></param>
-            <param name="roleServices"></param>
             <param name="requirement"></param>
             <param name="roleModulePermissionServices"></param>
         </member>

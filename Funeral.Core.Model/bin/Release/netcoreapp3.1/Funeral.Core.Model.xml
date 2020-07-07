@@ -74,44 +74,34 @@
             FunId
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunFupid">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnFunId">
             <summary>
-            FunFupid
+            BtnFunId
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunValue">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnValue">
              <summary> 
-            FunValue
+            BtnValue
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunName">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnName">
              <summary> 
-            FunName
+            BtnName
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunShowname">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnShowName">
              <summary> 
-            FgpValue
+            BtnShowName
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunUrl">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnAction">
              <summary> 
-            FunUrl
+            BtnAction
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunImageurl">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnNum">
              <summary> 
-            FunImageurl
-             </summary> 
-        </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunNum">
-             <summary> 
-            FunNum
-             </summary> 
-        </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunController">
-             <summary> 
-            FunController
+            BtnNum
              </summary> 
         </member>
         <member name="P:Funeral.Core.Model.Models.AchBtn.CreateId">
@@ -2463,6 +2453,71 @@
              <summary> 
             序号
              </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.AchId">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.OrgId">
+            <summary>
+            机构编号
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Code">
+            <summary>
+            菜单路由地址
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Name">
+            <summary>
+            菜单显示名（如用户页、编辑(按钮)、删除(按钮)）
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.IsButton">
+            <summary>
+            是否是按钮
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.ProName">
+            <summary>
+            ProName
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpProtype">
+            <summary>
+            FgpProtype
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpPruid">
+            <summary>
+            FgpPruid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpValue">
+            <summary>
+            FgpValue
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpImageurl">
+            <summary>
+            FgpImageurl
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpNum">
+            <summary>
+            FgpNum
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Pid">
+            <summary>
+            上一级菜单（0表示上一级无菜单）
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Mid">
+            <summary>
+            接口api
+            </summary>
         </member>
         <member name="T:Funeral.Core.Model.ViewModels.AdvertisementViewModels">
             <summary>

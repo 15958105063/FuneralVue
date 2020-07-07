@@ -45,6 +45,7 @@ namespace Funeral.Core
 
             Permissions.IsUseIds4 = Appsettings.app(new string[] { "Startup", "IdentityServer4", "Enabled" }).ObjToBool();
 
+            services.AddMiniProfiler(options =>options.RouteBasePath = "/profiler");//性能检测
             services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);//JSON首字母小写解决
             services.AddMemoryCacheSetup();
             services.AddSqlsugarSetup();
@@ -173,6 +174,9 @@ namespace Funeral.Core
             app.UseQuartzJobMildd(tasksQzServices, schedulerCenter);
             //服务注册
             app.UseConsulMildd(Configuration, lifetime);
+
+            //性能检测
+            app.UseMiniProfiler();
         }
 
     }

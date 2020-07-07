@@ -733,9 +733,6 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funer
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.csprojAssemblyReference.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.AssemblyInfoInputs.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.AssemblyInfo.cs
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.csproj.CoreCompileInputs.cache
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.MvcApplicationPartsAssemblyInfo.cs
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.RazorTargetAssemblyInfo.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.csproj.CopyComplete
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\staticwebassets\Funeral.Core.StaticWebAssets.Manifest.cache
@@ -743,4 +740,7 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\stati
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.genruntimeconfig.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.csproj.CoreCompileInputs.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.pdb

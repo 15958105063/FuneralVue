@@ -21,12 +21,10 @@ namespace Funeral.Core.Controllers
 
     public class AchUsrController : ControllerBase
     {
-        private readonly INpoiWordExportServices _npoiWordExportServices;
         private readonly IAchUsrServices _achUsrServices;
         private readonly IMapper _mapper;
         readonly IUser _user;
-        public AchUsrController(INpoiWordExportServices npoiWordExportServices,IUser user, IMapper mapper,IAchUsrServices achUsrServices) {
-            this._npoiWordExportServices = npoiWordExportServices;
+        public AchUsrController(IUser user, IMapper mapper,IAchUsrServices achUsrServices) {
             this._achUsrServices = achUsrServices;
             this._mapper = mapper;
             this._user = user;
@@ -146,7 +144,7 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            var result = await _npoiWordExportServices.SaveWordFile("", "AchUsr", id);
+            var result = await _achUsrServices.SaveWordFile("", "AchUsr", id);
 
             return new MessageModel<string>()
             {

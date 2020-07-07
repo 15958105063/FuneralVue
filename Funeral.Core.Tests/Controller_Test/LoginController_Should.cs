@@ -33,7 +33,7 @@ namespace Funeral.Core.Tests
             _roleServices = container.Resolve<IRoleServices>();
             _requirement = container.Resolve<PermissionRequirement>();
             _roleModulePermissionServices = container.Resolve<IRoleModulePermissionServices>();
-            loginController = new LoginController(_roleTenanServices, _sysUserInfoServices, _userRoleServices,_roleServices,_requirement, _roleModulePermissionServices);
+            loginController = new LoginController(_roleTenanServices, _sysUserInfoServices, _userRoleServices,_requirement, _roleModulePermissionServices);
         }
 
         [Fact]

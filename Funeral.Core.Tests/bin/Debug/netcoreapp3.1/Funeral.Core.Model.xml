@@ -74,44 +74,34 @@
             FunId
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunFupid">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnFunId">
             <summary>
-            FunFupid
+            BtnFunId
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunValue">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnValue">
              <summary> 
-            FunValue
+            BtnValue
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunName">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnName">
              <summary> 
-            FunName
+            BtnName
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunShowname">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnShowName">
              <summary> 
-            FgpValue
+            BtnShowName
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunUrl">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnAction">
              <summary> 
-            FunUrl
+            BtnAction
              </summary> 
         </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunImageurl">
+        <member name="P:Funeral.Core.Model.Models.AchBtn.BtnNum">
              <summary> 
-            FunImageurl
-             </summary> 
-        </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunNum">
-             <summary> 
-            FunNum
-             </summary> 
-        </member>
-        <member name="P:Funeral.Core.Model.Models.AchBtn.FunController">
-             <summary> 
-            FunController
+            BtnNum
              </summary> 
         </member>
         <member name="P:Funeral.Core.Model.Models.AchBtn.CreateId">

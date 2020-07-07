@@ -21,12 +21,10 @@ namespace Funeral.Core.Controllers
     [ApiController]
     public class AchRolController : ControllerBase
     {
-        private readonly INpoiWordExportServices _npoiWordExportServices;
         private readonly IAchRolServices _achRolServices;
         private readonly IMapper _mapper;
         readonly IUser _user;
-        public AchRolController(INpoiWordExportServices npoiWordExportServices,IUser user, IMapper mapper,IAchRolServices achRolServices) {
-            this._npoiWordExportServices = npoiWordExportServices;
+        public AchRolController(IUser user, IMapper mapper,IAchRolServices achRolServices) {
             this._achRolServices = achRolServices;
             this._mapper = mapper;
             this._user = user;
@@ -170,7 +168,7 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            var result = await _npoiWordExportServices.SaveWordFile("", "AchRol", id);
+            var result = await _achRolServices.SaveWordFile("", "AchRol", id);
 
             return new MessageModel<string>()
             {

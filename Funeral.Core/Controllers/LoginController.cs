@@ -28,7 +28,6 @@ namespace Funeral.Core.Controllers
         readonly IRoleTenanServices _roleTenanServices;
         readonly ISysUserInfoServices _sysUserInfoServices;
         readonly IUserRoleServices _userRoleServices;
-        readonly IRoleServices _roleServices;
         readonly PermissionRequirement _requirement;
         private readonly IRoleModulePermissionServices _roleModulePermissionServices;
 
@@ -38,15 +37,13 @@ namespace Funeral.Core.Controllers
         /// </summary>
         /// <param name="sysUserInfoServices"></param>
         /// <param name="userRoleServices"></param>
-        /// <param name="roleServices"></param>
         /// <param name="requirement"></param>
         /// <param name="roleModulePermissionServices"></param>
-        public LoginController(IRoleTenanServices roleTenanServices ,ISysUserInfoServices sysUserInfoServices, IUserRoleServices userRoleServices, IRoleServices roleServices, PermissionRequirement requirement, IRoleModulePermissionServices roleModulePermissionServices)
+        public LoginController(IRoleTenanServices roleTenanServices ,ISysUserInfoServices sysUserInfoServices, IUserRoleServices userRoleServices, PermissionRequirement requirement, IRoleModulePermissionServices roleModulePermissionServices)
         {
             this._roleTenanServices = roleTenanServices;
             this._sysUserInfoServices = sysUserInfoServices;
             this._userRoleServices = userRoleServices;
-            this._roleServices = roleServices;
             _requirement = requirement;
             _roleModulePermissionServices = roleModulePermissionServices;
         }
@@ -136,7 +133,6 @@ namespace Funeral.Core.Controllers
         #endregion
 
 
-
         /// <summary>
         /// 获取JWT的方法3：整个系统主要方法
         /// </summary>
@@ -224,12 +220,17 @@ namespace Funeral.Core.Controllers
         [Route("Login")]
         public async Task<MessageModel<TokenInfoViewModel>> GetJwtToken3(string userNameOrEmailAddress = "", string password = "",string tenanId = "")
         {
-            string index = "";
-          //await  _NpoiWordExportServices.SaveWordFile(index,"ROLE",1);
+            //using (MiniProfiler.Current.Step("进入方法"))
+            //{
 
-
+            //    using (MiniProfiler.Current.CustomTiming("HTTP", "GET " + "http://localhost:8081/?userNameOrEmailAddress=admin&password=123qwe&tenanId=1"))
+            //    {
+            //        var client = new WebClient();
+            //        var reply = client.DownloadString("http://localhost:8081/?userNameOrEmailAddress=admin&password=123qwe&tenanId=1");
+            //    }
+            //}
+                string index = "";
             string jwtStr = string.Empty;
-
             if (string.IsNullOrEmpty(userNameOrEmailAddress) || string.IsNullOrEmpty(password))
             {
                 return new MessageModel<TokenInfoViewModel>()
@@ -238,7 +239,6 @@ namespace Funeral.Core.Controllers
                     msg = "用户名或密码不能为空",
                 };
             }
-
             if (string.IsNullOrEmpty(tenanId)) {
                 return new MessageModel<TokenInfoViewModel>()
                 {

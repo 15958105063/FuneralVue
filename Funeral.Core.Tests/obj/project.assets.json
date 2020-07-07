@@ -1328,10 +1328,10 @@
           }
         }
       },
-      "MiniProfiler.AspNetCore/4.1.0": {
+      "MiniProfiler.AspNetCore/4.2.1": {
         "type": "package",
         "dependencies": {
-          "MiniProfiler.Shared": "4.1.0",
+          "MiniProfiler.Shared": "4.2.1",
           "System.Text.Json": "4.6.0"
         },
         "compile": {
@@ -1359,7 +1359,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "MiniProfiler.Shared/4.1.0": {
+      "MiniProfiler.Shared/4.2.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
@@ -4184,6 +4184,7 @@
           "Microsoft.Extensions.Logging.Debug": "5.0.0-preview.2.20160.3",
           "Microsoft.Extensions.Logging.Log4Net.AspNetCore": "3.1.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.9.10",
+          "MiniProfiler.AspNetCore": "4.2.1",
           "MiniProfiler.AspNetCore.Mvc": "4.1.0",
           "Newtonsoft.Json": "12.0.3",
           "Swashbuckle.AspNetCore": "5.3.3",
@@ -5875,10 +5876,10 @@
         "version.txt"
       ]
     },
-    "MiniProfiler.AspNetCore/4.1.0": {
-      "sha512": "GAolybrh6kZr9VOd6lMbV9qn+Ok3ZJAqjjdGNL9eN506apGiFKxebUwvsNHg3TNxRqqorNgbqZ00oA6vMI7wTw==",
+    "MiniProfiler.AspNetCore/4.2.1": {
+      "sha512": "AfVJg/dSgXE94O5X+hMueTijVLrg2g3vbKqusUQRMX5UQoi7ql/kWkDmsUOgnnO8SqlhfOq6SohgeaJT1HRLsw==",
       "type": "package",
-      "path": "miniprofiler.aspnetcore/4.1.0",
+      "path": "miniprofiler.aspnetcore/4.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5889,7 +5890,7 @@
         "lib/netcoreapp3.0/MiniProfiler.AspNetCore.xml",
         "lib/netstandard2.0/MiniProfiler.AspNetCore.dll",
         "lib/netstandard2.0/MiniProfiler.AspNetCore.xml",
-        "miniprofiler.aspnetcore.4.1.0.nupkg.sha512",
+        "miniprofiler.aspnetcore.4.2.1.nupkg.sha512",
         "miniprofiler.aspnetcore.nuspec"
       ]
     },
@@ -5911,10 +5912,10 @@
         "miniprofiler.aspnetcore.mvc.nuspec"
       ]
     },
-    "MiniProfiler.Shared/4.1.0": {
-      "sha512": "IwegwsBUaQgeBv8xaoLzouMDHtysys4ww0UncyG9MZu6dRnE/zrNUSRkC07gV3Sdv08Z3H5sMEF902TVNf+1GA==",
+    "MiniProfiler.Shared/4.2.1": {
+      "sha512": "IRfZWkix/ZXBJHbr1A8QXN092UxQ/W4Xfr047WAZS5fPmO1ANg35g8/OeZngLICJjG/MVVUO9KHL3yHdikMyFA==",
       "type": "package",
-      "path": "miniprofiler.shared/4.1.0",
+      "path": "miniprofiler.shared/4.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5923,7 +5924,7 @@
         "lib/net461/MiniProfiler.Shared.xml",
         "lib/netstandard2.0/MiniProfiler.Shared.dll",
         "lib/netstandard2.0/MiniProfiler.Shared.xml",
-        "miniprofiler.shared.4.1.0.nupkg.sha512",
+        "miniprofiler.shared.4.2.1.nupkg.sha512",
         "miniprofiler.shared.nuspec"
       ]
     },

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "z+PrNR8GFmj0K+x0lhPsI+3oh6ZYrfFts6D75MYiR20S9J5SvOSS87St2OEq7C89aWPqFmlu3vxOLdq77Jef7g==",
+  "dgSpecHash": "mPzgYOeqchMg0iy8LWZGwghDoclCAAyYzuSWqD8s/E0qoWRGYNSLBK1ioB1twzvJSnrpvrXAksJkJEpgpZNENQ==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Tests\\Funeral.Core.Tests.csproj",
   "expectedPackageFiles": [
@@ -86,9 +86,9 @@
     "C:\\Users\\74431\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\74431\\.nuget\\packages\\miniprofiler.aspnetcore\\4.1.0\\miniprofiler.aspnetcore.4.1.0.nupkg.sha512",
+    "C:\\Users\\74431\\.nuget\\packages\\miniprofiler.aspnetcore\\4.2.1\\miniprofiler.aspnetcore.4.2.1.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\miniprofiler.aspnetcore.mvc\\4.1.0\\miniprofiler.aspnetcore.mvc.4.1.0.nupkg.sha512",
-    "C:\\Users\\74431\\.nuget\\packages\\miniprofiler.shared\\4.1.0\\miniprofiler.shared.4.1.0.nupkg.sha512",
+    "C:\\Users\\74431\\.nuget\\packages\\miniprofiler.shared\\4.2.1\\miniprofiler.shared.4.2.1.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\moq\\4.13.1\\moq.4.13.1.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\mysql.data\\8.0.15\\mysql.data.8.0.15.nupkg.sha512",
     "C:\\Users\\74431\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",

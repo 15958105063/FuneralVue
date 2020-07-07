@@ -23,57 +23,47 @@ namespace Funeral.Core.Model.Models
         public string BtnId { get; set; }
 
         /// <summary>
-        /// FunFupid
+        /// BtnFunId
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string FunFupid { get; set; }
+        public string BtnFunId { get; set; }
 
 
         /// <summary> 
-        ///FunValue
+        ///BtnValue
         /// </summary> 
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string FunValue { get; set; }
+        public string BtnValue { get; set; }
 
 
         /// <summary> 
-        ///FunName
+        ///BtnName
         /// </summary> 
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string FunName { get; set; }
+        public string BtnName { get; set; }
 
 
         /// <summary> 
-        ///FgpValue
+        ///BtnShowName
         /// </summary> 
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string FunShowname { get; set; }
+        public string BtnShowName { get; set; }
 
         /// <summary> 
-        ///FunUrl
+        ///BtnAction
         /// </summary> 
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string FunUrl { get; set; }
+        public string BtnAction { get; set; }
+
+
 
         /// <summary> 
-        ///FunImageurl
-        /// </summary> 
-        [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string FunImageurl { get; set; }
-
-        /// <summary> 
-        ///FunNum
+        ///BtnNum
         /// </summary> 
         [SugarColumn(ColumnDataType = "int", IsNullable = true)]
-        public int? FunNum { get; set; }
+        public int? BtnNum { get; set; }
 
-        /// <summary> 
-        ///FunController
-        /// </summary> 
-        [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
-        public string FunController { get; set; }
-
-
+       
         /// <summary>
         /// 创建ID
         /// </summary>

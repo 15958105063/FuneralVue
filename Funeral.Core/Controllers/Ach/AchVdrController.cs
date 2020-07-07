@@ -44,7 +44,6 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<MessageModel<PageModel<AchVdr>>> GetAchVdrListByPage(int pageindex = 1, int pagesize = 50, string orderby = "VdrId desc", string key = "",int id=1)
         {
             Expression<Func<AchVdr, bool>> whereExpression = a => (a.VdrId != "" && a.VdrId != null&&a.Tid==id);
@@ -67,10 +66,10 @@ namespace Funeral.Core.Controllers
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<MessageModel<AchVdr>> GetById(string id)
+        public async Task<MessageModel<AchVdr>> GetById(int id)
         {
             //先根据关联表获取角色ID，再循环获取角色name
-            var model = (await _achVdrServices.Query(x => x.VdrId == id)).FirstOrDefault();
+            var model = (await _achVdrServices.Query(x => x.Id == id)).FirstOrDefault();
             var data = new MessageModel<AchVdr> { response = model, msg = "", success = true };
             return data;
         }
@@ -87,7 +86,7 @@ namespace Funeral.Core.Controllers
         {
             var data = new MessageModel<string>();
 
-            if (!string.IsNullOrEmpty(models.VdrId))
+            if (models.Id>0)
             {
                 //更新
                 models.ModifyBy = _user.ID.ToString();
@@ -145,7 +144,7 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            var result = await _npoiWordExportServices.SaveWordFile("", "AchVdr", id);
+            var result = await _achVdrServices.SaveWordFile("", "AchVdr", id);
 
             return new MessageModel<string>()
             {

@@ -24,11 +24,10 @@ namespace Funeral.Core.Controllers.Ach
 
         readonly IUser _user;
         readonly IAchDptServices _achDptServices;
-        private readonly INpoiWordExportServices _npoiWordExportServices;
-        public AchDptController(INpoiWordExportServices npoiWordExportServices, IUser user, IAchDptServices achDptServices) {
+
+        public AchDptController(IUser user, IAchDptServices achDptServices) {
             this._user = user;
-            this._achDptServices = achDptServices;
-            this._npoiWordExportServices = npoiWordExportServices;
+            this._achDptServices = achDptServices;;
         }
 
         /// <summary>
@@ -167,7 +166,7 @@ namespace Funeral.Core.Controllers.Ach
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id = 0)
         {
-            var result = await _npoiWordExportServices.SaveWordFile("", "AchDpt", id);
+            var result = await _achDptServices.SaveWordFile("", "AchDpt", id);
 
             return new MessageModel<string>()
             {
