@@ -68,11 +68,5 @@ namespace Funeral.Core.Model.ViewModels
         public string Pid { get; set; }
 
 
-        /// <summary>
-        /// 接口api
-        /// </summary>
-        public string Mid { get; set; }
-
-
     }
 }

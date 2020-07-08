@@ -17,7 +17,7 @@ namespace Funeral.Core.Services.BASE
         public IBaseRepository<TEntity> BaseDal;//通过在子类的构造函数中注入，这里是基类，不用构造函数
 
 
-        [Caching(AbsoluteExpiration = 10)]
+ 
         public async Task<TEntity> QueryById(object objId)
         {
             return await BaseDal.QueryById(objId);

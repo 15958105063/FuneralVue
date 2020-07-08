@@ -2454,6 +2454,66 @@
             序号
              </summary> 
         </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.AchId">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.OrgId">
+            <summary>
+            机构编号
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Code">
+            <summary>
+            菜单路由地址
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Name">
+            <summary>
+            菜单显示名（如用户页、编辑(按钮)、删除(按钮)）
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.IsButton">
+            <summary>
+            是否是按钮
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.ProName">
+            <summary>
+            ProName
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpProtype">
+            <summary>
+            FgpProtype
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpPruid">
+            <summary>
+            FgpPruid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpValue">
+            <summary>
+            FgpValue
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpImageurl">
+            <summary>
+            FgpImageurl
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpNum">
+            <summary>
+            FgpNum
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Pid">
+            <summary>
+            上一级菜单（0表示上一级无菜单）
+            </summary>
+        </member>
         <member name="T:Funeral.Core.Model.ViewModels.AdvertisementViewModels">
             <summary>
             广告类

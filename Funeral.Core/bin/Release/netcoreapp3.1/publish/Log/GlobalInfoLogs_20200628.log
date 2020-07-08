@@ -1,3 +1,0 @@
-2020-06-28 17:09:19,493| INFO  
-Request post:/api/tenan/post from IP 192.168.66.127 has been blocked, quota 3/1s exceeded by 4. Blocked by rule */api/*, TraceIdentifier 0HM0R8827BHCN:0000000A.
---------------------------------

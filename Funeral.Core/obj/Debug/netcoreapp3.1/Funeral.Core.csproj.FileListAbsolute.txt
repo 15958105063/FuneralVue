@@ -601,7 +601,6 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funer
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.runtimeconfig.dev.json
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.pdb
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.xml
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\AspNetCoreRateLimit.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Autofac.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll

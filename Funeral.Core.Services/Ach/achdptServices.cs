@@ -134,7 +134,7 @@ namespace Funeral.Core.Services
             catch (Exception ex)
             {
                 //ignore
-                uploadPath = ex.Message;
+                savePath = ex.Message;
                 return "";
             }
         }

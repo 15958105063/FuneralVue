@@ -2514,11 +2514,6 @@
             上一级菜单（0表示上一级无菜单）
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Mid">
-            <summary>
-            接口api
-            </summary>
-        </member>
         <member name="T:Funeral.Core.Model.ViewModels.AdvertisementViewModels">
             <summary>
             广告类

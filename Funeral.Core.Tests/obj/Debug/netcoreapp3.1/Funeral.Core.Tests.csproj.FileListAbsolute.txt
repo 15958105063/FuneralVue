@@ -672,9 +672,7 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Repository.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Services.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Tasks.dll
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Repository.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.pdb
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.xml
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Common.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.IRepository.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.IServices.pdb
@@ -689,4 +687,4 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1\Funeral.Core.Tests.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1\Funeral.Core.Tests.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1\Funeral.Core.Tests.genruntimeconfig.cache
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Services.pdb
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Repository.pdb

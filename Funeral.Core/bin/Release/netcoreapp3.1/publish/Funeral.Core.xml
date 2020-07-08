@@ -347,6 +347,20 @@
             初始化 菜单按钮和字段管理
             </summary>
         </member>
+        <member name="M:Funeral.Core.Controllers.AchPermissionController.GetNavigationBarConfiguar(System.Int32)">
+            <summary>
+            根据客户id查询菜单配置信息（四级）
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.AchPermissionController.Post(Funeral.Core.Model.ViewModels.AchPermissionInputViewModels)">
+            <summary>
+            新增/修改菜单配置信息
+            </summary>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
         <member name="T:Funeral.Core.Controllers.AchRacController">
             <summary>
             角色按钮关联配置
@@ -572,7 +586,7 @@
              <param name="id">客户ID</param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.AchVdrController.GetById(System.String)">
+        <member name="M:Funeral.Core.Controllers.AchVdrController.GetById(System.Int32)">
             <summary>
             根据id获取配置厂家信息
             </summary>
