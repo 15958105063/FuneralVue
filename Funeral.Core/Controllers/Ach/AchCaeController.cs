@@ -119,7 +119,7 @@ namespace Funeral.Core.Controllers.Ach
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<MessageModel<PageModel<AchCae>>> GetAchCaeListByPage(int pageindex = 1, int pagesize = 50, string orderby = "CtpId desc", string key = "", int id = 1)
+        public async Task<MessageModel<PageModel<AchCae>>> GetAchCaeListByPage(int pageindex = 1, int pagesize = 50, string orderby = "", string key = "", int id = 1)
         {
             Expression<Func<AchCae, bool>> whereExpression = a => (a.Tid == id);
             var pageModelBlog = await _AchCaeServices.QueryPage(whereExpression, pageindex, pagesize, orderby);

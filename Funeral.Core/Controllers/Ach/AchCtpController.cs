@@ -45,7 +45,7 @@ namespace Funeral.Core.Controllers.Ach
                               select new KeyValue
                               {
                                   Key = child.CtpId,
-                                  Value = child.CtpName,
+                                  Value = child.CtpId,
                               }).ToList();
             var data = new MessageModel<List<KeyValue>> { };
             data.success = true;

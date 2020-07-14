@@ -648,6 +648,50 @@
             <param name="id">客户id</param>
             <returns></returns>
         </member>
+        <member name="T:Funeral.Core.Controllers.Ach.AchRsaController">
+            <summary>
+            资源安排表配置
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchRsaController.GetById(System.Int32)">
+            <summary>
+            根据id获取资源表信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchRsaController.Post(Funeral.Core.Model.Models.AchRsa)">
+            <summary>
+            新增/更新资源表信息
+            </summary>
+            <param name="models">资源表信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchRsaController.GetAchRsaListByPage(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            分页查询资源表信息
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="orderby"></param>
+            <param name="key"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchRsaController.Delete(System.Int32)">
+            <summary>
+            删除资源表信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.Ach.AchRsaController.Export(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="id">客户id</param>
+            <returns></returns>
+        </member>
         <member name="T:Funeral.Core.Controllers.Ach.AchRscController">
             <summary>
             资源表配置
@@ -1515,6 +1559,13 @@
         <member name="M:Funeral.Core.Controllers.PermissionController.DeleteOrActivation(System.Int32)">
             <summary>
             禁用/启用菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.PermissionController.Delete(System.Int32)">
+            <summary>
+            删除菜单
             </summary>
             <param name="id"></param>
             <returns></returns>
