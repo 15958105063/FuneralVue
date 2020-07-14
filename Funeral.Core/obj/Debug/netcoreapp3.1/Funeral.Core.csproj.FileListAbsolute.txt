@@ -742,3 +742,5 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funer
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.csproj.CoreCompileInputs.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Debug\netcoreapp3.1\Funeral.Core.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Repository.pdb
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Debug\netcoreapp3.1\Funeral.Core.Services.pdb

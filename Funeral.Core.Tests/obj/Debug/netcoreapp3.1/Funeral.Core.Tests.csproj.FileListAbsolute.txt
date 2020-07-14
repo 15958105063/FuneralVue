@@ -687,3 +687,5 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1\Funeral.Core.Tests.dll
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1\Funeral.Core.Tests.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\obj\Debug\netcoreapp3.1\Funeral.Core.Tests.genruntimeconfig.cache
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Repository.pdb
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.Tests\bin\Debug\netcoreapp3.1\Funeral.Core.Services.pdb
