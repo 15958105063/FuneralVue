@@ -24,9 +24,13 @@
   
 	<ItemGroup>
 		<Compile Remove="Hubs\**" />
+		<Compile Remove="Log\**" />
 		<Content Remove="Hubs\**" />
+		<Content Remove="Log\**" />
 		<EmbeddedResource Remove="Hubs\**" />
+		<EmbeddedResource Remove="Log\**" />
 		<None Remove="Hubs\**" />
+		<None Remove="Log\**" />
 	</ItemGroup>
 
 	<ItemGroup>
