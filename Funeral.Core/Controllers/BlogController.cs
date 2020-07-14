@@ -339,7 +339,7 @@ namespace Funeral.Core.Controllers
             return new MessageModel<bool>()
             {
                 success = true,
-                msg = "更新成功",
+                msg = "更新成功111",
                 response = await _blogArticleServices.Update(new { bsubmitter = $"laozhang{DateTime.Now.Millisecond}", bID = 1 })
             };
         }
