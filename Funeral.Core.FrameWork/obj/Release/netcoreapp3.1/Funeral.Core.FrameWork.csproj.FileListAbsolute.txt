@@ -1,8 +1,0 @@
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\bin\Release\netcoreapp3.1\Funeral.Core.FrameWork.deps.json
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\bin\Release\netcoreapp3.1\Funeral.Core.FrameWork.dll
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\bin\Release\netcoreapp3.1\Funeral.Core.FrameWork.pdb
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Release\netcoreapp3.1\Funeral.Core.FrameWork.AssemblyInfoInputs.cache
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Release\netcoreapp3.1\Funeral.Core.FrameWork.AssemblyInfo.cs
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Release\netcoreapp3.1\Funeral.Core.FrameWork.csproj.CoreCompileInputs.cache
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Release\netcoreapp3.1\Funeral.Core.FrameWork.dll
-D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core.FrameWork\obj\Release\netcoreapp3.1\Funeral.Core.FrameWork.pdb
