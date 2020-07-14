@@ -17,7 +17,7 @@ namespace Funeral.Core
              {
                  webBuilder
                  .UseStartup<Startup>()
-                 .UseUrls("http://*:8082")
+                 //.UseUrls("http://*:8081")
                  
                  .ConfigureLogging((hostingContext, builder) =>
                  {

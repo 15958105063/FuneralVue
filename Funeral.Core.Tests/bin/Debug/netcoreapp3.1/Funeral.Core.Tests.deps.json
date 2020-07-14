@@ -2937,6 +2937,7 @@
           "Consul": "1.6.1.1",
           "Funeral.Core.IRepository": "1.0.0",
           "Funeral.Core.IServices": "1.0.0",
+          "Funeral.Core.Repository": "1.0.0",
           "Funeral.Core.Services": "1.0.0",
           "Funeral.Core.Tasks": "1.0.0",
           "IdentityServer4.AccessTokenValidation": "3.0.1",

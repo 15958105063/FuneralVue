@@ -45,6 +45,7 @@ namespace Funeral.Core.AuthHelper
 
             if (!requirement.Permissions.Any())
             {
+                //获取角色-路由设置权限
                 var data = await _roleModulePermissionServices.RoleModuleMaps();
                 var list = new List<PermissionItem>();
                 // ids4和jwt切换
@@ -113,6 +114,7 @@ namespace Funeral.Core.AuthHelper
                         else
                         {
                             // jwt
+                            //获取当前jwt的角色
                             currentUserRoles = (from item in httpContext.User.Claims
                                                 where item.Type == requirement.ClaimType
                                                 select item.Value).ToList();

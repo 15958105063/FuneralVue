@@ -16,7 +16,7 @@ namespace Funeral.Core.Controllers
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(Permissions.Name)]
+    //[Authorize(Permissions.Name)]
     public class RoleController : ControllerBase
     {
         // readonly INpoiWordExportServices _NpoiWordExportServices;
@@ -37,21 +37,21 @@ namespace Funeral.Core.Controllers
         /// <summary>
         /// 根据ID获取角色信息
         /// </summary>
-        /// <param name="rid"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<MessageModel<Role>> GetById(int rid)
+        public async Task<MessageModel<Role>> GetById(int id)
         {
 
-            var data = new MessageModel<Role> { response = await _roleServices.QueryById(rid) };
+            var data = new MessageModel<Role> { response = await _roleServices.QueryById(id) };
             if (data.response != null)
             {
                 var allRoleTenans = await _roleTenanServices.Query(d => d.IsDeleted == false);
                 var allTenans = await _tenanServices.Query(d => d.Enabled == true);
 
                 var currentUserRoles = allRoleTenans.Where(d => d.RoleId == data.response.Id).Select(d => d.TenanId).ToList();
-                data.response.TIDs = currentUserRoles;
+                data.response.TIDs = currentUserRoles[0];
                 data.response.TenanNames = allTenans.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.TenanName).ToList();
 
                 data.success = true;
@@ -122,7 +122,10 @@ namespace Funeral.Core.Controllers
                 foreach (var item in sysUserInfos)
                 {
                     var currentUserRoles = allRoleTenans.Where(d => d.RoleId == item.Id).Select(d => d.TenanId).ToList();
-                    item.TIDs = currentUserRoles;
+                    if (currentUserRoles.Count>0) {
+                        item.TIDs = currentUserRoles[0];
+                    }
+                 
                     item.TenanNames = allTenans.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.TenanName).ToList();
                 }
                 data.data = sysUserInfos;
@@ -152,7 +155,7 @@ namespace Funeral.Core.Controllers
                 foreach (var item in sysUserInfos)
                 {
                     var currentUserRoles = allRoleTenans.Where(d => d.RoleId == item.Id).Select(d => d.TenanId).ToList();
-                    item.TIDs = currentUserRoles;
+                    item.TIDs = currentUserRoles[0];
                     item.TenanNames = allTenans.Where(d => currentUserRoles.Contains(d.Id)).Select(d => d.TenanName).ToList();
                 }
                 data.data = sysUserInfos;
@@ -195,13 +198,13 @@ namespace Funeral.Core.Controllers
                         RoleId= role.Id
                     };
                     await _roleTenanServices.Delete(a=>a.RoleId== role.Id);
-                    foreach (var item in role.TIDs) {
+                    //foreach (var item in role.TIDs) {
                         model.RoleId = role.Id;
-                        model.TenanId = item;
+                        model.TenanId = role.TIDs;
                         model.IsDeleted = false;
                        
                         await _roleTenanServices.Add(model);
-                    }
+                    //}
                     data.msg = "更新成功";
                     data.response = role?.Id.ObjToString();
                 }
@@ -221,13 +224,13 @@ namespace Funeral.Core.Controllers
                         RoleId = id
                     };
                     //await _roleTenanServices.Delete(model);
-                    foreach (var item in role.TIDs)
-                    {
+                    //foreach (var item in role.TIDs)
+                    //{
                         model.RoleId = id;
-                        model.TenanId = item;
+                        model.TenanId = role.TIDs;
                         model.IsDeleted = false;
                         await _roleTenanServices.Add(model);
-                    }
+                    //}
 
                     data.response = id.ObjToString();
                     data.msg = "添加成功";

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Funeral.Core.Common.Helper;
 using Funeral.Core.Common.HttpContextUser;
 using Funeral.Core.IServices;
 using Funeral.Core.Model;
@@ -20,7 +21,10 @@ namespace Funeral.Core.Controllers
 
     public class TenanController : ControllerBase
     {
-
+        readonly IUserRoleServices _userRoleServices;
+        readonly ISysUserInfoServices _sysUserInfoServices;
+        readonly IRoleTenanServices  _roleTenanServices;
+        readonly IRoleServices _roleServices;
         readonly ITenanServices _tenanServices;
         readonly IUser _user;
 
@@ -28,8 +32,12 @@ namespace Funeral.Core.Controllers
         /// 构造函数
         /// </summary>
         /// <param name="tenanServices"></param>
-        public TenanController(ITenanServices tenanServices, IUser user)
+        public TenanController(IUserRoleServices userRoleServices, ISysUserInfoServices sysUserInfoServices, IRoleTenanServices roleTenanServices, IRoleServices roleServices, ITenanServices tenanServices, IUser user)
         {
+            _userRoleServices = userRoleServices;
+            _sysUserInfoServices = sysUserInfoServices;
+            _roleTenanServices = roleTenanServices;
+            _roleServices = roleServices;
             _tenanServices = tenanServices;
             _user = user;
         }
@@ -46,7 +54,7 @@ namespace Funeral.Core.Controllers
         [Route("Get")]
         [AllowAnonymous]
         //[AllowAnonymous]
-        [Authorize(Permissions.Name)]
+        //[Authorize(Permissions.Name)]
         //[ApiExplorerSettings(IgnoreApi = true)]
         public async Task<MessageModel<PageModel<Tenan>>> Get(int pageindex = 1,int pagesize=50, string key = "")
         {
@@ -121,6 +129,59 @@ namespace Funeral.Core.Controllers
                 {
                     data.response = id.ObjToString();
                     data.msg = "添加成功";
+
+                    #region 同步新增一个超级管理员
+                    Role role = new Role() { };
+                    role.Name = tenan.TenanName+ "管理员角色";
+                    role.Enabled = true;
+                    role.Description = "管理员角色";
+                    role.TIDs = id;
+                    role.CreateId = _user.ID;
+                    role.CreateBy = _user.Name;
+
+                    id = (await _roleServices.Add(role));
+                    data.success = id > 0;
+                    if (data.success)
+                    {
+                        RoleTenan model = new RoleTenan()
+                        {
+                            RoleId = id
+                        };
+                        model.RoleId = id;
+                        model.TenanId = role.TIDs;
+                        model.IsDeleted = false;
+                        await _roleTenanServices.Add(model);
+
+
+                        List<int> list = new List<int>();
+                        list.Add(id);
+                        #region 添加默认用户
+
+                        sysUserInfo user = new sysUserInfo() { };
+                        user.uLoginName = "admin";
+                        user.uLoginPWD = MD5Helper.MD5Encrypt32("admin");
+                        user.uRealName = "管理员";
+                        user.birth = DateTime.Now;
+                        user.Enabled = true;
+                        user.RIDs = list;
+
+                        id = (await _sysUserInfoServices.Add(user));
+                        data.success = id > 0;
+                        if (data.success) {
+                            var userRolsAdd = new List<UserRole>();
+                            user.RIDs.ForEach(rid =>
+                            {
+                                userRolsAdd.Add(new UserRole(id, rid));
+                            });
+                            await _userRoleServices.Add(userRolsAdd);
+                        }
+                        #endregion
+
+
+                        
+                    }
+                    #endregion
+                  
                 }
             }
             return data;

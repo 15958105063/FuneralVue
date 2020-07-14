@@ -171,7 +171,7 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            var result = await _npoiWordExportServices.SaveWordFile("", "AchSit", id);
+            var result = await _achSitServices.SaveWordFile("", "AchSit", id);
 
             return new MessageModel<string>()
             {

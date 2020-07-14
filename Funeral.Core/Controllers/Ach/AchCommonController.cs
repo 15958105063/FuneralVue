@@ -19,18 +19,5 @@ namespace Funeral.Core.Controllers.Ach
             this._NpoiWordExportServices = NpoiWordExportServices;
         }
 
-        [HttpGet]
-        [Route("Export")]
-        [AllowAnonymous]
-        public async Task<MessageModel<string>> Export(string savePath, string tablename, int tid) {
-        var result=  await  _NpoiWordExportServices.SaveWordFile(savePath, tablename, tid);
-
-            return new MessageModel<string>()
-            {
-                msg = "导出成功",
-                success = true,
-                response = result,
-            };
-        }
     }
 }

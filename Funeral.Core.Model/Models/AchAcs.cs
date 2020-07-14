@@ -7,6 +7,14 @@ namespace Funeral.Core.Model.Models
     /// </summary>
     public class AchAcs
     {
+        public AchAcs() { }
+        public AchAcs(string uid, string rid,int tid)
+        {
+            AcsUsrid = uid;
+            AcsRolid = rid;
+            Tid = tid;
+        }
+
         /// <summary>
         /// AcsUsrid
         /// </summary>
@@ -16,5 +24,10 @@ namespace Funeral.Core.Model.Models
         /// AcsRolid
         /// </summary>
         public string AcsRolid { get; set; }
+
+        /// <summary>
+        /// 客户编号
+        /// </summary>
+        public int Tid { get; set; }
     }
 }

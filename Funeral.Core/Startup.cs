@@ -45,7 +45,7 @@ namespace Funeral.Core
 
             Permissions.IsUseIds4 = Appsettings.app(new string[] { "Startup", "IdentityServer4", "Enabled" }).ObjToBool();
 
-            services.AddMiniProfiler(options =>options.RouteBasePath = "/profiler");//性能检测
+            services.AddMiniProfiler(options => options.RouteBasePath = "/profiler");//性能检测
             services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);//JSON首字母小写解决
             services.AddMemoryCacheSetup();
             services.AddSqlsugarSetup();
@@ -133,6 +133,11 @@ namespace Funeral.Core
 
             // 封装Swagger展示
             app.UseSwaggerMildd(() => GetType().GetTypeInfo().Assembly.GetManifestResourceStream("Funeral.Core.index.html"));
+            app.UseSwaggerUI(c =>
+            {
+                c.DefaultModelsExpandDepth(-1);
+            });
+
 
             // ↓↓↓↓↓↓ 注意下边这些中间件的顺序，很重要 ↓↓↓↓↓↓
 
@@ -180,4 +185,5 @@ namespace Funeral.Core
         }
 
     }
+
 }

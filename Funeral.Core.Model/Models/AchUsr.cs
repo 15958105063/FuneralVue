@@ -1,6 +1,7 @@
 ﻿
 using SqlSugar;
 using System;
+using System.Collections.Generic;
 
 namespace Funeral.Core.Model.Models
 {
@@ -110,6 +111,11 @@ namespace Funeral.Core.Model.Models
         /// 客户ID
         /// </summary>
         public int Tid { get; set; }
+
+
+        [SugarColumn(IsIgnore = true)]
+        public List<string> RIDs { get; set; }
+
 
     }
 }

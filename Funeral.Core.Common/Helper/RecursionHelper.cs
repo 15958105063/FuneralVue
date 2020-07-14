@@ -186,6 +186,15 @@ namespace Funeral.Core.Common.Helper
     //菜单配置树
     public class NavigationBarConfiguar
     {
+
+        /// <summary>
+        /// Value
+        /// </summary>
+        public string Value { get; set; }
+        /// <summary>
+        /// AchId
+        /// </summary>
+        public string AchId { get; set; }
         /// <summary>
         /// 菜单ID
         /// </summary>
@@ -211,6 +220,20 @@ namespace Funeral.Core.Common.Helper
         /// 图片地址/
         /// </summary>
         public string ImagePath { get; set; }
+
+        /// <summary>
+        /// OrgId
+        /// </summary>
+        public string OrgId { get; set; }
+
+        public string ProName { get; set; }
+        public string ProType { get; set; }
+        public string Pruid { get; set; }
+
+        public int? Num { get; set; }
+
+
+        
 
         /// <summary>
         /// 子级菜单

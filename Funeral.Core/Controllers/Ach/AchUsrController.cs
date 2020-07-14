@@ -7,6 +7,7 @@ using Funeral.Core.Model.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -21,10 +22,12 @@ namespace Funeral.Core.Controllers
 
     public class AchUsrController : ControllerBase
     {
+        private readonly IAchAcsServices _achAcsServices;
         private readonly IAchUsrServices _achUsrServices;
         private readonly IMapper _mapper;
         readonly IUser _user;
-        public AchUsrController(IUser user, IMapper mapper,IAchUsrServices achUsrServices) {
+        public AchUsrController(IAchAcsServices achAcsServices, IUser user, IMapper mapper,IAchUsrServices achUsrServices) {
+            this._achAcsServices = achAcsServices;
             this._achUsrServices = achUsrServices;
             this._mapper = mapper;
             this._user = user;
@@ -91,9 +94,27 @@ namespace Funeral.Core.Controllers
                 models.ModifyBy = _user.ID.ToString();
                 models.ModifyBy = _user.Name;
                 models.ModifyTime = DateTime.Now;
-                data.success = await _achUsrServices.Update(models);
+
+                    data.success = await _achUsrServices.Update(models);
                 if (data.success)
                 {
+                    if (models.RIDs.Count > 0)
+                    {
+                        var usreroles = (await _achAcsServices.Query(d => d.AcsUsrid == models.UsrId)).Select(d => d.AcsUsrid.ToString()).ToArray();
+                        if (usreroles.Count() > 0)
+                        {
+                            var isAllDeleted = await _achAcsServices.Delete(a=>a.AcsUsrid== models.UsrId);
+                        }
+
+                        // 然后再执行添加操作
+                        var userRolsAdd = new List<AchAcs>();
+                        models.RIDs.ForEach(rid =>
+                        {
+                            userRolsAdd.Add(new AchAcs(models.UsrId, rid, models.Tid));
+                        });
+
+                        await _achAcsServices.Add(userRolsAdd);
+                    }
                     data.msg = "更新成功";
                     data.response = models?.UsrId.ObjToString();
                 }
@@ -107,6 +128,18 @@ namespace Funeral.Core.Controllers
                 data.success = id > 0;
                 if (data.success)
                 {
+                    if (models.RIDs.Count > 0)
+                    {
+                        // 然后再执行添加操作
+                        var userRolsAdd = new List<AchAcs>();
+                        models.RIDs.ForEach(rid =>
+                        {
+                            userRolsAdd.Add(new AchAcs(models.UsrId, rid, models.Tid));
+                        });
+
+                        await _achAcsServices.Add(userRolsAdd);
+                    }
+
                     data.response = id.ObjToString();
                     data.msg = "添加成功";
                 }
@@ -144,7 +177,7 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         public async Task<MessageModel<string>> Export(int id=0)
         {
-            var result = await _achUsrServices.SaveWordFile("", "AchUsr", id);
+            var result = await _achUsrServices.SaveWordFile("", "AchUsr", "AchAcs", id);
 
             return new MessageModel<string>()
             {

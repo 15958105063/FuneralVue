@@ -3812,6 +3812,24 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Funeral.Core.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Funeral.Core.Common": "1.0.0",
+          "Funeral.Core.IRepository": "1.0.0",
+          "MiniProfiler.AspNetCore.Mvc": "4.1.0"
+        },
+        "compile": {
+          "bin/placeholder/Funeral.Core.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Funeral.Core.Repository.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Funeral.Core.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -11322,6 +11340,11 @@
       "path": "../Funeral.Core.Model/Funeral.Core.Model.csproj",
       "msbuildProject": "../Funeral.Core.Model/Funeral.Core.Model.csproj"
     },
+    "Funeral.Core.Repository/1.0.0": {
+      "type": "project",
+      "path": "../Funeral.Core.Repository/Funeral.Core.Repository.csproj",
+      "msbuildProject": "../Funeral.Core.Repository/Funeral.Core.Repository.csproj"
+    },
     "Funeral.Core.Services/1.0.0": {
       "type": "project",
       "path": "../Funeral.Core.Services/Funeral.Core.Services.csproj",
@@ -11343,6 +11366,7 @@
       "Consul >= 1.6.1.1",
       "Funeral.Core.IRepository >= 1.0.0",
       "Funeral.Core.IServices >= 1.0.0",
+      "Funeral.Core.Repository >= 1.0.0",
       "Funeral.Core.Services >= 1.0.0",
       "Funeral.Core.Tasks >= 1.0.0",
       "IdentityServer4.AccessTokenValidation >= 3.0.1",
@@ -11389,6 +11413,9 @@
             },
             "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.IServices\\Funeral.Core.IServices.csproj": {
               "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.IServices\\Funeral.Core.IServices.csproj"
+            },
+            "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj": {
+              "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj"
             },
             "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Services\\Funeral.Core.Services.csproj": {
               "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Services\\Funeral.Core.Services.csproj"

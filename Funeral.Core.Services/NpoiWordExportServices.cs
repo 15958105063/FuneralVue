@@ -14,13 +14,24 @@ namespace Funeral.Core.Services
 {
     public class NpoiWordExportService: INpoiWordExportServices
     {
+        private readonly IAchFgpRepository _achFgpRepository;
+        private readonly IAchFupRepository _achFupRepository;
+        private readonly IAchFunRepository _achFunRepository;
+        private readonly IAchBtnRepository _achBtnRepository;
+
         private readonly IAchOrgRepository _achOrgRepository;
         private readonly IRoleRepository _roleRepository;
+
         private static IHostingEnvironment _environment;
 
 
-        public NpoiWordExportService(IAchOrgRepository achOrgRepository,IRoleRepository roleRepository,IHostingEnvironment iEnvironment)
+        public NpoiWordExportService(IAchFgpRepository achFgpRepository, IAchFupRepository achFupRepository, IAchFunRepository achFunRepository, IAchBtnRepository achBtnRepository, IAchOrgRepository achOrgRepository,IRoleRepository roleRepository,IHostingEnvironment iEnvironment)
         {
+            this._achFgpRepository = achFgpRepository;
+            this._achFupRepository = achFupRepository;
+            this._achFunRepository = achFunRepository;
+            this._achBtnRepository = achBtnRepository;
+
             this._achOrgRepository = achOrgRepository;
             this._roleRepository = roleRepository;
             _environment = iEnvironment;
@@ -290,11 +301,14 @@ namespace Funeral.Core.Services
         ///  生成word文档,并保存静态资源文件夹（wwwroot)下的SaveWordFile文件夹中
         /// </summary>
         /// <param name="savePath">保存路径</param>
-        public async Task<string> SaveWordFile(string savePath,string tablename,int tid)
+        public async Task<string> SaveWordFile(string savePath, string tablename1, string tablename2, string tablename3, string tablename4, int tid)
         {
-            tablename = tablename.Replace("Ach","Ful");
+            tablename1 = tablename1.Replace("Ach", "Ful");
+            tablename2 = tablename2.Replace("Ach", "Ful");
+            tablename3 = tablename3.Replace("Ach", "Ful");
+            tablename4 = tablename4.Replace("Ach", "Ful");
             savePath = Appsettings.app(new string[] { "WordDownLoadUrl", "Url" });//获取连接字符串
-            savePath = "";
+
             string currentDate = DateTime.Now.ToString("yyyyMMdd");
             string checkTime = DateTime.Now.ToString("yyyy年MM月dd日");//检查时间
                                                                     //保存文件到静态资源wwwroot,使用绝对路径路径
@@ -326,22 +340,28 @@ namespace Funeral.Core.Services
 
                     //TODO:这里一行需要显示两个文本
                     //循环表格，生成对应的sql脚本
-                    var list = await _achOrgRepository.Query(x=>x.Tid==tid);
 
-                    #region 写入文本
+                    #region 写入文档-四个表
 
-                    #region 删除语句
-                    //先操作删除语句
-                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE FROM {tablename};", false, 8, "宋体", ParagraphAlignment.LEFT), 0);
+                    var list1 = await _achFgpRepository.Query(x => x.Tid == tid);
+                    var list2 = await _achFupRepository.Query(x => x.Tid == tid);
+                    var list3 = await _achFunRepository.Query(x => x.Tid == tid);
+                    var list4 = await _achBtnRepository.Query(x => x.Tid == tid);
 
+                    int index = 0;//总的行数
+
+                    #region 第一个表
+
+                    #region 删除
+                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE FROM {tablename1};", false, 7, "宋体", ParagraphAlignment.LEFT), index);
                     #endregion
 
-                    #region 插入语句属性
-                    if (list.Count > 0)
+                    #region 插入属性
+                    if (list1.Count > 0)
                     {
+                        index++;
                         string insertstring = "";
-
-                        Type t = list[0].GetType();//获得该类的Type
+                        Type t = list1[0].GetType();//获得该类的Type
                         foreach (var pi in t.GetProperties())
                         {
                             var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
@@ -352,14 +372,13 @@ namespace Funeral.Core.Services
                             insertstring += $"{name},";
                         }
                         insertstring = insertstring.Substring(0, insertstring.Length - 1);
-
-                        document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"INSERT INTO {tablename} ({insertstring}) VALUES", false, 8, "宋体", ParagraphAlignment.LEFT), 1);
+                        document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"INSERT INTO {tablename1} ({insertstring}) VALUES", false, 8, "宋体", ParagraphAlignment.LEFT), index);
                     }
                     #endregion
 
-                    #region 插入语句值
-                    int index = 1;
-                    foreach (var item in list)
+                    #region 插入属性值
+                    int index1 = 0;
+                    foreach (var item in list1)
                     {
                         string valuesstring = "";
                         Type t = item.GetType();//获得该类的Type
@@ -373,10 +392,11 @@ namespace Funeral.Core.Services
                             }
                             valuesstring += $"'{value}',";
                         }
+                        index1++;
+                        index++;
                         //拼接sql语句
                         valuesstring = valuesstring.Substring(0, valuesstring.Length - 1);
-                        index++;
-                        if (list.Count == index - 1)
+                        if (list1.Count == index1)
                         {
                             document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring});", false, 8, "宋体", ParagraphAlignment.LEFT), index);
 
@@ -386,15 +406,210 @@ namespace Funeral.Core.Services
                             document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring}),", false, 8, "宋体", ParagraphAlignment.LEFT), index);
 
                         }
+
+                    
+
                     }
                     #endregion
 
                     #endregion
 
+                    index++;
+                    #region 第二个表
+
+                    #region 删除
+                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE FROM {tablename2};", false, 7, "宋体", ParagraphAlignment.LEFT), index);
+                    #endregion
+
+                    #region 插入属性
+                    if (list2.Count > 0)
+                    {
+                        index++;
+                        string insertstring = "";
+                        Type t = list2[0].GetType();//获得该类的Type
+                        foreach (var pi in t.GetProperties())
+                        {
+                            var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                            if (name == "Id" || name == "Tid" || name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime")
+                            {
+                                continue;
+                            }
+                            insertstring += $"{name},";
+                        }
+                        insertstring = insertstring.Substring(0, insertstring.Length - 1);
+                        document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"INSERT INTO {tablename2} ({insertstring}) VALUES", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+                    }
+                    #endregion
+
+                    #region 插入属性值
+                    int index2 = 0;
+                    foreach (var item in list2)
+                    {
+                        string valuesstring = "";
+                        Type t = item.GetType();//获得该类的Type
+                        foreach (var pi in t.GetProperties())
+                        {
+                            var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                            var value = pi.GetValue(item, null);//用pi.GetValue获得值
+                            if (name == "Id" || name == "Tid" || name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime")
+                            {
+                                continue;
+                            }
+                            valuesstring += $"'{value}',";
+                        }
+                        index2++;
+                        index++;
+                        //拼接sql语句
+                        valuesstring = valuesstring.Substring(0, valuesstring.Length - 1);
+                        if (list2.Count == index2)
+                        {
+                            document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring});", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+
+                        }
+                        else
+                        {
+                            document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring}),", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+
+                        }
+                      
+
+                    }
+                    #endregion
+
+                    #endregion
+                    index++;
+                    #region 第三个表
+
+                    #region 删除
+                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE FROM {tablename3};", false, 7, "宋体", ParagraphAlignment.LEFT), index);
+                    #endregion
+
+                    #region 插入属性
+                    if (list3.Count > 0)
+                    {
+                        index++;
+                        string insertstring = "";
+                        Type t = list3[0].GetType();//获得该类的Type
+                        foreach (var pi in t.GetProperties())
+                        {
+                            var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                            if (name == "Id" || name == "Tid" || name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime")
+                            {
+                                continue;
+                            }
+                            insertstring += $"{name},";
+                        }
+                        insertstring = insertstring.Substring(0, insertstring.Length - 1);
+                        document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"INSERT INTO {tablename3} ({insertstring}) VALUES", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+                    }
+                    #endregion
+
+                    #region 插入属性值
+                    int index3 = 0;
+                    foreach (var item in list3)
+                    {
+                        string valuesstring = "";
+                        Type t = item.GetType();//获得该类的Type
+                        foreach (var pi in t.GetProperties())
+                        {
+                            var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                            var value = pi.GetValue(item, null);//用pi.GetValue获得值
+                            if (name == "Id" || name == "Tid" || name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime")
+                            {
+                                continue;
+                            }
+                            valuesstring += $"'{value}',";
+                        }
+                        index3++;
+                        index++;
+                        //拼接sql语句
+                        valuesstring = valuesstring.Substring(0, valuesstring.Length - 1);
+                        if (list3.Count == index3)
+                        {
+                            document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring});", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+
+                        }
+                        else
+                        {
+                            document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring}),", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+
+                        }
+                       
+
+                    }
+                    #endregion
+
+                    #endregion
+                    index++;
+                    #region 第四个表
+
+                    #region 删除
+                    document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"DELETE FROM {tablename4};", false, 7, "宋体", ParagraphAlignment.LEFT), index);
+                    #endregion
+
+                    #region 插入属性
+                    if (list4.Count > 0)
+                    {
+                        index++;
+                        string insertstring = "";
+                        Type t = list4[0].GetType();//获得该类的Type
+                        foreach (var pi in t.GetProperties())
+                        {
+                            var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                            if (name == "Id" || name == "Tid" || name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime")
+                            {
+                                continue;
+                            }
+                            insertstring += $"{name},";
+                        }
+                        insertstring = insertstring.Substring(0, insertstring.Length - 1);
+                        document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"INSERT INTO {tablename4} ({insertstring}) VALUES", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+                    }
+                    #endregion
+
+                    #region 插入属性值
+                    int index4 = 0;
+                    foreach (var item in list4)
+                    {
+                        string valuesstring = "";
+                        Type t = item.GetType();//获得该类的Type
+                        foreach (var pi in t.GetProperties())
+                        {
+                            var name = pi.Name;//获得属性的名字,后面就可以根据名字判断来进行些自己想要的操作
+                            var value = pi.GetValue(item, null);//用pi.GetValue获得值
+                            if (name == "Id" || name == "Tid" || name == "CreateId" || name == "CreateBy" || name == "CreateTime" || name == "ModifyId" || name == "ModifyBy" || name == "ModifyTime")
+                            {
+                                continue;
+                            }
+                            valuesstring += $"'{value}',";
+                        }
+                        index4++;
+                        index++;
+                        //拼接sql语句
+                        valuesstring = valuesstring.Substring(0, valuesstring.Length - 1);
+                 
+                        if (list4.Count == index4)
+                        {
+                            document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring});", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+
+                        }
+                        else
+                        {
+                            document.SetParagraph(NpoiWordParagraphTextStyleHelper._.ParagraphInstanceSetting(document, $"({valuesstring}),", false, 8, "宋体", ParagraphAlignment.LEFT), index);
+                          
+                        }
+                   
+
+                    }
+                    #endregion
+
+                    #endregion
+                    #endregion
+
                     //向文档流中写入内容，生成word
                     document.Write(stream);
 
-                    savePath = "/SaveWordFile/" + currentDate + "/" + fileName;
+                    savePath += "/SaveWordFile/" + currentDate + "/" + fileName;
                     uploadPath += fileName;
                     return savePath;
                 }

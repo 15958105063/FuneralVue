@@ -13,7 +13,7 @@ namespace Funeral.Core.Controllers
     [Produces("application/json")]
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(Permissions.Name)]
+    //[Authorize(Permissions.Name)]
     public class UserRoleController : Controller
     {
         readonly IPermissionTenanServices _permissionTenanServices;

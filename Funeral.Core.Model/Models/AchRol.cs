@@ -49,7 +49,6 @@ namespace Funeral.Core.Model.Models
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
         public string RolStatus { get; set; }
 
-
         /// <summary>
         /// 创建ID
         /// </summary>

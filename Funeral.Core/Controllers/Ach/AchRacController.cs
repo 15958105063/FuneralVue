@@ -33,23 +33,6 @@ namespace Funeral.Core.Controllers
         }
 
 
-        /// <summary>
-        /// 导出
-        /// </summary>
-        /// <param name="id">厂家id</param>
-        /// <returns></returns>
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<MessageModel<string>> Export(int id=0)
-        {
-            var result = await _npoiWordExportServices.SaveWordFile("", "AchRac", id);
 
-            return new MessageModel<string>()
-            {
-                msg = "导出成功",
-                success = true,
-                response=result,
-            };
-        }
     }
 }

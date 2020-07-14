@@ -20,7 +20,7 @@ namespace Funeral.Core.Controllers
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(Permissions.Name)]
+    //[Authorize(Permissions.Name)]
     public class UserController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -47,6 +47,12 @@ namespace Funeral.Core.Controllers
             _roleServices = roleServices;
             _user = user;
             _logger = logger;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public string GetUserId() {
+            return _user.ID.ToString() + "---" + _user.Name;
         }
 
 
@@ -257,15 +263,15 @@ namespace Funeral.Core.Controllers
             }
             else {
 
-                var userinfo = (await _sysUserInfoServices.Query(a=>a.uLoginName== sysUserInfo.uLoginName)).FirstOrDefault();
-                //先判断是否已经存在该用户
-                if (userinfo != null)
-                {
-                    data.success = false;
-                    data.response = "";
-                    data.msg = "该登录名已存在，请重新填写";
-                }
-                else {
+                //var userinfo = (await _sysUserInfoServices.Query(a=>a.uLoginName== sysUserInfo.uLoginName)).FirstOrDefault();
+                ////先判断是否已经存在该用户
+                //if (userinfo != null)
+                //{
+                //    data.success = false;
+                //    data.response = "";
+                //    data.msg = "该登录名系统已存在，请重新填写";
+                //}
+                //else {
                     //新增
                     sysUserInfo.uLoginPWD = MD5Helper.MD5Encrypt32(sysUserInfo.uLoginPWD);
                     sysUserInfo.uRemark = _user.Name;
@@ -298,7 +304,7 @@ namespace Funeral.Core.Controllers
                         data.response = id.ObjToString();
                         data.msg = "添加成功";
                     }
-                }
+                //}
               
             }
             return data;

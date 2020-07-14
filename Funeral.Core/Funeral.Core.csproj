@@ -6,7 +6,8 @@
 
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 		<!--<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>-->
-		<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel><!--进程外托管-->
+    <!--<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>-->
+		<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 	</PropertyGroup>
 
@@ -64,6 +65,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Funeral.Core.IRepository\Funeral.Core.IRepository.csproj" />
 		<ProjectReference Include="..\Funeral.Core.IServices\Funeral.Core.IServices.csproj" />
+		<ProjectReference Include="..\Funeral.Core.Repository\Funeral.Core.Repository.csproj" />
 		<ProjectReference Include="..\Funeral.Core.Services\Funeral.Core.Services.csproj" />
 		<ProjectReference Include="..\Funeral.Core.Tasks\Funeral.Core.Tasks.csproj" />
 	</ItemGroup>

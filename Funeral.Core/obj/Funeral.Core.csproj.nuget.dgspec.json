@@ -296,6 +296,74 @@
         }
       }
     },
+    "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj",
+        "projectName": "Funeral.Core.Repository",
+        "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj",
+        "packagesPath": "C:\\Users\\74431\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\74431\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj": {
+                "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Common\\Funeral.Core.Common.csproj"
+              },
+              "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.IRepository\\Funeral.Core.IRepository.csproj": {
+                "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.IRepository\\Funeral.Core.IRepository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MiniProfiler.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Services\\Funeral.Core.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -464,6 +532,9 @@
               },
               "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.IServices\\Funeral.Core.IServices.csproj": {
                 "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.IServices\\Funeral.Core.IServices.csproj"
+              },
+              "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj": {
+                "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Repository\\Funeral.Core.Repository.csproj"
               },
               "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Services\\Funeral.Core.Services.csproj": {
                 "projectPath": "D:\\Projects\\Funeral.Core\\Funeral.Core\\Funeral.Core.Services\\Funeral.Core.Services.csproj"

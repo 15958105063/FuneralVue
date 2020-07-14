@@ -5,6 +5,7 @@ namespace Funeral.Core.Model.ViewModels
     public class AchPermissionInputViewModels
     {
 
+        public int TId { get; set; }
         public int Id { get; set; }
         /// <summary>
         /// 编码
@@ -20,10 +21,10 @@ namespace Funeral.Core.Model.ViewModels
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
         public string Code { get; set; }
+
         /// <summary>
-        /// 菜单显示名（如用户页、编辑(按钮)、删除(按钮)）
+        /// 
         /// </summary>
-        [SugarColumn(ColumnDataType = "nvarchar", Length = 50, IsNullable = true)]
         public string Name { get; set; }
         /// <summary>
         /// 是否是按钮
@@ -31,37 +32,46 @@ namespace Funeral.Core.Model.ViewModels
         public bool IsButton { get; set; } = false;
 
         /// <summary>
-        /// ProName
+        /// 
+        /// </summary>
+        public string Func { get; set; }
+
+        /// <summary>
+        /// 产品名称
         /// </summary>
         public string ProName { get; set; }
 
         /// <summary>
-        /// FgpProtype
+        /// 产品类型
         /// </summary>
-        public string FgpProtype { get; set; }
+        public string ProType { get; set; }
 
         /// <summary>
-        /// FgpPruid
+        /// 所属客户类型
         /// </summary>
-        public string FgpPruid { get; set; }
+        public string Pruid { get; set; }
 
         /// <summary>
-        /// FgpValue
+        /// 菜单名称
         /// </summary>
-        public string FgpValue { get; set; }
-
+        public string Value { get; set; }
 
         /// <summary>
-        /// FgpImageurl
+        /// 图标地址
         /// </summary>
-        public string FgpImageurl { get; set; }
+        public string Imageurl { get; set; }
         /// <summary>
-        /// FgpNum
+        /// 排序名
         /// </summary>
 
-        public int? FgpNum { get; set; }
+        public int? Num { get; set; }
 
+        /// <summary>
+        /// 展示名称
+        /// </summary>
+        public string ShowName { get; set; }
 
+        
         /// <summary>
         /// 上一级菜单（0表示上一级无菜单）
         /// </summary>

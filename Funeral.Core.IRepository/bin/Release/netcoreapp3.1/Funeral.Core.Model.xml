@@ -64,6 +64,11 @@
             AcsRolid
             </summary>
         </member>
+        <member name="P:Funeral.Core.Model.Models.AchAcs.Tid">
+            <summary>
+            客户编号
+            </summary>
+        </member>
         <member name="T:Funeral.Core.Model.Models.AchBtn">
             <summary>
             按钮表
@@ -135,6 +140,291 @@
             </summary>
         </member>
         <member name="P:Funeral.Core.Model.Models.AchBtn.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.AchCae">
+            <summary>
+            死亡原因大类配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CaeId">
+            <summary>
+            CaeId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CaeName">
+            <summary>
+            CaeName
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CaeDesc">
+             <summary> 
+            CaeDesc
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CaeNum">
+             <summary> 
+            CaeNum
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CaeNo">
+             <summary> 
+            CaeNo
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCae.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.AchCau">
+            <summary>
+            死亡原因小类配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CauId">
+            <summary>
+            CauId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CauCaeId">
+            <summary>
+            CauCaeId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CauName">
+             <summary> 
+            CauName
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CauNum">
+             <summary> 
+            CauNum
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CauDesc">
+             <summary> 
+            CauDesc
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCau.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.AchCod">
+            <summary>
+            编码明细配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodOrgid">
+            <summary>
+            CodOrgid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodCtpId">
+            <summary>
+            CodCtpId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodName">
+             <summary> 
+            CodName
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodAlias">
+             <summary> 
+            CodAlias
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodType">
+             <summary> 
+            CodType
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodDesc">
+             <summary> 
+            CodDesc
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodStatus">
+             <summary> 
+            CodStatus
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CodNum">
+             <summary> 
+            CodNum
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCod.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.AchCtp">
+            <summary>
+            编码模块配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CtpId">
+            <summary>
+            CtpId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CtpOrgid">
+            <summary>
+            CtpOrgid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CtpName">
+             <summary> 
+            CtpName
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CtpType">
+             <summary> 
+            CtpType
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CtpUseType">
+             <summary> 
+            CtpUseType
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CtpStatus">
+             <summary> 
+            CtpStatus
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CtpNum">
+             <summary> 
+            CtpNum
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchCtp.Tid">
             <summary>
             客户ID
             </summary>
@@ -739,6 +1029,81 @@
             客户ID
             </summary>
         </member>
+        <member name="T:Funeral.Core.Model.Models.AchPvl">
+            <summary>
+            参数配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.PvlId">
+            <summary>
+            PvlId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.PvlOrgid">
+            <summary>
+            PvlOrgid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.PvlProName">
+             <summary> 
+            PvlProName
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.PvlProType">
+             <summary> 
+            PvlProType
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.PvlDesc">
+             <summary> 
+            PvlDesc
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.PvlValue">
+             <summary> 
+            PvlValue
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.PvlType">
+             <summary> 
+            PvlType
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchPvl.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
         <member name="T:Funeral.Core.Model.Models.AchRac">
             <summary>
             系统角色功能明细表
@@ -752,6 +1117,11 @@
         <member name="P:Funeral.Core.Model.Models.AchRac.RacBtnid">
             <summary>
             RacBtnid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRac.Tid">
+            <summary>
+            客户ID
             </summary>
         </member>
         <member name="T:Funeral.Core.Model.Models.AchRol">
@@ -815,6 +1185,201 @@
             </summary>
         </member>
         <member name="P:Funeral.Core.Model.Models.AchRol.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.AchRsa">
+            <summary>
+            资源安排表配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.RsaId">
+            <summary>
+            RsaId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.RsaRsdId">
+            <summary>
+            RsaRsdId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.RsaEffectDate">
+             <summary> 
+            RsaEffectDate
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.RsaAvailableNum">
+             <summary> 
+            RsaAvailableNum
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsa.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.AchRsc">
+            <summary>
+            资源表配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.RscId">
+            <summary>
+            RscId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.RscOrgid">
+            <summary>
+            RscOrgid
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.RscValue">
+             <summary> 
+            RscValue
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.RscCtpId">
+             <summary> 
+            RscCtpId
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.RscHasFirst">
+             <summary> 
+            RscHasFirst
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.RscName">
+             <summary> 
+            RscName
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.RscStatus">
+             <summary> 
+            RscStatus
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsc.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.AchRsd">
+            <summary>
+            资源种类描述表配置
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.RsdId">
+            <summary>
+            RsdId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.RsdRscId">
+            <summary>
+            RsdRscId
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.RscCodName">
+             <summary> 
+            RscCodName
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.RscFrequency">
+             <summary> 
+            RscFrequency
+             </summary> 
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.AchRsd.Tid">
             <summary>
             客户ID
             </summary>
@@ -2471,7 +3036,7 @@
         </member>
         <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Name">
             <summary>
-            菜单显示名（如用户页、编辑(按钮)、删除(按钮)）
+            
             </summary>
         </member>
         <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.IsButton">
@@ -2479,34 +3044,44 @@
             是否是按钮
             </summary>
         </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Func">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.ProName">
             <summary>
-            ProName
+            产品名称
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpProtype">
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.ProType">
             <summary>
-            FgpProtype
+            产品类型
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpPruid">
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Pruid">
             <summary>
-            FgpPruid
+            所属客户类型
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpValue">
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Value">
             <summary>
-            FgpValue
+            菜单名称
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpImageurl">
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Imageurl">
             <summary>
-            FgpImageurl
+            图标地址
             </summary>
         </member>
-        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.FgpNum">
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Num">
             <summary>
-            FgpNum
+            排序名
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.ShowName">
+            <summary>
+            展示名称
             </summary>
         </member>
         <member name="P:Funeral.Core.Model.ViewModels.AchPermissionInputViewModels.Pid">

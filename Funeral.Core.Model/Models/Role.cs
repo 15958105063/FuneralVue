@@ -87,7 +87,7 @@ namespace Funeral.Core.Model.Models
         /// 所属客户ID集合
         /// </summary>
         [SugarColumn(IsIgnore = true)]
-        public List<int> TIDs { get; set; }
+        public int TIDs { get; set; }
         /// <summary>
         /// 所属客户Name集合
         /// </summary>

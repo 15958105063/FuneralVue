@@ -16,5 +16,10 @@ namespace Funeral.Core.Model.Models
         /// RacBtnid
         /// </summary>
         public string RacBtnid { get; set; }
+
+        /// <summary>
+        /// 客户ID
+        /// </summary>
+        public int Tid { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace Funeral.Core.IServices
     public interface IAchUsrServices :IBaseServices<AchUsr>
 	{
 		Task<string> SaveWordFile(string savePath, string tablename, int tid);
+		Task<string> SaveWordFile(string savePath, string tablename, string linktablename,int tid);
 	}
 }

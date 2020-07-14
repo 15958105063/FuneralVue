@@ -22,7 +22,7 @@ namespace Funeral.Core.Controllers
     /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(Permissions.Name)]
+    //[Authorize(Permissions.Name)]
     public class PermissionController : ControllerBase
     {
 
@@ -594,7 +594,7 @@ namespace Funeral.Core.Controllers
         /// <param name="id">客户id</param>
         /// <returns></returns>
         [HttpGet]
-
+        [AllowAnonymous]
         public async Task<MessageModel<List<PermissionTree>>> GetPermissionTree(int id = 0)
         {
             var data = new MessageModel<List<PermissionTree>>();
@@ -602,8 +602,8 @@ namespace Funeral.Core.Controllers
             var pidlist = await _permissionTenanServices.Query(a => a.TenanId == id);
             List<PermissionTree> permissionTrees = new List<PermissionTree>() { };
 
-            if (pidlist.Count <= 0)
-            {
+
+            if (id==0) {
                 var permissions = await _permissionServices.Query(a => a.Enabled == true && a.IsDeleted == false);
 
                 permissionTrees = (from child in permissions
@@ -617,6 +617,25 @@ namespace Funeral.Core.Controllers
                                        Isbtn = child.IsButton,
                                        Order = child.OrderSort,
                                    }).ToList();
+            }
+
+            if (pidlist.Count <= 0)
+            {
+                //var permissions = await _permissionServices.Query(a => a.Enabled == true && a.IsDeleted == false);
+
+                //permissionTrees = (from child in permissions
+                //                   where child.IsDeleted == false
+                //                   orderby child.Id
+                //                   select new PermissionTree
+                //                   {
+                //                       Value = child.Id,
+                //                       Label = child.Name,
+                //                       Pid = child.Pid,
+                //                       Isbtn = child.IsButton,
+                //                       Order = child.OrderSort,
+                //                   }).ToList();
+
+
             }
             else
             {
@@ -737,6 +756,7 @@ namespace Funeral.Core.Controllers
                             if (modulemodel != null)
                             {
                                 item.MName = modulemodel.LinkUrl;
+                                item.Mid = modulemodel.Id;
                             }
                         }
                     }
@@ -772,7 +792,7 @@ namespace Funeral.Core.Controllers
                     }
                 }
             }
-            if (uid == 0)
+            if (uid == 0|| uid ==1)
             {
                 Expression<Func<Permission, Modules, bool>> whereExpression = (rmp, p) => rmp.IsDeleted == false && rmp.Enabled == true;
                 var rolePermissionMoudles = (await _permissionServices.Query()).OrderBy(c => c.OrderSort);
@@ -784,6 +804,7 @@ namespace Funeral.Core.Controllers
                         if (modulemodel != null)
                         {
                             item.MName = modulemodel.LinkUrl;
+                            item.Mid = modulemodel.Id;
                         }
                     }
 
@@ -793,6 +814,7 @@ namespace Funeral.Core.Controllers
                                        orderby child.Id
                                        select new NavigationBar
                                        {
+                                           Enabled = child.Enabled,
                                            Id = child.Id,
                                            Name = child.Name,
                                            Pid = child.Pid,
@@ -802,7 +824,8 @@ namespace Funeral.Core.Controllers
                                            Func = child.Func,
                                            IsHide = child.IsHide.ObjToBool(),
                                            IsButton = child.IsButton.ObjToBool(),
-                                           ApiLink = child.MName
+                                           ApiLink = child.MName,
+                                           Mid= child.Mid
                                        }).ToList();
                 NavigationBar rootRoot = new NavigationBar()
                 {
@@ -1166,6 +1189,30 @@ namespace Funeral.Core.Controllers
             }
             return data;
         }
+
+        /// <summary>
+        /// 删除菜单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<MessageModel<string>> Delete(int id)
+        {
+            var data = new MessageModel<string>();
+            if (id > 0)
+            {
+                var userDetail = await _permissionServices.QueryById(id);
+                userDetail.IsDeleted = true;
+                data.success = await _permissionServices.Update(userDetail);
+                if (data.success)
+                {
+                    data.msg = "删除成功";
+                    data.response = userDetail?.Id.ObjToString();
+                }
+            }
+            return data;
+        }
+
     }
 
     public class AssignPermissionView
@@ -1179,6 +1226,22 @@ namespace Funeral.Core.Controllers
         /// </summary>
         public int rid { get; set; }
     }
+    public class AssignAchPermissionView
+    {
+        /// <summary>
+        /// 菜单ID集合
+        /// </summary>
+        public List<string> pids { get; set; }
+        /// <summary>
+        /// 角色ID
+        /// </summary>
+        public string rolid { get; set; }
+        /// <summary>
+        /// 客户id
+        /// </summary>
+        public int tid { get; set; }
+    }
+
 
     public class AssignTenanView
     {

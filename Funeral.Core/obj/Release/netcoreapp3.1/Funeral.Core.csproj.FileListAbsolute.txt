@@ -300,3 +300,4 @@ D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Release\netcoreapp3.1\Fun
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Release\netcoreapp3.1\Funeral.Core.pdb
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\obj\Release\netcoreapp3.1\Funeral.Core.genruntimeconfig.cache
 D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Funeral.Core.Services.pdb
+D:\Projects\Funeral.Core\Funeral.Core\Funeral.Core\bin\Release\netcoreapp3.1\Funeral.Core.Repository.pdb
