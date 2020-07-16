@@ -741,6 +741,7 @@ namespace Funeral.Core.Controllers
             var roleIds = new List<int>();
             //获取所有角色id
             roleIds = (await _userRoleServices.Query(d => d.IsDeleted == false && d.UserId == uid)).Select(d => d.RoleId.ObjToInt()).Distinct().ToList();
+            var modulelist = await _moduleServices.Query();
             if (uid > 0)
             {
                 if (roleIds.Any())
@@ -752,7 +753,8 @@ namespace Funeral.Core.Controllers
                     {
                         if (item.IsButton)
                         {
-                            var modulemodel = await _moduleServices.QueryById(item.Mid);
+                            //var modulemodel = await _moduleServices.QueryById(item.Mid);
+                            var modulemodel = modulelist.Where(a => a.Id == item.Mid).SingleOrDefault();
                             if (modulemodel != null)
                             {
                                 item.MName = modulemodel.LinkUrl;
@@ -800,7 +802,8 @@ namespace Funeral.Core.Controllers
                 {
                     if (item.IsButton)
                     {
-                        var modulemodel = await _moduleServices.QueryById(item.Mid);
+                        //var modulemodel = await _moduleServices.QueryById(item.Mid);
+                        var modulemodel = modulelist.Where(a => a.Id == item.Mid).SingleOrDefault();
                         if (modulemodel != null)
                         {
                             item.MName = modulemodel.LinkUrl;
