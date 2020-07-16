@@ -1,5 +1,5 @@
-FROM swr.cn-south-1.myhuaweicloud.com/mcr/aspnet:3.1-alpine
-WORKDIR /app
-COPY . . 
-EXPOSE 8082
-ENTRYPOINT ["dotnet", "Funeral.Core.dll","-b","0.0.0.0"]
+FROM microsoft/dotnet:3.1-aspnetcore-runtime    
+COPY  . /publish    
+WORKDIR /publish
+EXPOSE 8081 
+ENTRYPOINT ["dotnet", "Funeral.Core.dll"]    

@@ -1423,7 +1423,7 @@
             菜单以及API权限管理
             </summary>
         </member>
-        <member name="M:Funeral.Core.Controllers.PermissionController.#ctor(Funeral.Core.IServices.IPermissionTenanServices,Funeral.Core.IServices.ITenanServices,Funeral.Core.IServices.IPermissionServices,Funeral.Core.IServices.IModuleServices,Funeral.Core.IServices.IRoleModulePermissionServices,Funeral.Core.IServices.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,Funeral.Core.Common.HttpContextUser.IUser,Funeral.Core.AuthHelper.PermissionRequirement)">
+        <member name="M:Funeral.Core.Controllers.PermissionController.#ctor(Funeral.Core.Common.IRedisCacheManager,Funeral.Core.IServices.IPermissionTenanServices,Funeral.Core.IServices.ITenanServices,Funeral.Core.IServices.IPermissionServices,Funeral.Core.IServices.IModuleServices,Funeral.Core.IServices.IRoleModulePermissionServices,Funeral.Core.IServices.IUserRoleServices,Microsoft.AspNetCore.Http.IHttpContextAccessor,Funeral.Core.Common.HttpContextUser.IUser,Funeral.Core.AuthHelper.PermissionRequirement)">
             <summary>
             构造函数
             </summary>

@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Funeral.Core.AuthHelper;
 using Funeral.Core.AuthHelper.OverWrite;
+using Funeral.Core.Common;
 using Funeral.Core.Common.Helper;
 using Funeral.Core.Common.HttpContextUser;
 using Funeral.Core.IServices;
@@ -35,6 +36,7 @@ namespace Funeral.Core.Controllers
         readonly IHttpContextAccessor _httpContext;
         readonly IUser _user;
         private readonly PermissionRequirement _requirement;
+        private readonly IRedisCacheManager _redisCacheManager;
 
         /// <summary>
         /// 构造函数
@@ -46,7 +48,7 @@ namespace Funeral.Core.Controllers
         /// <param name="httpContext"></param>
         /// <param name="user"></param>
         /// <param name="requirement"></param>
-        public PermissionController(IPermissionTenanServices permissionTenanServices, ITenanServices tenanServices, IPermissionServices permissionServices, IModuleServices moduleServices, IRoleModulePermissionServices roleModulePermissionServices, IUserRoleServices userRoleServices, IHttpContextAccessor httpContext, IUser user, PermissionRequirement requirement)
+        public PermissionController(IRedisCacheManager redisCacheManager, IPermissionTenanServices permissionTenanServices, ITenanServices tenanServices, IPermissionServices permissionServices, IModuleServices moduleServices, IRoleModulePermissionServices roleModulePermissionServices, IUserRoleServices userRoleServices, IHttpContextAccessor httpContext, IUser user, PermissionRequirement requirement)
         {
             _permissionTenanServices = permissionTenanServices;
             _tenanServices = tenanServices;
@@ -57,6 +59,7 @@ namespace Funeral.Core.Controllers
             _httpContext = httpContext;
             _user = user;
             _requirement = requirement;
+            _redisCacheManager = redisCacheManager;
         }
 
 
@@ -241,6 +244,7 @@ namespace Funeral.Core.Controllers
                 {
                     data.msg = "更新成功";
                     data.response = permission?.Id.ObjToString();
+                    _redisCacheManager.Remove("GetNavigationBar");//清除查询列表缓存
                 }
             }
             else
@@ -254,6 +258,8 @@ namespace Funeral.Core.Controllers
                 {
                     data.response = id.ObjToString();
                     data.msg = "添加成功";
+
+                    _redisCacheManager.Remove("GetNavigationBar");//清除查询列表缓存
                 }
             }
             return data;
@@ -735,20 +741,77 @@ namespace Funeral.Core.Controllers
         [HttpGet]
         [AllowAnonymous]
         /*[ApiExplorerSettings(IgnoreApi = true)]*/
+        [Caching(AbsoluteExpiration = 30)]
         public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int uid)
         {
-            var data = new MessageModel<List<NavigationBar>>();
-            var roleIds = new List<int>();
-            //获取所有角色id
-            roleIds = (await _userRoleServices.Query(d => d.IsDeleted == false && d.UserId == uid)).Select(d => d.RoleId.ObjToInt()).Distinct().ToList();
-            var modulelist = await _moduleServices.Query();
-            if (uid > 0)
-            {
-                if (roleIds.Any())
-                {
-                    var pids = (await _roleModulePermissionServices.Query(d => d.IsDeleted == false && roleIds.Contains(d.RoleId))).Select(d => d.PermissionId.ObjToInt()).Distinct();
+            
 
-                    var rolePermissionMoudles = (await _permissionServices.Query(d => pids.Contains(d.Id))).OrderBy(c => c.OrderSort);
+            if (_redisCacheManager.Get<object>("GetNavigationBar") != null)
+            {
+              return  _redisCacheManager.Get<MessageModel<List<NavigationBar>>>("GetNavigationBar");
+            }
+            else {
+                var data = new MessageModel<List<NavigationBar>>();
+                var roleIds = new List<int>();
+                //获取所有角色id
+                roleIds = (await _userRoleServices.Query(d => d.IsDeleted == false && d.UserId == uid)).Select(d => d.RoleId.ObjToInt()).Distinct().ToList();
+                var modulelist = await _moduleServices.Query();
+                if (uid > 0)
+                {
+                    if (roleIds.Any())
+                    {
+                        var pids = (await _roleModulePermissionServices.Query(d => d.IsDeleted == false && roleIds.Contains(d.RoleId))).Select(d => d.PermissionId.ObjToInt()).Distinct();
+
+                        var rolePermissionMoudles = (await _permissionServices.Query(d => pids.Contains(d.Id))).OrderBy(c => c.OrderSort);
+                        foreach (var item in rolePermissionMoudles)
+                        {
+                            if (item.IsButton)
+                            {
+                                //var modulemodel = await _moduleServices.QueryById(item.Mid);
+                                var modulemodel = modulelist.Where(a => a.Id == item.Mid).SingleOrDefault();
+                                if (modulemodel != null)
+                                {
+                                    item.MName = modulemodel.LinkUrl;
+                                    item.Mid = modulemodel.Id;
+                                }
+                            }
+                        }
+                        var permissionTrees = (from child in rolePermissionMoudles
+                                               where child.IsDeleted == false
+                                               orderby child.Id
+                                               select new NavigationBar
+                                               {
+                                                   Id = child.Id,
+                                                   Name = child.Name,
+                                                   Pid = child.Pid,
+                                                   Order = child.OrderSort,
+                                                   Path = child.Code,
+                                                   IconCls = child.Icon,
+                                                   Func = child.Func,
+                                                   IsHide = child.IsHide.ObjToBool(),
+                                                   IsButton = child.IsButton.ObjToBool(),
+                                                   ApiLink = child.MName,
+                                                   Mid = child.Mid,
+                                                   Enabled = child.Enabled,
+                                                   Description = child.Description
+                                               }).ToList();
+                        NavigationBar rootRoot = new NavigationBar()
+                        {
+                        };
+                        RecursionHelper.LoopNaviBarAppendChildren(permissionTrees, rootRoot);
+                        ;
+                        data.success = true;
+                        if (data.success)
+                        {
+                            data.response = rootRoot.Children;
+                            data.msg = "获取成功";
+                        }
+                    }
+                }
+                if (uid == 0 || uid == 1)
+                {
+                    Expression<Func<Permission, Modules, bool>> whereExpression = (rmp, p) => rmp.IsDeleted == false && rmp.Enabled == true;
+                    var rolePermissionMoudles = (await _permissionServices.Query()).OrderBy(c => c.OrderSort);
                     foreach (var item in rolePermissionMoudles)
                     {
                         if (item.IsButton)
@@ -761,12 +824,14 @@ namespace Funeral.Core.Controllers
                                 item.Mid = modulemodel.Id;
                             }
                         }
+
                     }
                     var permissionTrees = (from child in rolePermissionMoudles
                                            where child.IsDeleted == false
                                            orderby child.Id
                                            select new NavigationBar
                                            {
+                                               Enabled = child.Enabled,
                                                Id = child.Id,
                                                Name = child.Name,
                                                Pid = child.Pid,
@@ -777,9 +842,7 @@ namespace Funeral.Core.Controllers
                                                IsHide = child.IsHide.ObjToBool(),
                                                IsButton = child.IsButton.ObjToBool(),
                                                ApiLink = child.MName,
-                                               Mid = child.Mid,
-                                               Enabled = child.Enabled,
-                                               Description = child.Description
+                                               Mid = child.Mid
                                            }).ToList();
                     NavigationBar rootRoot = new NavigationBar()
                     {
@@ -793,56 +856,13 @@ namespace Funeral.Core.Controllers
                         data.msg = "获取成功";
                     }
                 }
-            }
-            if (uid == 0|| uid ==1)
-            {
-                Expression<Func<Permission, Modules, bool>> whereExpression = (rmp, p) => rmp.IsDeleted == false && rmp.Enabled == true;
-                var rolePermissionMoudles = (await _permissionServices.Query()).OrderBy(c => c.OrderSort);
-                foreach (var item in rolePermissionMoudles)
-                {
-                    if (item.IsButton)
-                    {
-                        //var modulemodel = await _moduleServices.QueryById(item.Mid);
-                        var modulemodel = modulelist.Where(a => a.Id == item.Mid).SingleOrDefault();
-                        if (modulemodel != null)
-                        {
-                            item.MName = modulemodel.LinkUrl;
-                            item.Mid = modulemodel.Id;
-                        }
-                    }
 
-                }
-                var permissionTrees = (from child in rolePermissionMoudles
-                                       where child.IsDeleted == false
-                                       orderby child.Id
-                                       select new NavigationBar
-                                       {
-                                           Enabled = child.Enabled,
-                                           Id = child.Id,
-                                           Name = child.Name,
-                                           Pid = child.Pid,
-                                           Order = child.OrderSort,
-                                           Path = child.Code,
-                                           IconCls = child.Icon,
-                                           Func = child.Func,
-                                           IsHide = child.IsHide.ObjToBool(),
-                                           IsButton = child.IsButton.ObjToBool(),
-                                           ApiLink = child.MName,
-                                           Mid= child.Mid
-                                       }).ToList();
-                NavigationBar rootRoot = new NavigationBar()
-                {
-                };
-                RecursionHelper.LoopNaviBarAppendChildren(permissionTrees, rootRoot);
-                ;
-                data.success = true;
-                if (data.success)
-                {
-                    data.response = rootRoot.Children;
-                    data.msg = "获取成功";
-                }
+                _redisCacheManager.Set("GetNavigationBar", data, TimeSpan.FromHours(1));//缓存2小时
+
+                return data;
             }
-            return data;
+
+        
         }
 
 
@@ -1186,8 +1206,9 @@ namespace Funeral.Core.Controllers
                 data.success = await _permissionServices.Update(userDetail);
                 if (data.success)
                 {
-                    data.msg = "删除成功";
+                    data.msg = "操作成功";
                     data.response = userDetail?.Id.ObjToString();
+                    _redisCacheManager.Remove("GetNavigationBar");//清除查询列表缓存
                 }
             }
             return data;
@@ -1211,6 +1232,7 @@ namespace Funeral.Core.Controllers
                 {
                     data.msg = "删除成功";
                     data.response = userDetail?.Id.ObjToString();
+                    _redisCacheManager.Remove("GetNavigationBar");//清除查询列表缓存
                 }
             }
             return data;
