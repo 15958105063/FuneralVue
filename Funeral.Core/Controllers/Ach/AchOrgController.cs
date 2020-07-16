@@ -131,6 +131,7 @@ namespace Funeral.Core.Controllers
                 //新增
                 models.CreateBy = _user.ID.ToString();
                 models.CreateBy = _user.Name;
+                models.OrgGroup = "Funeral";//默认值
                 var id = (await _achOrgServices.Add(models));
                 data.success = true;
 

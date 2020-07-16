@@ -97,6 +97,8 @@ namespace Funeral.Core.Controllers.Ach
                 //新增
                 models.CreateBy = _user.ID.ToString();
                 models.CreateBy = _user.Name;
+                models.PvlProName = "FuneralManage";
+                models.PvlProType = "WebPc";
                 var id = (await _AchPvlServices.Add(models));
                 data.success = id > 0;
                 if (data.success)

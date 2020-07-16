@@ -97,6 +97,9 @@ namespace Funeral.Core.Controllers.Ach
                 //新增
                 models.CreateBy = _user.ID.ToString();
                 models.CreateBy = _user.Name;
+                models.DliProname = "Funeral";
+                models.DliProtype = "WebPc";
+
                 var id = (await _achDliServices.Add(models));
                 data.success = id > 0;
                 if (data.success)

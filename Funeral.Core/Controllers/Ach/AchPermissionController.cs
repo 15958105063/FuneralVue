@@ -179,6 +179,12 @@ namespace Funeral.Core.Controllers
 
             var data = new MessageModel<string>();
 
+            //默认值
+            permission.ProName = "FuneralManage";
+            permission.ProType = "WebPc";
+            permission.Pruid = "Funeral";
+
+
             var inserttype = "AchFgp";//第一级菜单
 
             #region 判断传入的是针对哪个表的操作，即根据父级id查找
