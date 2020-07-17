@@ -185,29 +185,6 @@ namespace Funeral.Core.Controllers
         }
 
         /// <summary>
-        /// 获取博客测试信息 v2版本
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        ////MVC自带特性 对 api 进行组管理
-        //[ApiExplorerSettings(GroupName = "v2")]
-        ////路径 如果以 / 开头，表示绝对路径，反之相对 controller 的想u地路径
-        //[Route("/api/v2/blog/Blogtest")]
-        //和上边的版本控制以及路由地址都是一样的
-
-        [CustomRoute(ApiVersions.V2, "Blogtest")]
-        [AllowAnonymous]
-        public MessageModel<string> V2_Blogtest()
-        {
-            return new MessageModel<string>()
-            {
-                msg = "获取成功",
-                success = true,
-                response = "我是第二版的博客信息"
-            };
-        }
-
-        /// <summary>
         /// 添加博客【无权限】
         /// </summary>
         /// <param name="blogArticle"></param>
