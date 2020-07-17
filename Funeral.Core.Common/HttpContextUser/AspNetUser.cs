@@ -8,11 +8,20 @@ namespace Funeral.Core.Common.HttpContextUser
 {
     public class AspNetUser : IUser
     {
+
         private readonly IHttpContextAccessor _accessor;
 
         public AspNetUser(IHttpContextAccessor accessor)
         {
             _accessor = accessor;
+        }
+
+        public string TenanId => GetTenanId();
+        private string GetTenanId()
+        {
+          //根据ID获取
+
+            return "";
         }
 
         public string Name => GetName();

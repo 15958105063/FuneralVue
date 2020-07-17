@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Funeral.Core.Common;
 using System.Collections.Generic;
+using Funeral.Core.Common.HttpContextUser;
 
 namespace Funeral.Core.Services
 {
@@ -16,7 +17,8 @@ namespace Funeral.Core.Services
     {
 
         ITenanRepository _dal;
-        public TenanServices(ITenanRepository dal)
+      
+        public TenanServices(IUser user, ITenanRepository dal)
         {
             this._dal = dal;
             base.BaseDal = dal;
@@ -61,6 +63,7 @@ namespace Funeral.Core.Services
         {
             return await base.Query(a => a.Enabled);
         }
+
 
 
     }

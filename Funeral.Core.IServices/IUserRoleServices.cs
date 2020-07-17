@@ -12,6 +12,7 @@ namespace Funeral.Core.IServices
 
         Task<UserRole> SaveUserRole(int uid, int rid);
         Task<int> GetRoleIdByUid(int uid);
+        Task<Tenan> GetLoginTenan();
     }
 }
 

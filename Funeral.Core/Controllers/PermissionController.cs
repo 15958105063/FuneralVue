@@ -287,11 +287,13 @@ namespace Funeral.Core.Controllers
                     var remove = roleModulePermissions.Where(d => !assignView.pids.Contains(d.PermissionId.ObjToInt())).Select(c => (object)c.Id);
                     data.success &= remove.Any() ? await _roleModulePermissionServices.DeleteByIds(remove.ToArray()) : true;
 
+                    var permissionlist =await _permissionServices.Query();
+                    List<RoleModulePermission> rolemodulepermissionlist = new List<RoleModulePermission>();
                     foreach (var item in assignView.pids)
                     {
                         bool exists = (roleModulePermissions.Select(c => (object)c.PermissionId).ToArray()).Contains(item);
                         if (!exists) {
-                            var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault()?.Mid;
+                            var moduleid = permissionlist.Where(a => a.Id == item).FirstOrDefault()?.Mid;
                             RoleModulePermission roleModulePermission = new RoleModulePermission()
                             {
                                 IsDeleted = false,
@@ -301,24 +303,14 @@ namespace Funeral.Core.Controllers
                             };
                             roleModulePermission.CreateId = _user.ID;
                             roleModulePermission.CreateBy = _user.Name;
-                            await _roleModulePermissionServices.Add(roleModulePermission);
+
+                            rolemodulepermissionlist.Add(roleModulePermission);
+                            //修改为 批量插入
+                            //await _roleModulePermissionServices.Add(roleModulePermission);
                         }
-                        //判断该菜单，是否已经存在，不存在则添加
-                        //var roleModulePermissionsmodel = (await _roleModulePermissionServices.Query(d => d.RoleId == assignView.rid && d.PermissionId == item)).FirstOrDefault();
-                        //if (roleModulePermissionsmodel == null)
-                        //{
-                        //    var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault()?.Mid;
-                        //    RoleModulePermission roleModulePermission = new RoleModulePermission()
-                        //    {
-                        //        IsDeleted = false,
-                        //        RoleId = assignView.rid,
-                        //        ModuleId = moduleid.ObjToInt(),
-                        //        PermissionId = item,
-                        //    };
-                        //    roleModulePermission.CreateId = _user.ID;
-                        //    roleModulePermission.CreateBy = _user.Name;
-                        //    data.success &= (await _roleModulePermissionServices.Add(roleModulePermission)) > 0;
-                        //}
+                    }
+                    if (rolemodulepermissionlist.Count>0) {
+                        await _roleModulePermissionServices.Add(rolemodulepermissionlist);
                     }
                     data.success = true;
                     if (data.success)
@@ -355,32 +347,36 @@ namespace Funeral.Core.Controllers
                     data.success = true;
 
                     var permissionTenan = await _permissionTenanServices.Query(d => d.TenanId == assignView.tid);
-
-                    //先删除角色下所有的菜单权限
-                    //await _permissionTenanServices.Delete(a => a.TenanId == assignView.tid);
+                    var permissionlist = await _permissionServices.Query();
 
                     //删除以前勾选，但是现在未勾选的
                     var remove = permissionTenan.Where(d => !assignView.pids.Contains(d.PermissionId.ObjToInt())).Select(c => (object)c.Id);
                     data.success &= remove.Any() ? await _permissionTenanServices.DeleteByIds(remove.ToArray()) : true;
 
+                    List<PermissionTenan> rolemodulepermissionlist = new List<PermissionTenan>();
                     foreach (var item in assignView.pids)
                     {
                         bool exists = (permissionTenan.Select(c => (object)c.PermissionId).ToArray()).Contains(item);
                         if (!exists)
                         {
-                            var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault();
+                            //var moduleid = (await _permissionServices.Query(p => p.Id == item)).FirstOrDefault();
+                            var module = permissionlist.Where(a => a.Id == item).FirstOrDefault();
+
                             PermissionTenan permissiontenan = new PermissionTenan()
                             {
                                 TenanId = assignView.tid,
-                                PermissionId = moduleid.Id,
+                                PermissionId = module.Id,
                             };
                             permissiontenan.CreateId = _user.ID;
                             permissiontenan.CreateBy = _user.Name;
                             permissiontenan.IsDeleted = false;
-                            await _permissionTenanServices.Add(permissiontenan);
+                            rolemodulepermissionlist.Add(permissiontenan);
                             data.success = true;
                         }
                       
+                    }
+                    if (rolemodulepermissionlist.Count>0) {
+                        await _permissionTenanServices.Add(rolemodulepermissionlist);
                     }
 
                     if (data.success)
@@ -744,13 +740,14 @@ namespace Funeral.Core.Controllers
         [Caching(AbsoluteExpiration = 30)]//这个貌似无效，有待检查
         public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int uid)
         {
-            
+          var model=await  _userRoleServices.GetLoginTenan();
 
-            //if (_redisCacheManager.Get<object>("GetNavigationBar") != null)
-            //{
-             // return  _redisCacheManager.Get<MessageModel<List<NavigationBar>>>("GetNavigationBar");
-           // }
-           // else {
+            if (_redisCacheManager.Get<object>("GetNavigationBar") != null)
+            {
+                return _redisCacheManager.Get<MessageModel<List<NavigationBar>>>("GetNavigationBar");
+            }
+            else
+            {
                 var data = new MessageModel<List<NavigationBar>>();
                 var roleIds = new List<int>();
                 //获取所有角色id
@@ -857,10 +854,10 @@ namespace Funeral.Core.Controllers
                     }
                 }
 
-                //_redisCacheManager.Set("GetNavigationBar", data, TimeSpan.FromHours(1));//缓存2小时
+                _redisCacheManager.Set("GetNavigationBar", data, TimeSpan.FromHours(1));//缓存2小时
 
                 return data;
-            //}
+            }
 
         
         }

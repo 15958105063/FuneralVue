@@ -17,13 +17,11 @@ using static Funeral.Core.SwaggerHelper.CustomApiVersion;
 namespace Funeral.Core.Controllers
 {
     /// <summary>
-    /// 博客管理
+    /// 问题/博客管理
     /// </summary>
     [Produces("application/json")]
     [Route("api/Blog")]
-    [Authorize]
 
-    [ApiExplorerSettings(IgnoreApi = true)]
     public class BlogController : Controller
     {
         readonly IBlogArticleServices _blogArticleServices;

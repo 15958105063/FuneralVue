@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Linq;
 using Funeral.Core.Common;
 using Funeral.Core;
+using Funeral.Core.Common.HttpContextUser;
+using Funeral.Core.IRepository;
 
 namespace Funeral.Core.Services
 {	
@@ -14,10 +16,16 @@ namespace Funeral.Core.Services
 	/// </summary>	
 	public class UserRoleServices : BaseServices<UserRole>, IUserRoleServices
     {
-	
+        readonly IUser _user;
         IUserRoleRepository _dal;
-        public UserRoleServices(IUserRoleRepository dal)
+        IRoleTenanRepository _roleTenanRepository;
+        ITenanRepository _tenanRepository;
+
+        public UserRoleServices(ITenanRepository tenanRepository, IRoleTenanRepository roleTenanRepository, IUser user, IUserRoleRepository dal)
         {
+            _tenanRepository = tenanRepository;
+            _roleTenanRepository = roleTenanRepository;
+            _user = user;
             this._dal = dal;
             base.BaseDal = dal;
         }
@@ -42,17 +50,25 @@ namespace Funeral.Core.Services
                 var id = await base.Add(userRole);
                 model = await base.QueryById(id);
             }
-
             return model;
-
         }
 
-
-
-        [Caching(AbsoluteExpiration = 30)]
         public async Task<int> GetRoleIdByUid(int uid)
         {
             return ((await base.Query(d => d.UserId == uid)).OrderByDescending(d => d.Id).LastOrDefault()?.RoleId).ObjToInt();
         }
+
+
+        /// <summary>
+        /// 获取当前登录用户的所属客户
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Tenan> GetLoginTenan()
+        {
+            int roleid = ((await base.Query(a => a.UserId == _user.ID)).OrderByDescending(a => a.Id).LastOrDefault()?.RoleId).ObjToInt();
+            int tenanid= ((await  _roleTenanRepository.Query(a=>a.RoleId== roleid)).OrderByDescending(a => a.TenanId).LastOrDefault()?.TenanId).ObjToInt();
+            return (await _tenanRepository.Query(a=>a.Id== tenanid)).SingleOrDefault();
+        }
+
     }
 }
