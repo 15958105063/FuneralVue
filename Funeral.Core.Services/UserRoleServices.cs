@@ -63,6 +63,7 @@ namespace Funeral.Core.Services
         /// 获取当前登录用户的所属客户
         /// </summary>
         /// <returns></returns>
+        //[Caching(AbsoluteExpiration = 30)]
         public async Task<Tenan> GetLoginTenan()
         {
             int roleid = ((await base.Query(a => a.UserId == _user.ID)).OrderByDescending(a => a.Id).LastOrDefault()?.RoleId).ObjToInt();

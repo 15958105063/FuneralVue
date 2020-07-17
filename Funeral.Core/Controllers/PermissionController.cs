@@ -12,9 +12,11 @@ using Funeral.Core.Common.HttpContextUser;
 using Funeral.Core.IServices;
 using Funeral.Core.Model;
 using Funeral.Core.Model.Models;
+using Funeral.Core.SwaggerHelper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Funeral.Core.SwaggerHelper.CustomApiVersion;
 
 namespace Funeral.Core.Controllers
 {
@@ -604,7 +606,6 @@ namespace Funeral.Core.Controllers
             var pidlist = await _permissionTenanServices.Query(a => a.TenanId == id);
             List<PermissionTree> permissionTrees = new List<PermissionTree>() { };
 
-
             if (id==0) {
                 var permissions = await _permissionServices.Query(a => a.Enabled == true && a.IsDeleted == false);
 
@@ -623,29 +624,14 @@ namespace Funeral.Core.Controllers
 
             if (pidlist.Count <= 0)
             {
-                //var permissions = await _permissionServices.Query(a => a.Enabled == true && a.IsDeleted == false);
-
-                //permissionTrees = (from child in permissions
-                //                   where child.IsDeleted == false
-                //                   orderby child.Id
-                //                   select new PermissionTree
-                //                   {
-                //                       Value = child.Id,
-                //                       Label = child.Name,
-                //                       Pid = child.Pid,
-                //                       Isbtn = child.IsButton,
-                //                       Order = child.OrderSort,
-                //                   }).ToList();
-
 
             }
             else
             {
-
+              var permissionmodel=  await _permissionServices.Query();
                 foreach (var item in pidlist)
                 {
-
-                    var permissions = await _permissionServices.QueryById(item.PermissionId);
+                    var permissions = permissionmodel.Where(a => a.Id == item.PermissionId).SingleOrDefault();
 
                     permissionTrees.Add(new PermissionTree
                     {
@@ -657,16 +643,12 @@ namespace Funeral.Core.Controllers
                     });
                 }
             }
-
-
-
             PermissionTree rootRoot = new PermissionTree
             {
 
             };
 
             permissionTrees = permissionTrees.OrderBy(d => d.Order).ToList();
-
 
             RecursionHelper.LoopToAppendChildren(permissionTrees, rootRoot, id);
 
@@ -737,17 +719,12 @@ namespace Funeral.Core.Controllers
         [HttpGet]
         [AllowAnonymous]
         /*[ApiExplorerSettings(IgnoreApi = true)]*/
-        [Caching(AbsoluteExpiration = 30)]//这个貌似无效，有待检查
+        //[CustomRoute(ApiVersions.V2, "GetNavigationBar")]
         public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int uid)
         {
           var model=await  _userRoleServices.GetLoginTenan();
 
-            if (_redisCacheManager.Get<object>("GetNavigationBar") != null)
-            {
-                return _redisCacheManager.Get<MessageModel<List<NavigationBar>>>("GetNavigationBar");
-            }
-            else
-            {
+          
                 var data = new MessageModel<List<NavigationBar>>();
                 var roleIds = new List<int>();
                 //获取所有角色id
@@ -807,6 +784,12 @@ namespace Funeral.Core.Controllers
                 }
                 if (uid == 0 || uid == 1)
                 {
+                if (_redisCacheManager.Get<object>("GetNavigationBar") != null)
+                {
+                    return _redisCacheManager.Get<MessageModel<List<NavigationBar>>>("GetNavigationBar");
+                }
+                else
+                {
                     Expression<Func<Permission, Modules, bool>> whereExpression = (rmp, p) => rmp.IsDeleted == false && rmp.Enabled == true;
                     var rolePermissionMoudles = (await _permissionServices.Query()).OrderBy(c => c.OrderSort);
                     foreach (var item in rolePermissionMoudles)
@@ -852,12 +835,15 @@ namespace Funeral.Core.Controllers
                         data.response = rootRoot.Children;
                         data.msg = "获取成功";
                     }
+                    _redisCacheManager.Set("GetNavigationBar", data, TimeSpan.FromHours(0.5));//缓存30分钟
                 }
 
-                _redisCacheManager.Set("GetNavigationBar", data, TimeSpan.FromHours(1));//缓存2小时
 
-                return data;
-            }
+              
+                }
+    
+            return data;
+            
 
         
         }

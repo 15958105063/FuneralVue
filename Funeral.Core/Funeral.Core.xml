@@ -1147,7 +1147,7 @@
         </member>
         <member name="T:Funeral.Core.Controllers.BlogController">
             <summary>
-            博客管理
+            问题/博客管理
             </summary>
         </member>
         <member name="M:Funeral.Core.Controllers.BlogController.#ctor(Funeral.Core.IServices.IBlogArticleServices,Microsoft.Extensions.Logging.ILogger{Funeral.Core.Controllers.BlogController})">
@@ -1159,7 +1159,7 @@
         </member>
         <member name="M:Funeral.Core.Controllers.BlogController.Get(System.Int32,System.Int32,System.String,System.String)">
             <summary>
-            获取博客列表【无权限】
+            获取博客列表
             </summary>
             <param name="id"></param>
             <param name="page"></param>

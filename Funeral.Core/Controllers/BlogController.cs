@@ -40,7 +40,7 @@ namespace Funeral.Core.Controllers
 
 
         /// <summary>
-        /// 获取博客列表【无权限】
+        /// 获取博客列表
         /// </summary>
         /// <param name="id"></param>
         /// <param name="page"></param>
@@ -51,7 +51,7 @@ namespace Funeral.Core.Controllers
         [AllowAnonymous]
         //[ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
         //[ResponseCache(Duration = 600)]
-        public async Task<MessageModel<PageModel<BlogArticle>>> Get(int id, int page = 1, string bcategory = "技术博文", string key = "")
+        public async Task<MessageModel<PageModel<BlogArticle>>> Get(int id, int page = 1, string bcategory = "", string key = "")
         {
             int intPageSize = 6;
             if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))

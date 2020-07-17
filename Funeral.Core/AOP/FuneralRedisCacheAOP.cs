@@ -51,7 +51,16 @@ namespace Funeral.Core.AOP
                     }
 
                     dynamic _result = Newtonsoft.Json.JsonConvert.DeserializeObject(cacheValue, returnType);
-                    invocation.ReturnValue = (typeof(Task).IsAssignableFrom(method.ReturnType)) ? Task.FromResult(_result) : _result;
+                    if ((typeof(Task).IsAssignableFrom(method.ReturnType))) {
+                        if (_result!=null) {
+                            invocation.ReturnValue = Task.FromResult(_result);
+                        }
+                        
+                    }
+                    else {
+                        invocation.ReturnValue = _result;
+                    }
+                    //invocation.ReturnValue =  ? Task.FromResult(_result) : _result;
                     return;
                 }
                 //去执行当前的方法
