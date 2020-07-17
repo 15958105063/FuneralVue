@@ -741,16 +741,16 @@ namespace Funeral.Core.Controllers
         [HttpGet]
         [AllowAnonymous]
         /*[ApiExplorerSettings(IgnoreApi = true)]*/
-        [Caching(AbsoluteExpiration = 30)]
+        [Caching(AbsoluteExpiration = 30)]//这个貌似无效，有待检查
         public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int uid)
         {
             
 
-            if (_redisCacheManager.Get<object>("GetNavigationBar") != null)
-            {
-              return  _redisCacheManager.Get<MessageModel<List<NavigationBar>>>("GetNavigationBar");
-            }
-            else {
+            //if (_redisCacheManager.Get<object>("GetNavigationBar") != null)
+            //{
+             // return  _redisCacheManager.Get<MessageModel<List<NavigationBar>>>("GetNavigationBar");
+           // }
+           // else {
                 var data = new MessageModel<List<NavigationBar>>();
                 var roleIds = new List<int>();
                 //获取所有角色id
@@ -857,10 +857,10 @@ namespace Funeral.Core.Controllers
                     }
                 }
 
-                _redisCacheManager.Set("GetNavigationBar", data, TimeSpan.FromHours(1));//缓存2小时
+                //_redisCacheManager.Set("GetNavigationBar", data, TimeSpan.FromHours(1));//缓存2小时
 
                 return data;
-            }
+            //}
 
         
         }
