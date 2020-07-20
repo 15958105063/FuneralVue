@@ -27,6 +27,19 @@ namespace Funeral.Core.AutoMapper
             #endregion
 
 
+            #region QW模块
+
+            #region QuestionsDto
+            CreateMap<Questions, QuestionsDto>();
+            CreateMap<QuestionsDto, Questions>();
+
+            CreateMap<PageModel<Questions>, PageModel<QuestionsDto>>();
+            CreateMap<PageModel<QuestionsDto>, PageModel<Questions>>();
+
+            #endregion
+
+            #endregion
+
         }
     }
 }

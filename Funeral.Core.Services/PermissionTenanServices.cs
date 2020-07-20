@@ -1,5 +1,5 @@
 using Funeral.Core.IServices;
-using Funeral.Core.FrameWork.IRepository;
+using Funeral.Core.IRepository;
 using Funeral.Core.Services.BASE;
 using Funeral.Core.Model.Models;
 using System.Threading.Tasks;

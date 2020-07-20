@@ -1,4 +1,4 @@
-using Funeral.Core.FrameWork.IRepository;
+using Funeral.Core.IRepository;
 using Funeral.Core.Repository.Base;
 using Funeral.Core.Model.Models;
 using Funeral.Core.IRepository.UnitOfWork;

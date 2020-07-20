@@ -4,13 +4,9 @@ using Funeral.Core.Model.Models;
 namespace Funeral.Core.IRepository
 {
     /// <summary>
-    /// IRoleTenanRepository
+    /// IDataDictionaryRepository
     /// </summary>	
-    public interface IRoleTenanRepository : IBaseRepository<RoleTenan>//类名
+    public interface IDataDictionaryRepository : IBaseRepository<DataDictionary>
     {
-
-       
     }
 }
-
-	

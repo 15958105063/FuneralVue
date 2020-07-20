@@ -4,10 +4,10 @@ using System;
 namespace Funeral.Core.Model.Models
 {
     /// <summary>
-    /// 回复
+    /// 问题
     /// 作　　者:CY
     /// </summary>
-    public class Answers : RootEntity
+    public class Questions: RootEntity
     {
 
         /// <summary>
@@ -18,11 +18,12 @@ namespace Funeral.Core.Model.Models
         public string Title { get; set; }
 
         /// <summary>
-        /// 类别
+        /// 分类
         /// 作　　者:CY
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = int.MaxValue, IsNullable = true)]
         public string Category { get; set; }
+
 
         /// <summary>
         /// 内容
@@ -91,5 +92,10 @@ namespace Funeral.Core.Model.Models
         [SugarColumn(IsNullable = true)]
         public bool? IsDeleted { get; set; }
 
+
+        /// <summary>
+        /// 客户ID
+        /// </summary>
+        public int Tid { get; set; }
     }
 }

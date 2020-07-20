@@ -4,44 +4,42 @@ using System;
 namespace Funeral.Core.Model.Models
 {
     /// <summary>
-    /// 问题
+    /// 字典类型
     /// 作　　者:CY
     /// </summary>
-    public class Questions: RootEntity
+    public class DictionaryPermission : RootEntity
     {
 
         /// <summary>
-        /// 标题
+        /// 自编码
         /// 作　　者:CY
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = 256, IsNullable = true)]
-        public string Title { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
-        /// 类别
+        /// 名称
         /// 作　　者:CY
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = int.MaxValue, IsNullable = true)]
-        public string Category { get; set; }
+        public string Name { get; set; }
+
 
         /// <summary>
-        /// 内容
+        /// 值
         /// 作　　者:CY
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = int.MaxValue, IsNullable = true)]
-        public string Content { get; set; }
+        public string Value { get; set; }
+
+
 
         /// <summary>
-        /// 访问量
+        /// 上级Id
         /// 作　　者:CY
         /// </summary>
-        public int Traffic { get; set; }
-
-        /// <summary>
-        /// 评论数量
-        /// 作　　者:CY
-        /// </summary>
-        public int CommentNum { get; set; }
+        [SugarColumn(ColumnDataType = "nvarchar", Length = int.MaxValue, IsNullable = true)]
+        public string Pid { get; set; }
 
 
         /// <summary>
@@ -50,6 +48,20 @@ namespace Funeral.Core.Model.Models
         /// </summary>
         [SugarColumn(ColumnDataType = "nvarchar", Length = int.MaxValue, IsNullable = true)]
         public string Remark { get; set; }
+
+
+        /// <summary>
+        /// 排序
+        /// 作　　者:CY
+        /// </summary>
+        public int OrderSort { get; set; }
+
+
+        /// <summary>
+        /// 是否激活
+        /// 作　　者:CY
+        /// </summary>
+        public bool Enabled { get; set; }
 
 
         /// <summary>
