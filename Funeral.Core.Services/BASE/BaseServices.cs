@@ -1,11 +1,15 @@
 ﻿using Funeral.Core.Common;
+using Funeral.Core.Common.HttpContextUser;
+using Funeral.Core.IRepository;
 using Funeral.Core.IRepository.Base;
 using Funeral.Core.IServices.BASE;
 using Funeral.Core.Model;
+using Funeral.Core.Model.Models;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -17,7 +21,6 @@ namespace Funeral.Core.Services.BASE
         public IBaseRepository<TEntity> BaseDal;//通过在子类的构造函数中注入，这里是基类，不用构造函数
 
 
- 
         public async Task<TEntity> QueryById(object objId)
         {
             return await BaseDal.QueryById(objId);

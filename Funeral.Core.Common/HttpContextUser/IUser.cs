@@ -7,6 +7,7 @@ namespace Funeral.Core.Common.HttpContextUser
     {
         string Name { get; }
         int ID { get; }
+        string TID { get; }
         bool IsAuthenticated();
         IEnumerable<Claim> GetClaimsIdentity();
         List<string> GetClaimValueByType(string ClaimType);

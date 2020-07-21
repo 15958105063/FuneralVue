@@ -1,5 +1,7 @@
 using Funeral.Core.IServices.BASE;
 using Funeral.Core.Model.Models;
+using Funeral.Core.Model.ViewModels;
+using System.Threading.Tasks;
 
 namespace Funeral.Core.IServices
 {
@@ -8,5 +10,6 @@ namespace Funeral.Core.IServices
 	/// </summary>	
 	public interface IAnswersServices : IBaseServices<Answers>
 	{
-    }
+		Task<bool> PostAnswersInfo(AnswersDto modeldto);
+	}
 }

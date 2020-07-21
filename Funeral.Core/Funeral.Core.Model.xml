@@ -2210,6 +2210,379 @@
             修改时间
             </summary>
         </member>
+        <member name="T:Funeral.Core.Model.Models.Answers">
+            <summary>
+            回复
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Title">
+            <summary>
+            标题
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Category">
+            <summary>
+            类别
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Content">
+            <summary>
+            内容
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Traffic">
+            <summary>
+            访问量
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.CommentNum">
+            <summary>
+            评论数量
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Remark">
+            <summary>
+            备注
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Pid">
+            <summary>
+            父级回答
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.IsDeleted">
+            <summary>
+            逻辑删除
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.DataDictionary">
+            <summary>
+            数据字典
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.DpId">
+            <summary>
+            所属类型ID
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Code">
+            <summary>
+            自编码
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Name">
+            <summary>
+            名称
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Value">
+            <summary>
+            值
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Type">
+            <summary>
+            分类
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Pid">
+            <summary>
+            上级Id
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Remark">
+            <summary>
+            备注
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.OrderSort">
+            <summary>
+            排序
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Enabled">
+            <summary>
+            是否激活
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.IsDeleted">
+            <summary>
+            逻辑删除
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DataDictionary.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.DictionaryPermission">
+            <summary>
+            字典类型
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.Code">
+            <summary>
+            自编码
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.Name">
+            <summary>
+            名称
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.Value">
+            <summary>
+            值
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.Pid">
+            <summary>
+            上级Id
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.Remark">
+            <summary>
+            备注
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.OrderSort">
+            <summary>
+            排序
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.Enabled">
+            <summary>
+            是否激活
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.IsDeleted">
+            <summary>
+            逻辑删除
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.DictionaryPermission.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.QuestionAnswers">
+            <summary>
+            问题答案关联表
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.QuestionAnswers.QId">
+            <summary>
+            问题ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.QuestionAnswers.AId">
+            <summary>
+            答案ID
+            </summary>
+        </member>
+        <member name="T:Funeral.Core.Model.Models.Questions">
+            <summary>
+            问题
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.Title">
+            <summary>
+            标题
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.Category">
+            <summary>
+            分类
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.Content">
+            <summary>
+            内容
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.Traffic">
+            <summary>
+            访问量
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.CommentNum">
+            <summary>
+            评论数量
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.Remark">
+            <summary>
+            备注
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.IsDeleted">
+            <summary>
+            逻辑删除
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Questions.Tid">
+            <summary>
+            客户ID
+            </summary>
+        </member>
         <member name="T:Funeral.Core.Model.Models.Role">
             <summary>
             角色表
@@ -3247,6 +3620,41 @@
         <member name="P:Funeral.Core.Model.ViewModels.GuestbookViewModels.isshow">
             <summary>是否显示在前台,0否1是
             
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.Category">
+            <summary>
+            分类
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.Traffic">
+            <summary>
+            访问量
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.CommentNum">
+            <summary>
+            评论数量
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.Remark">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="T:Funeral.Core.Model.ViewModels.RoleModulePermissionViewModel">

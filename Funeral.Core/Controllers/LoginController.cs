@@ -286,10 +286,10 @@ namespace Funeral.Core.Controllers
                 //如果是基于用户的授权策略，这里要添加用户;如果是基于角色的授权策略，这里要添加角色
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Name, userNameOrEmailAddress),
-                    new Claim(JwtRegisteredClaimNames.Jti, userid.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti, userid.ToString()),//用户信息
+                    new Claim(ClaimTypes.MobilePhone, tenanid.ToString()),//客户信息
                     new Claim(ClaimTypes.Expiration, DateTime.Now.AddSeconds(_requirement.Expiration.TotalSeconds).ToString()) };//过期时间
                 claims.AddRange(userRoles.Split(',').Select(s => new Claim(ClaimTypes.Role, s)));
-
 
                 // ids4和jwt切换
                 // jwt

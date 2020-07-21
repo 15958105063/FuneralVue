@@ -722,7 +722,9 @@ namespace Funeral.Core.Controllers
         //[CustomRoute(ApiVersions.V2, "GetNavigationBar")]
         public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int uid)
         {
-          var model=await  _userRoleServices.GetLoginTenan();
+
+            var tid = _user.TID;
+          //var model=await  _userRoleServices.GetLoginTenan();
 
           
                 var data = new MessageModel<List<NavigationBar>>();

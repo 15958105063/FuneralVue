@@ -1181,12 +1181,6 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Funeral.Core.Controllers.BlogController.V2_Blogtest">
-            <summary>
-            获取博客测试信息 v2版本
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Funeral.Core.Controllers.BlogController.Post(Funeral.Core.Model.Models.BlogArticle)">
             <summary>
             添加博客【无权限】
@@ -1614,6 +1608,36 @@
             <summary>
             角色ID
             </summary>
+        </member>
+        <member name="T:Funeral.Core.Controllers.QuestionsController">
+            <summary>
+            问题信息管理
+            这里进行优化，业务部分全部在服务层处理
+            </summary>
+        </member>
+        <member name="M:Funeral.Core.Controllers.QuestionsController.Post(Funeral.Core.Model.ViewModels.QuestionsDto)">
+            <summary>
+            新增/编辑问题信息
+            </summary>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.QuestionsController.GetListByPage(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="pageindex"></param>
+            <param name="pagesize"></param>
+            <param name="orderby"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Funeral.Core.Controllers.QuestionsController.Delete(System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:Funeral.Core.Controllers.RoleController">
             <summary>

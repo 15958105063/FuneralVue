@@ -58,6 +58,12 @@ namespace Funeral.Core.Model.Models
         public int Pid { get; set; }
 
         /// <summary>
+        /// 题目ID
+        /// 作　　者:CY
+        /// </summary>
+        public int Qid { get; set; }
+
+        /// <summary>
         /// 创建ID
         /// </summary>
         [SugarColumn(IsNullable = true)]
@@ -96,5 +102,9 @@ namespace Funeral.Core.Model.Models
         [SugarColumn(IsNullable = true)]
         public bool? IsDeleted { get; set; }
 
+        /// <summary>
+        /// 客户ID
+        /// </summary>
+        public int Tid { get; set; }
     }
 }

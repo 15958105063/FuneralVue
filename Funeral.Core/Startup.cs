@@ -47,17 +47,17 @@ namespace Funeral.Core
 
             services.AddMiniProfiler(options => options.RouteBasePath = "/profiler");//性能检测
             services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);//JSON首字母小写解决
-            services.AddMemoryCacheSetup();
-            services.AddSqlsugarSetup();
-            services.AddDbSetup();
-            services.AddAutoMapperSetup();
-            services.AddCorsSetup();
-            services.AddMiniProfilerSetup();
-            services.AddSwaggerSetup();
-            services.AddJobSetup();
-            services.AddHttpContextSetup();
-            services.AddAppConfigSetup();
-            services.AddHttpApi();
+            services.AddMemoryCacheSetup();//MemoryCache
+            services.AddSqlsugarSetup();//Sqlsugar
+            services.AddDbSetup();//DB  Seed
+            services.AddAutoMapperSetup();//AutoMapper
+            services.AddCorsSetup();//Cors
+            services.AddMiniProfilerSetup();//MiniProfiler  api监控
+            services.AddSwaggerSetup();//Swagger
+            services.AddJobSetup();//任务调度
+            services.AddHttpContextSetup();//HttpContext 相关服务
+            services.AddAppConfigSetup();//控制台输出
+            //services.AddHttpApi();//api
             if (Permissions.IsUseIds4)
             {
                 services.AddAuthorization_Ids4Setup();
@@ -66,19 +66,19 @@ namespace Funeral.Core
             {
                 services.AddAuthorizationSetup();
             }
-            services.AddIpPolicyRateLimitSetup(Configuration);
+            services.AddIpPolicyRateLimitSetup(Configuration);//ip限流
 
-            services.AddSignalR().AddNewtonsoftJsonProtocol();
+            services.AddSignalR().AddNewtonsoftJsonProtocol();//SignalR通讯
 
             services.AddScoped<UseServiceDIAttribute>();
 
-            services.Configure<KestrelServerOptions>(x => x.AllowSynchronousIO = true)
-                    .Configure<IISServerOptions>(x => x.AllowSynchronousIO = true);
+            services.Configure<KestrelServerOptions>(x => x.AllowSynchronousIO = true)//Kestrel服务器
+                    .Configure<IISServerOptions>(x => x.AllowSynchronousIO = true);//iis服务
 
             services.AddControllers(o =>
             {
                 // 全局异常过滤
-                o.Filters.Add(typeof(GlobalExceptionsFilter));
+                o.Filters.Add(typeof(GlobalExceptionsFilter));//注入全局异常日志记录
                 // 全局路由权限公约
                 //o.Conventions.Insert(0, new GlobalRouteAuthorizeConvention());
                 // 全局路由前缀，统一修改路由

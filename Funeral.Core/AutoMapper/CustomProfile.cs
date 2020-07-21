@@ -38,6 +38,16 @@ namespace Funeral.Core.AutoMapper
 
             #endregion
 
+            #region AnswersDto
+            CreateMap<Answers, AnswersDto>();
+            CreateMap<AnswersDto, Answers>();
+
+            CreateMap<PageModel<Answers>, PageModel<AnswersDto>>();
+            CreateMap<PageModel<AnswersDto>, PageModel<Answers>>();
+
+            #endregion
+
+
             #endregion
 
         }

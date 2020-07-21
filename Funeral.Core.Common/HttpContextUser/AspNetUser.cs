@@ -16,14 +16,6 @@ namespace Funeral.Core.Common.HttpContextUser
             _accessor = accessor;
         }
 
-        public string TenanId => GetTenanId();
-        private string GetTenanId()
-        {
-          //根据ID获取
-
-            return "";
-        }
-
         public string Name => GetName();
 
         private string GetName()
@@ -43,6 +35,19 @@ namespace Funeral.Core.Common.HttpContextUser
         }
 
         public int ID => GetClaimValueByType("jti").FirstOrDefault().ObjToInt();
+
+        public string TID =>GetTid();
+        private string GetTid()
+        {
+
+            if (!string.IsNullOrEmpty(GetToken()))
+            {
+                return GetUserInfoFromToken("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone").FirstOrDefault().ObjToString();
+            }
+
+
+            return "";
+        }
 
         public bool IsAuthenticated()
         {
