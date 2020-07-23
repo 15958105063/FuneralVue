@@ -10,6 +10,7 @@ using Funeral.Core.Common;
 using Funeral.Core.Common.Helper;
 using Funeral.Core.Common.HttpContextUser;
 using Funeral.Core.IServices;
+using Funeral.Core.IServices.ES;
 using Funeral.Core.Model;
 using Funeral.Core.Model.Models;
 using Funeral.Core.SwaggerHelper;
@@ -28,7 +29,7 @@ namespace Funeral.Core.Controllers
     //[Authorize(Permissions.Name)]
     public class PermissionController : ControllerBase
     {
-
+        readonly IESSever _iESSever;
         readonly IPermissionTenanServices _permissionTenanServices;
         readonly ITenanServices _tenanServices;
         readonly IPermissionServices _permissionServices;
@@ -50,8 +51,9 @@ namespace Funeral.Core.Controllers
         /// <param name="httpContext"></param>
         /// <param name="user"></param>
         /// <param name="requirement"></param>
-        public PermissionController(IRedisCacheManager redisCacheManager, IPermissionTenanServices permissionTenanServices, ITenanServices tenanServices, IPermissionServices permissionServices, IModuleServices moduleServices, IRoleModulePermissionServices roleModulePermissionServices, IUserRoleServices userRoleServices, IHttpContextAccessor httpContext, IUser user, PermissionRequirement requirement)
+        public PermissionController(IESSever eSSever, IRedisCacheManager redisCacheManager, IPermissionTenanServices permissionTenanServices, ITenanServices tenanServices, IPermissionServices permissionServices, IModuleServices moduleServices, IRoleModulePermissionServices roleModulePermissionServices, IUserRoleServices userRoleServices, IHttpContextAccessor httpContext, IUser user, PermissionRequirement requirement)
         {
+            _iESSever = eSSever;
             _permissionTenanServices = permissionTenanServices;
             _tenanServices = tenanServices;
             _permissionServices = permissionServices;
@@ -722,12 +724,28 @@ namespace Funeral.Core.Controllers
         //[CustomRoute(ApiVersions.V2, "GetNavigationBar")]
         public async Task<MessageModel<List<NavigationBar>>> GetNavigationBar(int uid)
         {
+            //查找
+            var tid = _user.TID;//客户ID
 
-            var tid = _user.TID;
-          //var model=await  _userRoleServices.GetLoginTenan();
+            #region ES搜索，搜不到再去查找
+            Permission permission = new Permission()
+            {
+                Id = 7,
+                Name = "xxxxx",
+            };
 
-          
-                var data = new MessageModel<List<NavigationBar>>();
+            await _iESSever.ElasticLinqClient.IndexAsync(permission, t => t.Index("persons").Id(permission.Id));
+            var list = await _iESSever.ElasticLinqClient.SearchAsync<Permission>(
+                             p => p.Index("persons")
+                                   //.Type("Persons")
+                                   .Query(op => op.Match(//
+                                          ss => ss.Field(//字段
+                                                qq => qq.Id == permission.Id))));
+
+            #endregion
+
+
+            var data = new MessageModel<List<NavigationBar>>();
                 var roleIds = new List<int>();
                 //获取所有角色id
                 roleIds = (await _userRoleServices.Query(d => d.IsDeleted == false && d.UserId == uid)).Select(d => d.RoleId.ObjToInt()).Distinct().ToList();

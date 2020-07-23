@@ -18,6 +18,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
 using Funeral.Core.Tasks;
+using Funeral.Core.IServices.ES;
+using Funeral.Core.Services.ES;
+using System.ComponentModel;
 
 namespace Funeral.Core
 {
@@ -42,11 +45,14 @@ namespace Funeral.Core
             services.AddSingleton<IRedisCacheManager, RedisCacheManager>();
             services.AddSingleton(new Appsettings(Configuration));
             services.AddSingleton(new LogLock(Env.ContentRootPath));
+            services.AddSingleton<IESSever, ESSever>();//ES
 
             Permissions.IsUseIds4 = Appsettings.app(new string[] { "Startup", "IdentityServer4", "Enabled" }).ObjToBool();
 
             services.AddMiniProfiler(options => options.RouteBasePath = "/profiler");//性能检测
-            services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);//JSON首字母小写解决
+            services.AddMvc().AddJsonOptions(options => {
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;//JSON首字母小写解决
+            });
             services.AddMemoryCacheSetup();//MemoryCache
             services.AddSqlsugarSetup();//Sqlsugar
             services.AddDbSetup();//DB  Seed

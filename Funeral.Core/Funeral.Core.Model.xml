@@ -2258,6 +2258,12 @@
             作　　者:CY
             </summary>
         </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Qid">
+            <summary>
+            题目ID
+            作　　者:CY
+            </summary>
+        </member>
         <member name="P:Funeral.Core.Model.Models.Answers.CreateId">
             <summary>
             创建ID
@@ -2292,6 +2298,11 @@
             <summary>
             逻辑删除
             作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.Models.Answers.Tid">
+            <summary>
+            客户ID
             </summary>
         </member>
         <member name="T:Funeral.Core.Model.Models.DataDictionary">
@@ -3620,6 +3631,47 @@
         <member name="P:Funeral.Core.Model.ViewModels.GuestbookViewModels.isshow">
             <summary>是否显示在前台,0否1是
             
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.Category">
+            <summary>
+            类别
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.Traffic">
+            <summary>
+            访问量
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.CommentNum">
+            <summary>
+            评论数量
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.Pid">
+            <summary>
+            父级回答
+            作　　者:CY
+            </summary>
+        </member>
+        <member name="P:Funeral.Core.Model.ViewModels.AnswersDto.Qid">
+            <summary>
+            题目ID
             </summary>
         </member>
         <member name="P:Funeral.Core.Model.ViewModels.QuestionsDto.Id">
